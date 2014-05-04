@@ -2,7 +2,8 @@ html,body {
     font-size: 14px;
     font-family: "微软雅黑", Helvetica, Tahoma, Arial, sans-serif;
     color: #000;
-    background-color: #30333F;
+    /*background-color: #30333F;*/
+    background-color: #fefcfc;
     margin: 0;
     padding: 0;
 }
@@ -63,15 +64,14 @@ img {
     width: 44px;
     height: 44px;
     vertical-align: top;
-    background: url(../images/login_logo.png) no-repeat 0 0;
+    /*background: url(../images/login_logo.png) no-repeat 0 0;*/
 }
 .login-form .check-tips {
     color: #ff0000;
     margin-top: 10px;
 }
 .login-form .item-box {
-    /* box-shadow: 0 1px 3px rgba(170, 170, 170, 0.8) inset; */
-    /* background-color: #fff; */
+    
 }
 .login-form .item-box .item {
     border-radius: 5px;

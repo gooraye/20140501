@@ -48,7 +48,7 @@ a.block{ display:block}
 .block_content_top_min{border-top-left-radius:5px; border-top-right-radius:5px; height:40px; background:#ccc; text-align:center; line-height:40px; color:#444}
 .block_content_top img{ vertical-align:middle; margin-right:10px;}
 .arrow_icon{ background:url(../images/m/arrow_right.png) no-repeat right center; background-size:12px 12px; padding-right:20px;}
-.top_line{ border-top:3px solid #33ab07}
+.top_line{ border-top:3px solid #000}
 .empty_default{ text-align:center; min-height:400px; }
 .empty_default p{}
 
@@ -72,10 +72,10 @@ color: #606366;
 label{ line-height:30px; margin-bottom:5px;}
 .radio { border-radius:5px; background-color:#eee; border:1px solid #ddd; padding:5px 10px; text-align:left; display:block;}
 .checkbox{ border-radius:5px; background-color:#eee;border:1px solid #ddd; padding:5px 10px; text-align:left; display:block;}
-button,.btn{ border:none; background-color:#33ab07; border-radius:5px; padding:12px 0; display:block;width:100%; text-align:center; color:#fff; font-size:16px; text-decoration:none;}
+button,.btn{ border:none; background-color:#000; border-radius:5px; padding:12px 0; display:block;width:100%; text-align:center; color:#fff; font-size:16px; text-decoration:none;}
 .btn-return{  background-color:#999; border-radius:5px; padding:12px 0; display:block; width:100%; text-align:center; color:#fff; font-size:16px; text-decoration:none}
 .yellow_btn{ background-color:#F60}
-.uploadify-button,input[type='file']{border:none; background:#33ab07; border-radius:5px; padding:12px 0; display:block;width:100%; text-align:center; color:#fff; font-size:16px; text-decoration:none; border:none; }
+.uploadify-button,input[type='file']{border:none; background:#000; border-radius:5px; padding:12px 0; display:block;width:100%; text-align:center; color:#fff; font-size:16px; text-decoration:none; border:none; }
 input[type='file']{ background-color:#999}
 textarea{ height:120px; min-height:60px;}
 .check-tips{ font-size:13px; color:#888;}
@@ -97,7 +97,7 @@ textarea{ height:120px; min-height:60px;}
 .single_item{ border:1px solid #999; border-radius:5px; background:#fff; font-size:15px; display:block}
 .single_item a{ color:#333}
 .single_item_line{ border-top:1px solid #999; height:0; line-height:0; overflow:hidden; width:100%;}
-.tip_count{ border-radius:13px; padding:2px 5px; margin:0 10px; color:#fff; background-color:#33ab07}
+.tip_count{ border-radius:13px; padding:2px 5px; margin:0 10px; color:#fff; background-color:#000}
 .tip_count_yellow{border-radius:13px; padding:2px 5px; margin:0 10px; color:#fff; background-color:#e90809; font-size:12px;}
 
 /* common bottom nav */

@@ -13,7 +13,7 @@ a {
 	/*全局默认链接颜色*/
 }
 a:hover{
-	color: #4bbd00;
+	color: #000;
 	/*全局默认链接悬停颜色*/
 }
 
@@ -87,7 +87,7 @@ a:hover{
     background: #E1E1E1;
 }
 .page .current {
-	border-top: 3px solid #4BBD00;
+	border-top: 3px solid #000;
 	height: 28px;
 	line-height: 26px;
 }
@@ -222,11 +222,11 @@ select {
 /* 普通按钮 */
 .btn {
     color: #edffd1;
-	background-color: #4bbd00;
+	background-color: #000;
 }
 .btn:hover {
     color: #ffffff;
-    background-color: #4cdb00;
+    background-color: #000;
 }
 
 /* 表单返回按钮 */

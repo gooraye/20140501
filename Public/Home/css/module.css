@@ -295,14 +295,14 @@ label.textarea ~ .check-tips {
     vertical-align: middle;
     cursor: pointer;
     border: 0 none;
-	background-color: #4bbd00;
+	background-color: #000;
 	*outline: 0 none;
 	background-image: none;
 }
 .btn:hover {
     color: #ffffff;
     text-decoration: none;
-    background-color: #4cdb00;
+    background-color: #000;
     border-bottom: 0 none;
 }
 .home_btn {
@@ -316,13 +316,13 @@ label.textarea ~ .check-tips {
     vertical-align: middle;
     cursor: pointer;
     border: 0 none;
-	background-color: #4bbd00;
+	background-color: #000;
 	*outline: 0 none;
 }
 .home_btn:hover {
     color: #ffffff;
     text-decoration: none;
-    background-color: #4cdb00;
+    background-color: #000;
     border-bottom: 0 none;
 }
 .submit-btn,
@@ -496,7 +496,7 @@ label.textarea ~ .check-tips {
     color: #000;
     border-top: 1px solid #CCCCCC;
     border-bottom: 1px solid #CCCCCC;
-    /*background-color: #4bbd00;*/
+    /*background-color: #000;*/
 }
 .page a:hover
  {
@@ -887,3 +887,23 @@ label.textarea ~ .check-tips {
 
 /* null deal*/
 .null_deal{ margin:100px auto 0 300px; padding-top:150px; background:url(../images/cry.png) no-repeat center top; text-align:center; color:#666;}
+
+
+/*颜色*/
+.navbar-default{
+	background-color: #000;
+}
+.navbar .nav .dropdown-toggle .caret {
+	margin-top: 22px;
+}
+a{
+  color: #333;
+}
+.nav-list>.active>a, .nav-list>.active>a:hover, .nav-list>.active>a:focus {
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+background-color: #000;
+}
+.tab-nav .current a, .tab-nav .current a:hover {
+	border-color: #000 #e0e0e0 #f6f6f6;
+}

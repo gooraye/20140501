@@ -27,7 +27,7 @@ a {
 	text-decoration:none;
 }
 a:hover{
-	color: #4bbd00;
+	color: #000;
 	border-bottom: 1px solid;
 }
 input,button,textarea,select,option {
