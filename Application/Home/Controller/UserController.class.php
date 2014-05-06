@@ -92,6 +92,8 @@ class UserController extends HomeController {
 			$this->display();
 		}
 	}
+	
+	
 
 	/* 退出登录 */
 	public function logout(){

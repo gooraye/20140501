@@ -1,0 +1,24 @@
+<div>
+	<a href="#" id="returntop" style="position:fixed;width:50px;height:58px;transition:all 0.5s ease-out;-webkit-transition:all 0.5s ease-out;right:-60px;bottom:50px;background:url(./Addons/ReturnTop/top.png) no-repeat ;background-position:5px 5px;">
+		
+	</a>
+
+	<script type="text/javascript">
+		function listenScroll(){
+			var currentPosition= $(window).scrollTop();   
+			// console.log(currentPosition);
+			if(currentPosition > 50){
+				// $("#returntop").show();
+				$("#returntop").css({'right':'20px','-webkit-transform':'rotate(360deg)','transform':'rotate(360deg)','width':'50px','height':'58px'});
+			}else{
+				$("#returntop").css({'right':'-60px','-webkit-transform':'rotate(360deg)','transform':'rotate(-360deg)','width':'10px','height':'10px'});
+			}
+		}
+		$(function(){
+
+			$("#returntop").hover(function(){	$("#returntop").css({'background-position-x':'-60px'})	},function(){	$("#returntop").css({'background-position-x':'0px'})	});
+			listenScroll();
+			$(window).scroll(listenScroll);
+		});
+	</script>
+</div>

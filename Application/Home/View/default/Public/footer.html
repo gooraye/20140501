@@ -7,6 +7,10 @@
       </div>
 </footer>
 
+<include file="Addons@SocialComment/comment"/>
+
+{:hook('documentDetailAfter', '')}
+
 <include file="Public/var"/>
 <block name="script"></block> <!-- 用于加载js代码 -->
 <!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->

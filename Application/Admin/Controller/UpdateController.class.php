@@ -36,7 +36,8 @@ class UpdateController extends AdminController {
 		$remote = 'http://www.weiphp.cn/index.php?s=/home/index/update_version';
 		$new_version = wp_file_get_contents ( $remote );
 		$res = $new_version > C ( 'SYSTEM_UPDATRE_VERSION' ) && cookie ( 'cookie_close_version' ) != $new_version;
-		echo $res ? $new_version : 0;
+		// echo $res ? $new_version : 0;
+		echo  0;
 	}
 	// 获取关闭升级提醒
 	public function set_cookie_close_version() {

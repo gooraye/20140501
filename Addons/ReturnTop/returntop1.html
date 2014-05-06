@@ -1,0 +1,45 @@
+<div>
+	<a href="#" id="returntop" style="position:fixed;width:27px;height:64px;transition:all 0.5s ease-in-out;-webkit-transition:all 0.5s ease-in-out;right:60px;bottom:-60px;background:url(./Addons/ReturnTop/top1.png) no-repeat ;transition:background-position-x 0s;-webkit-transition:background-position-x 0s;'">
+		
+	</a>
+
+	<script type="text/javascript">
+		var curPos,timer;  
+		function GoTop(){  
+		    timer=setInterval("runToTop()",10);  
+		}  
+		function runToTop(){  
+		    curPos=document.documentElement.scrollTop || document.body.scrollTop;   
+		    curPos-=30;  
+		    if(curPos>0)  
+		    {  
+		        window.scrollTo(0,curPos);  
+		    }  
+		    else  
+		    {  
+		        window.scrollTo(0,0);  
+		        clearInterval(timer); 
+		    }  
+		} 
+		function listenScroll(){
+			var currentPosition= $(window).scrollTop();   
+			// console.log(currentPosition);
+			if(currentPosition > 50){
+				// $("#returntop").show();
+				$("#returntop").css({'bottom':'60px','width':'27px','height':'64px'});
+			}else{
+				$("#returntop").css({'bottom':'-60px','width':'10px','height':'64px'});
+			}
+		}
+		$(function(){
+
+			$("#returntop").hover(function(){	$("#returntop").css({'background-position-x':'-28px'})	},function(){	$("#returntop").css({'background-position-x':'0px'})	}).click(function(e){
+				// $("#returntop").css({'bottom':'4000px'});
+				e.preventDefault();
+				GoTop();
+			});
+			listenScroll();
+			$(window).scroll(listenScroll);
+		});
+	</script>
+</div>

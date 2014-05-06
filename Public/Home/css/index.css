@@ -1,0 +1,247 @@
+body.a{
+	padding: 60px 0px 30px 0px;
+	margin: 0px;
+	font-family: "Microsoft YaHei","FangSong_GB2312","HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+	background: floralwhite;
+	/*background: url(../images/bg.jpg) repeat;"Comic Sans MS",*/
+}
+
+.a .container{
+	width:100%;
+}
+.a .navbar{
+	border:0px;
+	padding: 20px 60px 20px 60px;
+}
+.a .navbar .navbar-nav >li > a{
+	color:#070707;
+	color:#777;
+	background: transparent;
+}
+.a .navbar .navbar-nav > li > a:hover{
+	transition: background-color 1s;
+	-moz-transition: background-color 1s; /* Firefox 4 */
+	-webkit-transition: background-color 1s; /* Safari 和 Chrome */
+	-o-transition: background-color 1s; /* Opera */
+	
+	color:#070707;
+}
+.a .navbar  a:hover{
+	text-decoration: none;
+
+}
+
+/*底部导航样式*/
+.a .bd-navbar{
+	min-height: 24px;
+	vertical-align: middle;
+	border:0px;
+}
+.a .bd-navbar{
+	color: #666;
+}
+.a .bd-navbar a:hover
+{
+	text-decoration: none;
+	color: #428bca;
+}
+.a .bd-navbar a:hover .glyphicon
+{
+	color: #428bca;
+}
+.a  .bd-navbar .glyphicon ,
+.a .bd-navbar a{
+	/*color: #428bca;*/
+	color: #444;
+}
+.a .bd-navbar .navbar-nav{
+	float: none;
+}
+.a .bd-navbar .nav-item {
+	font-size: 16px;
+	position: relative;
+	text-align: center;
+}
+
+.a .bd-navbar div.nav-item:hover {
+	color: #0CfCfC;
+}
+.a .bd-navbar .nav-item p{
+	font-size: 10px;
+}
+.a .bd-navbar .nav-item > span{
+	display: block;
+	margin: 0 auto;
+}
+
+/*重写bootstrap3的样式*/
+.a .btn{
+	border:0px;
+}
+.a  .btn-primary {
+	background-color: #3498db;
+}
+.a  .btn-primary:hover ,
+.a  .btn-primary:focus{
+	background-color: #5dade2;
+}
+.a .carousel-control{
+	width:5%;
+}
+.a .carousel-control.right,
+.a .carousel-control.left{
+	background-image:none;
+	color:#2980B9;
+	font-size: 20px;
+}
+.a .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	height: 420px;
+	width: 100%;
+}
+
+/*新增样式*/
+
+.a .logo{
+	background: url('../images/wg/footlogo.png');
+	width: 220px;
+	height: 64px;
+	/*left:0px;
+	position: fixed;*/
+}
+
+.a .telphone{
+	float: 	right;
+	margin-right: 30px;
+	padding-top: 10px;
+	font-size:21px;
+	color:#1ABC9C;
+}
+
+.a .telphone a{
+	color:#1ABC9C;
+}
+
+.a .navbar-default{
+	/*background-color: #ecf0f1;*/
+}
+
+.a .bottom{
+	background-color:  #f0f0f0;
+}
+.a .bottom h4{
+	border-bottom: 2px solid #f8f8f8;
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+.a .example img{
+	height: 140px;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.a .footer{
+	background: #FaFaFa;
+	color: #777;
+	border-top: 1px solid #EBEBEB;
+	padding:  20px 60px 20px 60px;
+}
+.a .footer a{ 
+	color:#777;
+}
+
+.a .footer a:hover{ 
+	color:#888;
+	text-decoration: none;
+}
+.a .footer .foot_item{
+	height: 180px;
+	padding-top: 25px;
+	padding-left: 10px;
+	padding-right: 65px;
+	float: left;
+	color: #666;
+}
+
+.a .features a:hover{
+	text-decoration: none;
+}
+.a .features div.hover{
+	background: #fefefe;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.a .features span,
+.a .features p{
+	/*background: url(../images/wg/hangyegn.png);
+	height: 64px;*/
+	
+	color:#888;
+}
+
+.a .container-body{
+	padding-top: 60px;
+}
+
+.a .morecases{
+	margin:30px 0 20px 0;
+}
+
+.a .cases img:hover{
+	border: 5px solid #3498DB;
+}
+/*其它尺寸适应*/
+
+@media (max-width: 767px){
+
+	.a .logo{
+		transform:none;
+		-webkit-transform:none;
+		-ms-transform:none;
+		-o-transform:none;
+		position: relative;
+	}
+	body.a{
+		padding: 0px;
+		padding-bottom: 90px;
+		padding-top: 35px;
+	}
+	body.a .container{
+		padding: 0px;
+	}
+	.a .navbar{
+		padding: 0px;
+	}
+	
+	.a .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+		height: 160px;
+		width: 100%;
+	}
+	.a .nav-xs-block li {
+		text-align: center;
+		width: 50%;
+		float:left;
+	}
+
+}
+@media (min-width: 768px) and (max-width: 991px) {	
+	body.a{
+		padding: 0px;
+		padding-bottom: 90px;
+		padding-top: 35px;
+	}
+	.a .container-body{
+		padding-top: 80px;
+	}
+	.a .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+		height: 260px;
+		width: 100%;
+	}
+}
+@media  (min-width: 992px) and (max-width: 1199px)  {
+}
+
+@media (min-width: 1200px)  {
+
+}

@@ -16,6 +16,10 @@ class IndexController extends HomeController {
 	
 	// 系统首页
 	public function index() {
+		$map = array('status' => 1,'pid' => 0);
+		$channel = D('Channel');
+		$list = $channel->where($map)->select();
+		$this->assign("channels",$list);
 		$this->display ();
 	}
 	// 系统介绍

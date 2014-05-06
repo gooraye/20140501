@@ -1,0 +1,77 @@
+body.a{	
+	background: floralwhite;
+}
+.a .greybg{
+	background: #fafafa;
+	/*padding: 20px 20px 10px 20px;*/
+}
+
+.a .container{
+	width:100%;
+}
+
+.a .navbar .navbar-nav >li > a{
+	color:#777;
+}
+
+/*底部导航样式*/
+.a .bd-navbar{
+	color: #666;
+}
+.a .bd-navbar a:hover
+{
+	text-decoration: none;
+	color: #428bca;
+}
+.a .bd-navbar a:hover .glyphicon
+{
+	color: #428bca;
+}
+.a  .bd-navbar .glyphicon ,
+.a .bd-navbar a{
+	color: #444;
+}
+
+.a .bd-navbar div.nav-item:hover {
+	color: #0CfCfC;
+}
+
+/*重写bootstrap3的样式*/
+
+/*新增样式*/
+
+.a .logo{
+}
+
+.a .telphone{
+	color:#f0f;
+}
+
+.a .navbar-default{
+	/*background-color: #ecf0f1;*/
+}
+
+.a .bottom{
+	background-color:  #f0f0f0;
+}
+.a .bottom h4{
+	border-bottom: 2px solid #f8f8f8;
+}
+
+/*其它尺寸适应*/
+
+@media (max-width: 767px){
+	.carousel{
+		padding-top: 15px;
+	}
+	
+}
+@media (min-width: 768px) and (max-width: 991px) {	
+	
+}
+@media  (min-width: 992px) and (max-width: 1199px)  {
+}
+
+@media (min-width: 1200px)  {
+
+}

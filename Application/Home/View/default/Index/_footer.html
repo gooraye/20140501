@@ -1,22 +1,64 @@
-    <div class="footer">
-    	<div class="wrap foot_wrap">
-        	<p class="foot_nav">
-            	<a href="{:U('about')}">关于我们</a>
-                <a href="{:U('about')}">联系方式</a>
-<!--                <a href="#">友情链接</a>
-                <a href="#">版权声明</a>-->
-                <a href="{:U('license')}">授权协议</a>
-            </p>
-            <p style="14px; padding-bottom:10px;">WeiPHP官方QQ交流群：8322255</p>
-            <p class="copyright">@ 2013 - 2015 weiphp {:C('WEB_SITE_ICP')}</p>
-            <div class="getqrcode">
-            	<img src="__IMG__/getqrcode.jpg"/>
-                <p>微信扫码左侧二维码<br/>并加关注WeiPHP官方微信公众号<br/>体验WeiPHP的最新功能</p>
-            </div>
-            <div class="foot_logo"></div>
+    <!-- 统一页脚 -->
+    <div class="footer row clearfix">
+        <div class="col-sm-3 col-md-2 col-xs-12 hidden-xs hidden-sm">
+        
+        <img src="__IMG__/wg/about.png" />
+
+                <ul class="list-unstyled">
+        <li><a href="http://gooraye.com/web/a/guanyu/" target="blank">微端简介</a></li><a href="http://gooraye.com/web/a/guanyu/" target="blank">
+
+        </a><li><a href="http://gooraye.com/web/a/guanyu/" target="blank"></a><a href="http://www.cnxuntu.com/plus/list.php?tid=6" target="blank">关于古睿</a></li>
+    </ul>
         </div>
+
+            <div class=" col-sm-3 col-md-2 col-xs-12  hidden-xs hidden-sm">
+
+            <img src="__IMG__/wg/help.png">
+
+                <ul class="list-unstyled">
+            <li><a href="http://gooraye.com/web/a/bangzhu/" target="blank">常见问题</a></li>
+
+            <li><a href="http://bbs.weixinyunduan.com/" target="blank">论坛求助</a></li>
+
+             </ul>
+            </div>
+
+               <div class="col-sm-3 col-md-2 col-xs-12  hidden-xs hidden-sm">
+
+                <img src="__IMG__/wg/qixia.png">
+
+                <ul class="list-unstyled">
+                <li><a href="http://www.gooraye.com/" target="blank">古睿企业官网</a></li>
+                </ul>
+              </div>
+
+
+
+
+
+            <div class="col-md-4 col-sm-3 col-xs-12  hidden-xs hidden-sm">
+
+                <img src="__IMG__/wg/lianxi.png">
+                <ul class="list-unstyled">
+                <li>客服热线：0575-85060707</li>
+
+                <li>办公地址：浙江省绍兴市越城区汤公路186号</li>
+                
+                <li>建议反馈：QQ:2966442390   QQ:1966236348</li>
+
+                <li>网站备案号：{:C('WEB_SITE_ICP')}
+                </li>
+
+                 </ul>
+
+            </div>
+            
+
+
     </div>
-<!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
-{:hook('pageFooter', 'widget')}    
-</body>
-</html>
+    
+    <div class="row col-md-12 text-center  " style="padding-bottom:30px;">© 2014 古睿信息科技有限公司.</div>
+    <!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
+    {:hook('pageFooter', 'widget')}    
+    </body>
+    </html>
