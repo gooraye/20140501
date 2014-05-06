@@ -33,7 +33,7 @@ class MemberPublicController extends HomeController {
 		$res ['class'] = 'current';
 		$nav [] = $res;
 		
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tab', $nav );
 	}
 	protected function _display() {
 		$this->view->display ( 'Addons:' . ACTION_NAME );

@@ -138,8 +138,7 @@ class IndexController extends HomeController {
 		$res ['url'] = U ( 'main' );
 		$res ['class'] = 'current';
 		$nav [] = $res;
-		
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tab', $nav );
 		$this->display ();
 	}
 	function setStatus() {

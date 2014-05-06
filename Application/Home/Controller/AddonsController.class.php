@@ -60,7 +60,7 @@ class AddonsController extends Controller {
 		if (empty ( $nav ) && _ACTION != 'nullDeal') {
 			U ( 'nullDeal', '', true );
 		}
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tab', $nav );
 		
 		return $nav;
 	}
