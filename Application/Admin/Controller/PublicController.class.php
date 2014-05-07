@@ -18,9 +18,15 @@ class PublicController extends \Think\Controller {
 
     /**
      * 后台用户登录
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
+     * @author 丁丁 <346551990@qq.com>
      */
     public function login($username = null, $password = null, $verify = null){
+            // dump(C('ADMIN_KEY'));
+            if(!IS_POST){
+                if(I('get.key','0')  != C('ADMIN_KEY')){
+                    $this->error("无访问权限！","/");
+                }
+            }
     	/* 读取数据库中的配置 */
     	$config	=	S('DB_CONFIG_DATA');
     	if(!$config){

@@ -17,14 +17,19 @@ class ArticleController extends HomeController {
 
     /* 文档模型频道页 */
 	public function index(){
+
+		$list = $this->get_navs();
+		$this->assign("channels",$list);
 		/* 分类信息 */
 		$category = $this->category();
 
-		//频道页只显示模板，默认不读取任何内容
-		//内容可以通过模板标签自行定制
-
+		$map = array('category_id' => 2);
+		$articlesModel = D('Document');
+		$list = $articlesModel->where($map)->select();
+		// dump($list);
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
+		$this->assign($list);
 		$this->display($category['template_index']);
 	}
 
@@ -43,6 +48,7 @@ class ArticleController extends HomeController {
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
 		$this->assign('list', $list);
+		$this->assign("channels",$this->get_navs());
 		$this->display($category['template_lists']);
 	}
 
@@ -81,6 +87,7 @@ class ArticleController extends HomeController {
 		$Document->where($map)->setInc('view');
 
 		/* 模板赋值并渲染模板 */
+		$this->assign("channels",$this->get_navs());
 		$this->assign('category', $category);
 		$this->assign('info', $info);
 		$this->assign('page', $page); //页码
@@ -94,7 +101,6 @@ class ArticleController extends HomeController {
 		if(empty($id)){
 			$this->error('没有指定文档分类！');
 		}
-		// dump($category);
 		/* 获取分类信息 */
 		$category = D('Category')->info($id);
 		if($category && 1 == $category['status']){

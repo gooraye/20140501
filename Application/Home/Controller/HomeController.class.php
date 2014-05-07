@@ -32,10 +32,20 @@ class HomeController extends Controller {
         }
     }
 
+/* 获取导航列表 */
+protected function get_navs(){
+	// if(S('channel'))
+    	$map = array('status' => 1,'pid' => 0);
+	$channel = D('Channel');
+	$list = $channel->where($map)->select();
+	// S('home_channel',$list);
+	return $list;
+ }
+
+/* 用户登录检测 */
+protected function login(){
 	/* 用户登录检测 */
-	protected function login(){
-		/* 用户登录检测 */
-		is_login() || $this->error('您还没有登录，请先登录！', U('User/login'));
-	}
+	is_login() || $this->error('您还没有登录，请先登录！', U('User/login'));
+}
 
 }

@@ -1,39 +1,42 @@
-<extend name="Base/common"/>
+<include file="Base/_head" />
+<!-- Contents
+    ================================================== -->
+ <div class="container container-body ">
+           <section class="center-block main-content">
+               <div class="bar">
+                    <h3>{$category.title}</h3>
+               </div>
+               <div class="panel">
+                    <article:list name="list" category="$category['id']" child="false">
+                        <div class="item">
+                            <span><a href="{:U('Article/detail?id='.$list['id'])}">{$list.title}</a></span>
+                            <span class="pull-right"> {$list.create_time|time_format}</span>
+                        </div>
+                        <hr/>
+                     </article:list>
+               <!--      <volist name="list" id="item" empty="暂时没有信息" >
+                        <div class="item">
+                            <span><a href="{:U('Article/detail?id='.$item['id'])}">{$item.title}</a></span>
+                            <span class="pull-right"> {$item.create_time|time_format}</span>
+                        </div>
+                        <hr/>
+                    </volist> -->
+              <!--       <div>
+                        <p class="lead">{$list.description}</p>
+                    </div> -->
+                  <!--   <div>
+                        <span><a href="{:U('Article/detail?id='.$list['id'])}">查看全文</a></span> 
+                        <span class="pull-right">
+                             <span class="author">{$list.uid|get_username}</span> 
+                             <span>于 {$list.create_time|time_format}</span> 发表在 <span>
+                            <a href="{:U('Article/lists?category='.get_category_name($list['category_id']))}">{$list.category_id|get_category_title}</a></span> 
+                            <span>阅读( {$list.view} )</span>&nbsp;&nbsp; 
+                        </span>
+                    </div>-->
 
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
-        <div class="container">
-            <h2>源自相同起点，演绎不同精彩！</h2>
-            <p class="lead"></p>
-        </div>
-    </header>
-</block>
+                    <!-- </article:list> -->
+                </div>
 
-<block name="body">
-    <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-            <article:list name="list" category="$category['id']" child="true">
-                <div class="">
-                    <h3><a href="{:U('Article/detail?id='.$list['id'])}">{$list.title}</a></h3>
-                </div>
-                <div>
-                    <p class="lead">{$list.description}</p>
-                </div>
-                <div>
-                    <span><a href="{:U('Article/detail?id='.$list['id'])}">查看全文</a></span>
-                    <span class="pull-right">
-                        <span class="author">{$list.uid|get_username}</span>
-                        <span>于 {$list.create_time|time_format}</span> 发表在 <span>
-                        <a href="{:U('Article/lists?category='.get_category_name($list['category_id']))}">{$list.category_id|get_category_title}</a></span> 
-                        <span>阅读( {$list.view} )</span>&nbsp;&nbsp;
-                    </span>
-                </div>
-                <hr/>
-            </article:list>
-
-        </section>
-    </div>
-        </div>
-</block>
+            </section>
+</div>
+<include file="Base/_footer" />

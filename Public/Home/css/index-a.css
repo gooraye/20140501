@@ -6,7 +6,20 @@ body.a{
 	background: floralwhite;
 	/*background: url(../images/bg.jpg) repeat;"Comic Sans MS",*/
 }
-
+.a .greybg{
+	background: #fafafa;
+}
+.a hr{
+	margin-top:0px;	
+}
+.a a,
+.a span{
+	color:#777;
+}
+.a a:hover{
+	text-decoration: none;
+	color:#333;
+}
 .a .container{
 	width:100%;
 }
@@ -15,7 +28,6 @@ body.a{
 	padding: 20px 60px 20px 60px;
 }
 .a .navbar .navbar-nav >li > a{
-	color:#070707;
 	color:#777;
 	background: transparent;
 }
@@ -33,7 +45,7 @@ body.a{
 }
 
 /*底部导航样式*/
-.a .bd-navbar{
+/*.a .bd-navbar{
 	min-height: 24px;
 	vertical-align: middle;
 	border:0px;
@@ -52,7 +64,6 @@ body.a{
 }
 .a  .bd-navbar .glyphicon ,
 .a .bd-navbar a{
-	/*color: #428bca;*/
 	color: #444;
 }
 .a .bd-navbar .navbar-nav{
@@ -74,7 +85,7 @@ body.a{
 	display: block;
 	margin: 0 auto;
 }
-
+*/
 /*重写bootstrap3的样式*/
 .a .btn{
 	border:0px;
@@ -122,29 +133,10 @@ body.a{
 	color:#1ABC9C;
 }
 
-.a .navbar-default{
-	/*background-color: #ecf0f1;*/
-}
-
-.a .bottom{
-	background-color:  #f0f0f0;
-}
-.a .bottom h4{
-	border-bottom: 2px solid #f8f8f8;
-	padding-bottom: 5px;
-	font-weight: bold;
-}
-.a .example img{
-	height: 140px;
-	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
 
 .a .footer{
 	background: #FaFaFa;
 	color: #777;
-	border-top: 1px solid #EBEBEB;
 	padding:  20px 60px 20px 60px;
 }
 .a .footer a{ 
@@ -174,9 +166,6 @@ body.a{
 }
 .a .features span,
 .a .features p{
-	/*background: url(../images/wg/hangyegn.png);
-	height: 64px;*/
-	
 	color:#888;
 }
 
@@ -188,9 +177,50 @@ body.a{
 	margin:30px 0 20px 0;
 }
 
-.a .cases img:hover{
-	border: 5px solid #3498DB;
+.a .main-content{
+	padding: 0 40px;
 }
+.a .main-content .item span{
+	font-size: 16px;
+}
+.a .main-content .bar{
+	background:#eee0e2;
+	color: #777;
+}
+.a .main-content .bar h3{
+	margin: 0px;
+	padding: 15px;
+}
+
+.a .main-content .panel{
+	background:#eff0f2;
+	padding: 15px;
+	margin-bottom: 0px;
+}
+.a .main-content .panel hr{
+	border-top: 	1px solid #E4E1E1;
+}
+.a .author {
+	padding: 6px 12px;
+}
+
+.a .bottom{
+	background: #eee;
+	margin: 0px;
+	padding: 10px;
+}
+
+.a .btn-gray{	
+	background: #D7DCE6;
+	color: #888;
+}
+.a .btn-gray:hover,
+.a .btn-gray:focus{	
+	background: #D8Ddf6;
+	color: #333;
+}
+
+
 /*其它尺寸适应*/
 
 @media (max-width: 767px){
@@ -202,12 +232,12 @@ body.a{
 		-o-transform:none;
 		position: relative;
 	}
-	body.a{
+	.a{
 		padding: 0px;
 		padding-bottom: 90px;
 		padding-top: 35px;
 	}
-	body.a .container{
+	.a .container{
 		padding: 0px;
 	}
 	.a .navbar{
@@ -224,6 +254,22 @@ body.a{
 		float:left;
 	}
 
+	.a .main-content{
+		padding: 0px 5px;
+	}
+	.a .main-content .item span{
+		font-size: 14px;
+	}
+
+	.a .main-content .bar h3{
+		margin: 0px;
+		padding: 5px;
+	}
+
+	.a .main-content .panel{
+		padding: 5px;
+	}
+
 }
 @media (min-width: 768px) and (max-width: 991px) {	
 	body.a{
@@ -232,7 +278,7 @@ body.a{
 		padding-top: 35px;
 	}
 	.a .container-body{
-		padding-top: 80px;
+		padding-top: 130px;
 	}
 	.a .carousel-inner>.item>img, .carousel-inner>.item>a>img{
 		height: 260px;
@@ -240,6 +286,9 @@ body.a{
 	}
 }
 @media  (min-width: 992px) and (max-width: 1199px)  {
+	.a .container-body{
+		padding-top: 60px;
+	}
 }
 
 @media (min-width: 1200px)  {

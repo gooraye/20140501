@@ -215,7 +215,7 @@ select {
 /* 表头配色 */
 .data-table thead th {
 	color:#fff;
-    background-color: #5928D8;
+    background-color: #CAD828;
 }
 /* 隔行变色 行默认颜色 */
 .table-striped tbody tr {
@@ -269,7 +269,7 @@ select {
 	background-color: #8893ae;
 }
 .btn-return:hover {
-	background-color: #8080FF;
+	background-color: #aAd728;
 }
 
 /*高级搜索箭头*/
@@ -306,23 +306,24 @@ select {
 
 /* 头部Logo,主导航*/
 .header {
-    background-color: #5928D8;
+    background-color: #CAD828;
 }
 .header .logo {
-    background: url(../images/blue_color/logotext.png) no-repeat 0 -20px;
+    background: url(../images/blue_color/logotext.png) no-repeat 0px -20px;
+
 }
 /* 主导航 */
 .main-nav a {
     color: #FFF;
 }
 .main-nav a:hover {
-    background-color: #5938F8;
+    background-color: #9CCC51;
 }
 .main-nav .current{
     background-color: #656565;
 }
 .main-nav .current a {
-    background-color: #7963df;
+    background-color: #9CCC51;
 }
 
 /* 顶部右侧 用户bar */
@@ -345,7 +346,7 @@ select {
 ------------------------------------------ */
 .sidebar {
 	/* 左侧栏背景 */
-	background: repeat #5938D8;
+	background: repeat #CAD828;
 }
 /* 子导航Group标题栏 */
 .subnav h3 {
@@ -375,7 +376,7 @@ select {
 }
 .side-sub-menu > li > .item:hover{
 	color: #ffffff;
-	background: #5938F8;
+	background: #9CCC51;
 }
 
 .side-sub-menu > .current > .item,
@@ -401,7 +402,7 @@ select {
 /* 后台主内容区域
 ------------------------------------------------- */
 .main {
-	background-color: #f6f6f6;
+	background-color: #CAD828;
 }
 .main-title h2 {
     color: #6e6b73;
@@ -438,7 +439,7 @@ select {
 
 /* 版权信息 */
 .cont-ft {
-    background-color: #f6f6f6;
+    background-color: #CAD828;
 }
 .copyright {
     border-top-color: #ccc;

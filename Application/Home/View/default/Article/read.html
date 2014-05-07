@@ -1,0 +1,33 @@
+	<include file="Base/_head"/>
+
+
+	 <div class="container container-body">
+	<div class="main-content">
+	    	<header class="bar" >
+			<div class="container">
+				<h2>{$info.title}</h2>
+			</div>
+		</header>
+	        <!-- Contents
+	        ================================================== -->
+	         <section class="panel">
+	        	<div class="p-content">	{$info.content}
+	        	</div>		
+	        	
+	         </section>
+		<p class="bottom clearfix">
+			<span class="pull-left author">
+	（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}</span>
+			<span class="pull-right">
+				<article:prev name="prev" info="info">
+		                        <a href="{:U('?id='.$prev['id'])}" class="btn btn-gray">上一篇</a>
+		                    </article:prev>
+		                    <article:next name="next" info="info">
+		                        <a href="{:U('?id='.$next['id'])}" class="btn btn-gray">下一篇</a>
+		                    </article:next>
+			</span>
+		</p>
+	       {:hook('documentDetailAfter',$info)}
+		 </div>
+	</div>
+	<include file="Base/_footer"/>
