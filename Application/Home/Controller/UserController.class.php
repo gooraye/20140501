@@ -54,6 +54,11 @@ class UserController extends HomeController {
 
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
+		if(!IS_POST){
+	               if(I('get.key','0')  != C('ADMIN_KEY')){
+	                    $this->error("无访问权限！","/");
+	               }
+	          }
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
 			if(C('WEB_SITE_VERIFY') && !check_verify($verify)){

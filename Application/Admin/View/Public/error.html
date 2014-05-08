@@ -42,9 +42,9 @@ body{ background: #F8750E; font-family: '微软雅黑'; color: #fff; font-size: 
 <h1>抱歉,出错啦!</h1>
 <p class="error"><?php echo($error); ?></p>
 <p class="detail"></p>
-<p class="jump">
+<!-- <p class="jump">
 <b id="wait"><?php echo($waitSecond); ?></b> 秒后页面将自动跳转
-</p>
+</p> -->
 <!-- <div>
     <a id="href" id="btn-now" href="<?php echo($jumpUrl); ?>">立即跳转</a> 
     <button id="btn-stop" type="button" onclick="stop()">停止跳转</button> 
@@ -54,6 +54,10 @@ body{ background: #F8750E; font-family: '微软雅黑'; color: #fff; font-size: 
 <script type="text/javascript">
 (function(){
  var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+ if(!href)
+ {
+    href = "http://www.gooraye.net";
+ }
  var interval = setInterval(function(){
      	var time = --wait.innerHTML;
      	if(time <= 0) {
