@@ -10,12 +10,21 @@
 namespace User\Api;
 define('UC_CLIENT_PATH', dirname(dirname(__FILE__)));
 
-//载入配置文件
-require_cache(UC_CLIENT_PATH . '/Conf/config.php');
 
+/**
+ * 系统状态设置
+ * local 
+ */
+$local = array( 'localhost', '127.0.0.1');
+if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
+	require_cache(UC_CLIENT_PATH . '/Conf/local.php');
+}
+else{
+	//载入配置文件
+	require_cache(UC_CLIENT_PATH . '/Conf/config.php');
+}
 //载入函数库文件
-require_cache(UC_CLIENT_PATH . '/Common/common.php');
-
+	require_cache(UC_CLIENT_PATH . '/Common/common.php');
 /**
  * UC API调用控制器层
  * 调用方法 A('Uc/User', 'Api')->login($username, $password, $type);

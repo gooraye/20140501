@@ -34,7 +34,7 @@ use Common\Controller\Addon;
             // $this->display('comment');
             $addons_config = $this->getConfig();
             
-            $this->display('returntop'.$addons_config[theme] );
+            $this->display('returntop'.$addons_config['theme'] );
             // echo '<a class="returntop" style="display: none;" >'.</a>';
         }
 

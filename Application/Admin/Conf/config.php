@@ -13,8 +13,8 @@
  */
 return array(
     /* SESSION 和 COOKIE 配置 */
-    'SESSION_PREFIX' => 'weiphp_admin', //session前缀
-    'COOKIE_PREFIX'  => 'weiphp_admin_', // Cookie前缀 避免冲突
+    'SESSION_PREFIX' => 'gooraye_home', //session前缀
+    'COOKIE_PREFIX'  => 'gooraye_admin_', // Cookie前缀 避免冲突
     'VAR_SESSION_ID' => 'session_id',	//修复uploadify插件无法传递session_id的bug
 
     /* 后台错误页面模板 */
@@ -31,7 +31,7 @@ return array(
         '__JS__'     => __ROOT__ . '/Public/' . MODULE_NAME . '/js',
     ),
     /* 数据缓存设置 */
-    'DATA_CACHE_PREFIX'    => 'weiphp_', // 缓存前缀
+    'DATA_CACHE_PREFIX'    => 'gooraye_', // 缓存前缀
     'DATA_CACHE_TYPE'      => 'File', // 数据缓存类型
 	
     /* 文件上传相关配置 */

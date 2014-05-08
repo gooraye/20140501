@@ -58,11 +58,7 @@ class IndexController extends HomeController {
 	public function license() {
 		$this->display ();
 	}
-	// 下载weiphp
-	public function downloadFile() {
-		M ( 'config' )->where ( 'name="DOWNLOAD_COUNT"' )->setInc ( 'value' );
-		redirect ( 'http://www.weiphp.cn/weiphp.zip' );
-	}
+	
 	// 远程获取最新版本号
 	public function update_version() {
 		die ( M ( 'update_version' )->getField ( "max(`version`)" ) );
@@ -181,5 +177,21 @@ class IndexController extends HomeController {
 		define ( 'ADDON_PUBLIC_PATH', ONETHINK_ADDON_PATH .  'Leaflets/View/default/Public' );
 		
 		$this->display ( SITE_PATH . '/Addons/Leaflets/View/default/Leaflets/show.html' );
+	}
+
+	//案例展示
+	function cases() {
+		//案例所属分类ID
+		$cateId = 43;
+		$map  = array('category_id' => $cateId,'status'=>1);
+		$cases = D ( 'Document' )->field('id,title,description')->where($map)->select();
+		//获取默认展示案例
+		$defaultCaseID = $cases[0]['id'];
+		$defaultCase = D('Document')->detail(intval($defaultCaseID,0));
+
+		$this->assign("defaultcase",$defaultCase);
+		$this->assign("cases",$cases);
+		$this->assign("channels",$this->get_navs());
+		$this->display();
 	}
 }

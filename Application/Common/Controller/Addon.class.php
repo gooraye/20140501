@@ -48,6 +48,7 @@ abstract class Addon{
         if(is_file($this->addon_path.'config.php')){
             $this->config_file = $this->addon_path.'config.php';
         }
+
     }
 
     /**

@@ -57,7 +57,7 @@ return array(
         '__JS__'     => __ROOT__ . '/Public/' . MODULE_NAME . '/js',
     ),
     /* 数据缓存设置 */
-    'DATA_CACHE_PREFIX'    => 'weiphp_', // 缓存前缀
+    'DATA_CACHE_PREFIX'    => 'gooraye_', // 缓存前缀
     'DATA_CACHE_TYPE'      => 'File', // 数据缓存类型
 	
     /* 文件上传相关配置 */

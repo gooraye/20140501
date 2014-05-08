@@ -8,10 +8,12 @@
 // +----------------------------------------------------------------------
 
 namespace Addons\EditorForAdmin\Controller;
+
 use Home\Controller\AddonsController;
 use Think\Upload;
+use Think\Controller;
 
-class UploadController extends AddonsController{
+class UploadController extends Controller{
 
 	public $uploader = null;
 
@@ -20,9 +22,11 @@ class UploadController extends AddonsController{
 		/* 上传配置 */
 		$setting = C('EDITOR_UPLOAD');
 
+		// dump($setting);
 		/* 调用文件上传组件上传文件 */
 		$this->uploader = new Upload($setting, 'Local');
 		$info   = $this->uploader->upload($_FILES);
+		// dump($info);
 		if ($info) {
 			foreach ( $info as &$file ) {
 				$file ['rootpath'] = __ROOT__ . ltrim ( $setting ['rootPath'], "." );
@@ -33,6 +37,7 @@ class UploadController extends AddonsController{
 
 	//keditor编辑器上传图片处理
 	public function ke_upimg(){
+		trace('ke_upimg','upload');
 		/* 返回标准数据 */
 		$return  = array('error' => 0, 'info' => '上传成功', 'data' => '');
 		$img = $this->upload();
@@ -52,6 +57,7 @@ class UploadController extends AddonsController{
 	//ueditor编辑器上传图片处理
 	public function ue_upimg(){
 
+		// dump('ue_upimg');
 		$img = $this->upload();
 		$return = array();
 		$return['url'] = $img;

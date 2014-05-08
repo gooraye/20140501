@@ -306,7 +306,7 @@ select {
 
 /* 头部Logo,主导航*/
 .header {
-    background-color: #5928D8;
+    background-color: #B091FF;
 }
 .header .logo {
     background: url(../images/blue_color/logotext.png) no-repeat 0 -20px;
@@ -458,8 +458,8 @@ select {
 
 #login-page .login-form {
     background-color: #fff;
-    box-shadow: 0 0 26px #041A36;
-    border-top-color: #8357c4;
+    /*box-shadow: 0 0 26px #041A36;*/
+    /*border-top-color: #8357c4;*/
 }
 #login-page .login-form h3 {
     color: #8D9CAA;

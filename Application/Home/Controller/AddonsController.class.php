@@ -18,10 +18,11 @@ class AddonsController extends Controller {
 	protected $addons = null;
 	protected $addon, $model;
 	public function execute($_addons = null, $_controller = null, $_action = null) {
+		
 		/* 读取站点配置 */
 		$config = api ( 'Config/lists' );
 		C ( $config );
-		
+
 		if (C ( 'URL_CASE_INSENSITIVE' )) {
 			$_addons = ucfirst ( parse_name ( $_addons, 1 ) );
 			$_controller = parse_name ( $_controller, 1 );

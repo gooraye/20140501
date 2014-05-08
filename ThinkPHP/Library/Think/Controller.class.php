@@ -40,15 +40,20 @@ abstract class Controller {
 	 * @access public
 	 */
 	public function __construct() {
-		Hook::listen ( 'action_begin', $this->config );
+		 Hook::listen ( 'action_begin', $this->config );
 		// 实例化视图类
-		$this->view = Think::instance ( 'Think\View' );
+		 $this->view = Think::instance ( 'Think\View' );
 		// 控制器初始化
-		if (method_exists ( $this, '_initialize' ))
-			$this->_initialize ();
-		
-		$this->initUser ();
-		$this->initSite ();
+		 if (method_exists ( $this, '_initialize' ))
+		 	$this->_initialize ();
+		// trace('__construct','upload');
+		 // if(C('PublicModule') )
+		 $this->initUser ();
+		// trace('initUser','upload');
+		 $this->initSite ();
+		// trace('initSite','upload');
+
+		// dump('当前登录者');
 	}
 	/**
 	 * 应用信息初始化
@@ -92,12 +97,15 @@ abstract class Controller {
 		if ($index_1 == 'install/*/*') {
 			return true;
 		}
-		
+		// dump($index_1,'1');
+		// dump($index_2,'2');
+		// dump($index_3,'3');
+
 		$user = session ( 'user_auth' );
 		// 当前用户信息
 		$user ['token'] = get_token ();
 		$user ['openid'] = get_openid ();
-		
+
 		$access = array_map ( 'trim', explode ( "\n", C ( 'access' ) ) );
 		$access = array_map ( 'strtolower', $access );
 		$access = array_flip ( $access );
@@ -109,9 +117,20 @@ abstract class Controller {
 			$dao->autoLogin ( $user );
 		}
 		
-		if (($index_3 == 'home/addons/execute' && empty ( $user ['uid'] )) || (! is_login () && ! $guest_login)) {
+
+		// dump(( $index_2 ));
+		// dump(( $index_1 ));
+		// dump(( $user ));
+		if (($index_3 == 'home/addons/execute' && empty ( $user ['uid'] )) || (! is_login () && ! $guest_login)) {			
+			 // dump(empty ( $user ['uid'] ));
+			 // dump('redirect');
+			 // return true;
 			redirect ( U ( 'home/user/login' ) );
-		} elseif (is_login () && $index_2 != 'home/memberpublic/*' && $index_2 != 'home/forum/*' && $index_1 != 'admin/*/*' && (empty ( $user ['token'] ) || $user ['token'] == - 1)) {
+		} elseif (is_login () && !is_administrator($user ['uid'])  && $index_2 != 'home/memberpublic/*' && $index_2 != 'home/forum/*' && $index_1 != 'admin/*/*' && (empty ( $user ['token'] ) || $user ['token'] == - 1) ) {	
+			//管理员不验证
+			 // dump(empty ( $user ['uid'] ));
+			 // dump('redirect');
+			 // return true;
 			$token = M ( 'member_public' )->where ( 'uid=' . $user ['uid'] )->order ( 'is_use desc' )->getField ( 'token' );
 			
 			if (! $token && ($index_3 == 'home/index/main' || ($index_2 != 'home/index/*' && $index_2 != 'home/user/*'))) {
@@ -378,6 +397,7 @@ abstract class Controller {
 	 * @return void
 	 */
 	protected function redirect($url, $params = array(), $delay = 0, $msg = '') {
+
 		$url = U ( $url, $params );
 		redirect ( $url, $delay, $msg );
 	}
@@ -399,6 +419,7 @@ abstract class Controller {
 	 * @return void
 	 */
 	private function dispatchJump($message, $status = 1, $jumpUrl = '', $ajax = false) {
+		
 		if (true === $ajax || IS_AJAX) { // AJAX提交
 			$data = is_array ( $ajax ) ? $ajax : array ();
 			$data ['info'] = $message;

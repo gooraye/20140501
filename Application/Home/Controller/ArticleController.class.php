@@ -62,7 +62,6 @@ class ArticleController extends HomeController {
 		/* 页码检测 */
 		$page = intval($page);
 		$page = empty($page) ? 1 : $page;
-
 		/* 获取详细信息 */
 		$Document = D('Document');
 		$info = $Document->detail($id);
@@ -86,6 +85,10 @@ class ArticleController extends HomeController {
 		$map = array('id' => $id);
 		$Document->where($map)->setInc('view');
 
+		if(IS_POST){
+			// sleep (3);
+			$this->ajaxReturn($info,"JSON");
+		}
 		/* 模板赋值并渲染模板 */
 		$this->assign("channels",$this->get_navs());
 		$this->assign('category', $category);

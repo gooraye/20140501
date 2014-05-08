@@ -200,10 +200,28 @@ body.a{
 .a .main-content .panel hr{
 	border-top: 	1px solid #E4E1E1;
 }
+.a .main-content .panel article{
+	padding: 10px;
+	background: #F3F3F3;
+}
 .a .author {
 	padding: 6px 12px;
 }
-
+.a .asidebar{
+	height: 100%;
+	padding: 0px;
+}
+.a .asidebar .item{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.a .asidebar .item:hover{
+	background-color: #f1f1f1;
+}
+.a .asidebar .item.current{
+	background-color: #E4E4E4;
+}
 .a .bottom{
 	background: #eee;
 	margin: 0px;
@@ -220,7 +238,14 @@ body.a{
 	color: #333;
 }
 
-
+/* */
+.a .loadingmask{
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+	background: rgba(254, 254, 254, 0.68);
+}
 /*其它尺寸适应*/
 
 @media (max-width: 767px){

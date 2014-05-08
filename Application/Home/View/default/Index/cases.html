@@ -1,0 +1,56 @@
+<include file="Base/_head" />
+
+<div class="container container-body greybg">
+	<div class="main-content">
+	    	<header class="bar " >
+			<div class="container">
+				<h2>案例展示</h2>
+			</div>
+		</header>
+		<div class="clearfix panel" style="background:#F5ECEC;padding-left:0px">
+			<aside class="col-lg-2 col-md-3 col-sm-12 asidebar">				
+				<volist name="cases" id="vo" >
+					<if condition="$vo['id'] eq  $defaultcase['id'] ">
+		
+					<div class="item current" ><a  href="#" onclick="post('{:U('Article/detail?id='.$vo['id'])}',this)" title="{$vo.description}">{$vo.title}</a></div>
+					<else /> 
+					<div class="item"><a href="#" onclick="post('{:U('Article/detail?id='.$vo['id'])}',this)" title="{$vo.description}">{$vo.title}</a></div>
+					</if>
+				</volist>
+			</aside>
+			<article class="col-lg-10 col-md-9 col-sm-12">
+				<div class="loadingmask " style="width:50px;display:none;margin:0 auto;"><img src="__STATIC__/images/loading.gif" /></div>
+				<div class="article-content">{$defaultcase.content}</div>
+			</article>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function post(url,ele){
+		$(".current").removeClass("current");
+		$(ele).parent().addClass("current");
+		// console.log(url);
+    		$.ajax({
+    			  type:"post",
+			  dataType: "json",
+			  url: url,
+			  beforeSend:function(){
+			  	$(".loadingmask").show();
+		    		$('.article-content').html('');
+			  },
+			  success: function (data){
+			  	$(".loadingmask").hide();
+			  	// console.log(data);
+		    		if(data){
+		    			$('.article-content').html(data.content);
+		    		} else {
+		    			alert('请重试！');
+		    		}
+		    	 }
+		});	
+	}
+
+    	
+
+</script>
+<include file="Base/_footer" />

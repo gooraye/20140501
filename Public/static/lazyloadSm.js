@@ -35,7 +35,7 @@
 
         function update() {
             var counter = 0;
-            console.log('update');
+            // console.log('update');
             elements.each(function() {
                 var $this = $(this);
                 if (settings.skip_invisible && !$this.is(":visible")) {
