@@ -26,10 +26,7 @@ class IndexController extends HomeController {
 	public function introduction() {
 		$this->display ();
 	}
-	// 系统下载
-	public function download() {
-		$this->display ();
-	}
+	
 	// 系统帮助
 	public function help() {
 		// if (isset ( $_GET ['public_id'] )) {

@@ -1,0 +1,28 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="data-table table-striped">
+	<table >
+		<tr>
+			<th>序号</th>
+			<th>时间</th>
+			<th>内容</th>
+			<th>发送内容</th>
+		</tr>
+		<volist name="loglist" id="vo">
+			<tr>
+				<td>{$key+1}</td>
+				<td>{$vo['cTime']|time_format}</td>
+				<td>{:$vo['data']}</td>
+				<td>{:$vo['data_post']}</td>
+			</tr>
+		</volist>
+	</table>
+</div>
+<div class="page">
+    {$page}
+</div>
+</block>
+
+<block name="script">
+</block>

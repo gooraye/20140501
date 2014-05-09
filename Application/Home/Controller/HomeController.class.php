@@ -18,8 +18,6 @@ class HomeController extends Controller {
 
 	/* 空操作，用于输出404页面 */
 	public function _empty(){
-		
-		dump($tmpl);
 		$this->redirect('Index/index');
 	}
 
