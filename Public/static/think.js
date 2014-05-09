@@ -7,7 +7,7 @@
 	var ThinkPHP = window.Think;
 
 	/* 基础对象检测 */
-	ThinkPHP || $.error("ThinkPHP基础配置没有正确加载！");
+	ThinkPHP || $.error("基础配置没有正确加载！");
 
 	/**
 	 * 解析URL
