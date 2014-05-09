@@ -40,6 +40,12 @@ return array(
     /* 数据库配置 */    
  
      'DB_PREFIX' => 'wp_', // 数据库表前缀
+    'DB_TYPE'   => 'mysql', // 数据库类型
+    'DB_HOST'   => 'hdm-118.hichina.com', // 服务器地址
+    'DB_NAME'   => 'hdm1180183_db', // 数据库名
+    'DB_USER'   => 'hdm1180183', // 用户名
+    'DB_PWD'    => '364945361',  // 密码
+    'DB_PORT'   => '', // 端口
 
     //  'DB_TYPE'   => 'mysql', // 数据库类型
     // 'DB_HOST'   => 'hdm-118.hichina.com', // 服务器地址
