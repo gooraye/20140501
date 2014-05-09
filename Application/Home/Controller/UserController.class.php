@@ -17,15 +17,15 @@ use User\Api\UserApi;
 class UserController extends HomeController {
 
 	/* 用户中心首页 */
-	public function index(){
+	// public function index(){
 		
-	}
+	// }
 
 	/* 注册页面 */
 	public function register($username = '', $password = '', $repassword = '', $email = '', $verify = ''){
-        if(!C('USER_ALLOW_REGISTER')){
-            $this->error('注册已关闭');
-        }
+	        if(!C('USER_ALLOW_REGISTER')){
+	            $this->error('注册已关闭');
+	        }
 		if(IS_POST){ //注册用户
 			/* 检测验证码 */
 			if(!check_verify($verify)){
@@ -38,7 +38,7 @@ class UserController extends HomeController {
 			}			
 
 			/* 调用注册接口注册用户 */
-            $User = new UserApi;
+            		$User = new UserApi;
 			$uid = $User->register($username, $password, $email);
 			if(0 < $uid){ //注册成功
 				//TODO: 发送验证邮件
@@ -54,11 +54,19 @@ class UserController extends HomeController {
 
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
-		if(!IS_POST){
-	               if(I('get.key','0')  != C('ADMIN_KEY')){
-	                    $this->error("无访问权限！","/");
-	               }
-	          }
+		// $config	=	S('DB_CONFIG_DATA');
+	 //    	if(!$config){
+	 //    		$config	=	D('Config')->lists();
+	 //    		S('DB_CONFIG_DATA',$config);
+	 //    	}
+	 //    	C($config); //添加配置
+
+		// if(!IS_POST){
+	 //               if(I('get.key','0')  != C('ADMIN_KEY')){
+	 //                    $this->error("无访问权限！","/");
+	 //               }
+	 //          }
+
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
 			if(C('WEB_SITE_VERIFY') && !check_verify($verify)){
@@ -145,9 +153,9 @@ class UserController extends HomeController {
      * @author huajie <banhuajie@163.com>
      */
     public function profile(){
-		if ( !is_login() ) {
-			$this->error( '您还没有登陆',U('User/login') );
-		}
+	if ( !is_login() ) {
+		$this->error( '您还没有登陆',U('User/login') );
+	}
         if ( IS_POST ) {
             //获取参数
             $uid        =   is_login();
@@ -173,5 +181,4 @@ class UserController extends HomeController {
             $this->display();
         }
     }
-
 }

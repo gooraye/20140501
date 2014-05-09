@@ -20,13 +20,9 @@ class CmsController extends AdminController {
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function index(){
-        /* 查询条件初始化 */       
-
+        /* 查询条件初始化 */ 
         
         $this->display();
     }
-
-    
-
 
 }
