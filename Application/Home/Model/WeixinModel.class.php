@@ -69,6 +69,7 @@ class WeixinModel extends Model {
 	}
 	/* 发送回复消息到微信平台 */
 	private function _replyData($msg, $msgType) {
+		// 记录日志
 		$msg ['ToUserName'] = $this->data ['FromUserName'];
 		$msg ['FromUserName'] = $this->data ['ToUserName'];
 		$msg ['CreateTime'] = NOW_TIME;
@@ -86,7 +87,9 @@ class WeixinModel extends Model {
 	/* 组装xml数据 */
 	public function _data2xml($xml, $data, $item = 'item') {
 		foreach ( $data as $key => $value ) {
-			is_numeric ( $key ) && ($key = $item);
+			
+			is_numeric ( $key ) &&  ($key = $item);
+			
 			if (is_array ( $value ) || is_object ( $value )) {
 				$child = $xml->addChild ( $key );
 				$this->_data2xml ( $child, $value, $item );

@@ -20,19 +20,18 @@ class WeixinAddonModel extends WeixinModel {
 		
 		// TODO 此处可继续增加其它API接口
 		
+		// $content = $this->_fixed();
 		// 最后只能随机回复了
-		//if (empty ( $content )) {
-		//	$content = $this->_rand ();
-		//}
-		$content = $this->
+		if (empty ( $content )) {
+			$content = $this->_rand ();
+		}
 		$res = $this->replyText ( $content );
 		return $res;
 	}
 	
-	// 随机回复
+	// 固定回复
 	private function _fixed() {
 		$this->config ['fixed_reply'] = array_map ( 'trim', explode ( "\n", $this->config ['fixed_reply'] ) );
-		// $key = array_rand ( $this->config ['rand_reply'] );
 		
 		return $this->config ['fixed_reply'] ;
 	}
@@ -41,8 +40,8 @@ class WeixinAddonModel extends WeixinModel {
 	private function _rand() {
 		$this->config ['rand_reply'] = array_map ( 'trim', explode ( "\n", $this->config ['rand_reply'] ) );
 		$key = array_rand ( $this->config ['rand_reply'] );
-		
-		return $this->config ['rand_reply'] [$key];
+		//解决多个字符串无法回发问题 by hbd @20140509
+		return implode("\n",$this->config ['rand_reply']);
 	}
 	
 	// 小黄鸡
