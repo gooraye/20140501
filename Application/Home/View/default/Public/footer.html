@@ -3,13 +3,10 @@
     ================================================== -->
 <footer class="footer">
       <div class="container">
-      	  <p class="foot_nav"><a href="{:U('Home/Index/about')}" target="_blank">关于我们</a> @ 2014</p>
+      	  <p class="foot_nav"><a href="{:U('Home/Index/about')}" target="_blank">关于我们</a> @ 2014  <a href="http://www.miitbeian.gov.cn" target="_blank">{:C('WEB_SITE_ICP')}</a></p>
       </div>
 </footer>
 
-<include file="Addons@SocialComment/comment"/>
-
-{:hook('documentDetailAfter', '')}
 
 <include file="Public/var"/>
 <block name="script"></block> <!-- 用于加载js代码 -->

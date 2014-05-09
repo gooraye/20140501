@@ -9,26 +9,34 @@ class WeixinAddonModel extends WeixinModel {
 	function reply($dataArr, $keywordArr = array()) {
 		$this->config = getAddonConfig ( 'Chat' ); // 获取后台插件的配置参数	
 		//dump($this->config);
-			
+		
 		// 先尝试小九机器人
-		$content = $this->_xiaojo ( $dataArr ['Content'] );
+		//$content = $this->_xiaojo ( $dataArr ['Content'] );
 		
 		// 再尝试小黄鸡
-		if (empty ( $content )) {
-			$content = $this->_simsim ( $dataArr ['Content'] );
-		}
+		//if (empty ( $content )) {
+		//	$content = $this->_simsim ( $dataArr ['Content'] );
+		//}
 		
 		// TODO 此处可继续增加其它API接口
 		
 		// 最后只能随机回复了
-		if (empty ( $content )) {
-			$content = $this->_rand ();
-		}
-		
+		//if (empty ( $content )) {
+		//	$content = $this->_rand ();
+		//}
+		$content = $this->
 		$res = $this->replyText ( $content );
 		return $res;
 	}
 	
+	// 随机回复
+	private function _fixed() {
+		$this->config ['fixed_reply'] = array_map ( 'trim', explode ( "\n", $this->config ['fixed_reply'] ) );
+		// $key = array_rand ( $this->config ['rand_reply'] );
+		
+		return $this->config ['fixed_reply'] ;
+	}
+
 	// 随机回复
 	private function _rand() {
 		$this->config ['rand_reply'] = array_map ( 'trim', explode ( "\n", $this->config ['rand_reply'] ) );

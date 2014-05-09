@@ -8,19 +8,8 @@ class WeiSiteController extends BaseController {
 	function config() {
 		// 使用提示
 		$normal_tips = '在微信里回复“微官网”即可以查看效果，也可点击<a target="_blank" href="' . U ( 'index' ) . '">这里</a>在预览';
+		
 		$this->assign ( 'normal_tips', $normal_tips );
-		
-		if (IS_POST) {
-			$flag = D ( 'Common/AddonConfig' )->set ( _ADDONS, $_POST ['config'] );
-			
-			if ($flag !== false) {
-				$this->success ( '保存成功', Cookie ( '__forward__' ) );
-			} else {
-				$this->error ( '保存失败' );
-			}
-			exit ();
-		}
-		
 		parent::config ();
 	}
 	// 首页

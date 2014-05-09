@@ -15,7 +15,7 @@ INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_s
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('is_show','显示','tinyint(2) NOT NULL','bool','1','','1','0: 不显示\r\n1: 显示','0','0','1','1395989709','1395989709','','3','','regex','','3','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('token','Token','varchar(100)  NULL','string','','','0','','0','0','1','1395989760','1395989760','','3','','regex','get_token','1','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('sort','排序号','int(10)  NULL','num','0','数值越小越靠前','1','','0','0','1','1396340334','1396340334','','3','','regex','','3','function');
-UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;
+UPDATE wp_attribute SET model_id= (SELECT MAX(id) FROM wp_model) WHERE model_id=0;
 
 CREATE TABLE IF NOT EXISTS `wp_weisite_slideshow` (
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -34,7 +34,7 @@ INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_s
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('is_show','是否显示','tinyint(2) NULL','bool','1','','1','0:不显示\r\n1:显示','0','0','1','1396098464','1396098464','','3','','regex','','3','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('sort','排序','int(10) UNSIGNED NULL','num','0','值越小越靠前','1','','0','0','1','1396098682','1396098682','','3','','regex','','3','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('token','Token','varchar(100) NULL','string','','','0','','0','0','1','1396098747','1396098747','','3','','regex','get_token','1','function');
-UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;
+UPDATE wp_attribute SET model_id= (SELECT MAX(id) FROM wp_model) WHERE model_id=0;
 
 CREATE TABLE IF NOT EXISTS `wp_weisite_footer` (
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -53,4 +53,4 @@ INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_s
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('sort','排序号','tinyint(4)  NULL','num','0','数值越小越靠前','1','','0','0','1','1394523288','1394519175','','3','','regex','','3','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('token','Token','varchar(255) NOT NULL','string','','','0','','0','0','1','1394526820','1394526820','','3','','regex','get_token','1','function');
 INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('icon','图标','int(10) UNSIGNED NULL','picture','','根据选择的底部模板决定是否需要上传图标','1','','0','0','1','1396506297','1396506297','','3','','regex','','3','function');
-UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;
+UPDATE wp_attribute SET model_id= (SELECT MAX(id) FROM wp_model) WHERE model_id=0;

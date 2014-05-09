@@ -18,6 +18,12 @@ return array (
 				'value' => 'http://www.xiaojo.com/bot/chata.php',
 				'tip'=>'格式如：http://www.xiaojo.com/bot/chata.php'
 		),
+		'fixed_reply' => array (
+				'title' => '固定回复内容:',
+				'type' => 'textarea',
+				'value' => '您好！',
+				'tip'=>'直接回复此内容'
+		),
 		'rand_reply' => array (
 				'title' => '随机回复内容:',
 				'type' => 'textarea',
