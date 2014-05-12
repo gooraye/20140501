@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>微酒店|在线订购</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="{:ADDON_PUBLIC_PATH}/hotels.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js?v={:SITE_VERSION}"></script>
+</head>
+<body id="">
+<div class="qiandaobanner">
+    <img width="100%" src="{$info.picurl|get_cover_url}">
+</div>
+<div class="cardexplain"><!--普通用户登录时显示--><!--商家房价及类型-->
+	<ul class="round">
+	<li class="title"><span class="none">微酒店</span></li>
+	<volist name='order' id='order2' key="k"><li class="dandanb"><!--订房--><a href="{:U('detail', 'id='.$order2[id])}"><span><table class="jiagebiao" width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div>{$order2.type}</div><div><img src="{$order2.picurl|get_cover_url}" class="showimg"><p>{$order2.typeinfo}</p><p>原价：<a class="yuanjia">￥{$order2.price}</a></p><p>优惠价：<a class="youhuijia">￥{$order2.yhprice}</a></p></div></td></tr></tbody></table></span></a></li></volist></ul>
+	
+	<!--后台可控制是否显示--><ul class="round"><li class="title"><span class="none">订单说明</span></li><li><div class="text">{$info.info2}</div></li></ul>
+	<!--后台可控制是否显示--><ul class="round"><li class="addr"><a href="http://map.baidu.com/"><span></span></a></li><li class="tel"><a href="tel://{$info.tel}"><span>{$info.tel} 电话预订</span></a></li><li class="tel"><a href="tel://{$info.phone}"><span>{$info.phone} 电话预订</span></a></li><li class="detail"><a href="{:U('shop', 'hid='.$order2[id])}"><span>查看商家详情</span></a></li>
+	</ul>
+</div>
+</body>
+</html>

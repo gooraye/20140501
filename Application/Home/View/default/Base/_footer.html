@@ -68,7 +68,8 @@
                 event : "sporty",
                 skip_invisible : false,
                 failure_limit : 15,
-                effect:"fadeIn"
+                effect:"fadeIn",
+                threshold:20
             });
 
         }
@@ -82,15 +83,16 @@
                     var desc = $("p",this).text();
                     var imgsrc = $("img",this).attr("src");
                     var title = $("a > span",this).text();
-                    console.log("desc= ",desc);
-                    console.log("imgsrc= ",imgsrc);
-                    console.log("title= ",title);
+                    // console.log("desc= ",desc);
+                    // console.log("imgsrc= ",imgsrc);
+                    // console.log("title= ",title);
                     e.preventDefault();
             });
             //
             var placeholder = "data:image/png;base64,R0lGODdh7gLuAuMAAMzMzJaWlr6+vrGxsaOjo5ycnKqqqre3t8XFxQAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAA7gLuAgAE/hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv8/f7/AAMKHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8eP/iBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDix9Pvrz58+jTq1/Pvr379/Djy59Pv779+/jz69/Pv7///wAG/ijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLM/jbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+67BwowAAEFFBBAAAUYcEAGCPTr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";
                         $("img.lazy").attr("src", placeholder);
-            var timeout = setTimeout(lazyload, 1000);
+            // var timeout = setTimeout(lazyload, 1000);
+            lazyload();
             $(".cases").flexisel({
                     visibleItems: 4,//显示一屏图片数量
                     animationSpeed: 1000,

@@ -28,7 +28,7 @@ class PublicController extends \Think\Controller {
     		S('DB_CONFIG_DATA',$config);
     	}
     	C($config); //添加配置
-    	    	
+    	   
           // dump(C('ADMIN_KEY'));
             // dump(I('get.key','0'));
           if(!IS_POST){

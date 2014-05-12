@@ -10,14 +10,14 @@ use Common\Controller\Addon;
 
     class WecomeAddon extends Addon{
 		
-		public $custom_config = 'config.html';
+       public $custom_config = 'config.html';
 
         public $info = array(
             'name'=>'Wecome',
             'title'=>'欢迎语',
             'description'=>'用户关注公众号时发送的欢迎信息，支持文本，图片，图文的信息',
             'status'=>1,
-            'author'=>'地下凡星',
+            'author'=>'hbd',
             'version'=>'0.1'
         );
 

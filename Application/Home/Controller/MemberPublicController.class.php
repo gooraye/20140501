@@ -183,6 +183,7 @@ class MemberPublicController extends HomeController {
 		$model = $this->model;
 		if (IS_POST) {
 			$_POST ['token'] = uniqid ();
+			// $_POST['token'] = C('CONST_TOKEN');
 			$_POST ['group_id'] = intval ( C ( 'DEFAULT_PUBLIC_GROUP_ID' ) );
 			$Model = D ( parse_name ( get_table_name ( $model ['id'] ), 1 ) );
 			// 获取模型的字段信息

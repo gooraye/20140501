@@ -8,22 +8,23 @@
 <meta content="专业网站建设、平台开发，移动网站建设。百科制作，地图名片制作。" name="description"/>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-<link type="text/css" rel="stylesheet" href="__STATIC__/bootstrap3/css/bootstrap.min.css?v={:SITE_VERSION}" />
-<!-- <link type="text/css" rel="stylesheet" href="__STATIC__/bootstrap3/css/bootstrap-theme.min.css?v={:SITE_VERSION}" /> -->
+<link type="text/css" rel="stylesheet" href="__STATIC__/bootstrap3/css/bootstrap.min.css" />
+
 <link type="text/css" rel="stylesheet" href="__CSS__/index-a.css?v={:SITE_VERSION}" />
 <link type="text/css" rel="stylesheet" href="__STATIC__/flexisel/flexisel.css?v={:SITE_VERSION}" />
-<!-- <link type="text/css" rel="stylesheet" href="__CSS__/3dgallery.css?v={:SITE_VERSION}" /> -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js?v={:SITE_VERSION}"></script>
-<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<!-- <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script> -->
 <!-- Cdn fail refers to local library -->
   <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write(unescape("%3Cscript src='__STATIC__/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
     }
  </script>
-<script type="text/javascript" src="__STATIC__/lazyloadSm.js?v={:SITE_VERSION}"></script>
-<script type="text/javascript" src="__STATIC__/flexisel/jquery.flexisel.js?v={:SITE_VERSION}"></script>
-<script type="text/javascript" src="__STATIC__/bootstrap3/js/bootstrap.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="__STATIC__/bootstrap3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="__STATIC__/lazyloadSm.js"></script>
+<script type="text/javascript" src="__STATIC__/flexisel/jquery.flexisel.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -53,12 +54,7 @@ var _hmt = _hmt || [];
             <volist name="channels" id="channel">
                <li><a href="{$channel.url|get_nav_url}" class=" h4 ">{$channel.title}</a></li>
             </volist>
-            <!--<li><a href="{'Front/index/function' | md5)}" class=" h4 ">功能</a></li>
-             <li><a href="{:U('Front/index/examples')}" class=" h4 ">案例</a></li>
-            <li><a href="{:U('Front/index/services')}" class=" h4 ">服务</a></li>
-            <li><a href="{:U('Front/index/help')}" class=" h4 ">帮助</a></li>
-            <li><a href="{:U('Front/index/about')}" class=" h4 ">关于</a></li>
-            <li><a href="forum.gooraye.net" class=" h4">社区</a></li> -->
+           
             <li class="pull-right"></li>
           </ul>
           <div class="telphone hidden-sm hidden-xs"><a href="tel:057585060707" onclick="javascript:void(0);" title="欢迎联系我们"><span class="glyphicon glyphicon-earphone"></span>0575-85060707</a></div>

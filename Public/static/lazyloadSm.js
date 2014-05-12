@@ -1,17 +1,3 @@
-/*
- * Lazy Load - jQuery plugin for lazy loading images
- *
- * Copyright (c) 2007-2013 Mika Tuupola
- *
- * Licensed under the MIT license:
- *   http://www.opensource.org/licenses/mit-license.php
- *
- * Project home:
- *   http://www.appelsiini.net/projects/lazyload
- *
- * Version:  1.9.3
- *
- */
 
 (function($, window, document, undefined) {
     var $window = $(window);
@@ -47,7 +33,7 @@
                 } else if (!$.belowthefold(this, settings) &&
                     !$.rightoffold(this, settings)) {
                         $this.trigger("appear");
-                        /* if we found an image we'll load, reset the counter */
+                        console.log("1");
                         counter = 0;
                 } else {
                     if (++counter > settings.failure_limit) {
@@ -150,9 +136,10 @@
         $window.bind("resize", function() {
             update();
         });
-      $window.bind("scroll", function() {
+        $window.bind("scroll", function() {
             update();
         });
+
         /* With IOS5 force loading images when navigating with back button. */
         /* Non optimal workaround. */
         if ((/(?:iphone|ipod|ipad).*os 5/gi).test(navigator.appVersion)) {
