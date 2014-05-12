@@ -19,8 +19,8 @@ return array(
     'DEFAULT_THEME' =>  'default',  // 默认模板主题名称
 
     /* SESSION 和 COOKIE 配置 */
-    'SESSION_PREFIX' => 'weiphp_home', //session前缀
-    'COOKIE_PREFIX'  => 'weiphp_home_', // Cookie前缀 避免冲突
+    'SESSION_PREFIX' => 'gooraye_ss', //session前缀
+    'COOKIE_PREFIX'  => 'gooraye_ck_', // Cookie前缀 避免冲突
 
     /**
      * 附件相关配置
@@ -92,7 +92,7 @@ return array(
 		'callback' => false, //检测文件是否存在回调函数，如果存在返回文件信息数组
     ), //图片上传相关配置（文件上传类配置）
 
-    'PICTURE_UPLOAD_DRIVER'=>'local',	
+    'PICTURE_UPLOAD_DRIVER'=>'qiniu',	
 	
     //本地上传文件驱动配置
     'UPLOAD_LOCAL_CONFIG'=>array(),
@@ -103,10 +103,10 @@ return array(
         'rename'=>false
     ),
     'UPLOAD_QINIU_CONFIG'=>array(
-        'accessKey'=>'__ODsglZwwjRJNZHAu7vtcEf-zgIxdQAY-QqVrZD',
-        'secrectKey'=>'Z9-RahGtXhKeTUYy9WCnLbQ98ZuZ_paiaoBjByKv',
-        'bucket'=>'onethinktest',
-        'domain'=>'onethinktest.u.qiniudn.com',
+        'accessKey'=>'8-cn8v-0XK3B4jEvd3epmAtsERVHW5VHjKYLB-oO',
+        'secrectKey'=>'v7f020a-EofZNR2QViboe5UZGZvXRxKmkONFypXT',
+        'bucket'=>'gooraye',
+        'domain'=>'gooraye.qiniudn.com',
         'timeout'=>3600,
     ),
 
