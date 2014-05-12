@@ -23,17 +23,20 @@ class WeiSiteController extends BaseController {
 			$vo ['img'] = get_cover_url ( $vo ['img'] );
 		}
 		$this->assign ( 'slideshow', $slideshow );
-		// dump($slideshow);
 		
 		// 分类
 		$category = M ( 'weisite_category' )->where ( $map )->order ( 'sort asc, id desc' )->select ();
+
 		foreach ( $category as &$vo ) {
 			$vo ['icon'] = get_cover_url ( $vo ['icon'] );
 		}
+
 		$this->assign ( 'category', $category );
 		// dump($category);
 		
+
 		$this->_footer ();
+		dump();
 		$this->display ( ONETHINK_ADDON_PATH . 'WeiSite/View/default/TemplateIndex/' . $this->config ['template_index'] . '/index.html' );
 	}
 	// 分类列表

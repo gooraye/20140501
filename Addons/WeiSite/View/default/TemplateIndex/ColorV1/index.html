@@ -7,7 +7,9 @@
     	<ul>
         <volist name="slideshow" id="vo">
         	<li>
-            	<a href="{$vo.url}"><img src="{$vo.img}"/></a>
+                 <a href="{$vo.url}">
+                        <img src="{$vo.img}" alt="{$vo.title}" />                        
+            	</a>
             	<span class="title">{$vo.title}</span>
             </li>
          </volist>
@@ -24,7 +26,10 @@
     	<div class="icon_lists">
             <volist name="category" id="vo">
                 <a class="item" href="{$vo.url}">
-                    <span class="icon random_color"><img src="{$vo.icon}"/></span>
+                    <span class="icon random_color">
+                        <img src="{$vo.icon}" alt="{$vo.title}"/>
+                        <!-- <img src="{$vo.imgurl}" alt="{$vo.title}" />         -->
+                    </span>
                     <span class="click_item_txt">{$vo.title}</span>
                 </a>
             </volist>
