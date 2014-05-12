@@ -29,13 +29,13 @@ class IndexController extends HomeController {
 	
 	// 系统帮助
 	public function help() {
-		// if (isset ( $_GET ['public_id'] )) {
-		// 	$map ['id'] = intval ( $_GET ['public_id'] );
-		// 	$info = M ( 'member_public' )->where ( $map )->find ();
-		// 	$this->assign ( 'token', $info ['token'] );
-		// } else {
-		// 	$this->assign ( 'token', '你的公众号的Token' );
-		// }
+		if (isset ( $_GET ['public_id'] )) {
+			$map ['id'] = intval ( $_GET ['public_id'] );
+			$info = M ( 'member_public' )->where ( $map )->find ();
+			$this->assign ( 'token', $info ['token'] );
+		} else {
+			$this->assign ( 'token', '你的公众号的Token' );
+		}
 		
 		$list = $this->get_navs();
 		$this->assign("channels",$list);
