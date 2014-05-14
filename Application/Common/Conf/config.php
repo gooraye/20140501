@@ -56,4 +56,16 @@ return array(
 
     /* 文档模型配置 (文档模型核心配置，请勿更改) */
     'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
+    //邮件配置
+     'THINK_EMAIL' => array(
+        'SMTP_HOST'   => 'smtp.gooraye.net', //SMTP服务器
+        'SMTP_PORT'   => '465', //SMTP服务器端口
+        'SMTP_USER'   => '@gooraye.net', //SMTP服务器用户名
+        'SMTP_PASS'   => '136799711', //SMTP服务器密码
+        'FROM_EMAIL'  => 'hebiduhebi@126.com', //发件人EMAIL
+        'FROM_NAME'   => 'hebidu', //发件人名称
+        'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
+        'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
+     ),
+
 );

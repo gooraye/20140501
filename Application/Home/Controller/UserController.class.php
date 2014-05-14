@@ -84,7 +84,7 @@ class UserController extends HomeController {
 					if ($url) {
 						Cookie ( '__forward__', null );
 					} else {
-						$url = U ( 'Home/Index/main' );
+						$url = U ( 'Home/MemberPublic/lists' );
 					}
 					
 					$this->success ( '登录成功！', $url );
