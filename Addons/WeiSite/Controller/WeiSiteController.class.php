@@ -36,7 +36,7 @@ class WeiSiteController extends BaseController {
 		
 
 		$this->_footer ();
-		dump();
+		// dump();
 		$this->display ( ONETHINK_ADDON_PATH . 'WeiSite/View/default/TemplateIndex/' . $this->config ['template_index'] . '/index.html' );
 	}
 	// 分类列表
@@ -49,7 +49,9 @@ class WeiSiteController extends BaseController {
 		$page = I ( 'p', 1, 'intval' );
 		$row = isset ( $_REQUEST ['list_row'] ) ? intval ( $_REQUEST ['list_row'] ) : 20;
 		
+
 		$data = M ( 'custom_reply_news' )->where ( $map )->order ( 'sort asc, id DESC' )->page ( $page, $row )->select ();
+
 		/* 查询记录总数 */
 		$count = M ( 'custom_reply_news' )->where ( $map )->count ();
 		$list_data ['list_data'] = $data;
@@ -61,9 +63,10 @@ class WeiSiteController extends BaseController {
 			$list_data ['_page'] = $page->show ();
 		}
 		
-		$this->assign ( $list_data );
-		// dump ( $list_data );
-		
+		$this->assign ('_page',$list_data ['_page']  );
+		$this->assign ($list_data );
+		$this->assign ('list',$data);
+				
 		$this->_footer ();
 		$this->display ( ONETHINK_ADDON_PATH . 'WeiSite/View/default/TemplateLists/' . $this->config ['template_lists'] . '/lists.html' );
 	}

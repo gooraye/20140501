@@ -49,7 +49,15 @@ class PictureModel extends Model{
                 }
 
                 /* 记录文件信息 */
-                $value['path'] = substr($setting['rootPath'], 1).$value['savepath'].$value['savename'];	//在模板里的url路径
+                /* 
+                ** 描述：非local方式上传时path = url
+                ** modify by hbd @20140513*/
+                if(strtolower($driver) == 'local'){
+                    $value['path'] = substr($setting['rootPath'], 1).$value['savepath'].$value['savename'];
+                }else{
+                    $value['path'] = $value['url'];
+                }	
+                //在模板里的url路径
                 if($this->create($value) && ($id = $this->add())){
                     $value['id'] = $id;
                 } else {

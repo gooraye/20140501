@@ -3,7 +3,7 @@ return array (
 		'title' => array (
 				'title' => '宣传页标题名:',
 				'type' => 'text',
-				'value' => 'WeiPHP官方微信公众号',
+				'value' => 'Gooraye官方微信公众号',
 				'tip' => '可以为空'
 		),		
 		'img' => array (
@@ -22,7 +22,7 @@ return array (
 		'copyright' => array (
 				'title' => '版权信息:',
 				'type' => 'text',
-				'value' => '©2001-2013 WeiPHP官方微信公众号版权所有',
+				'value' => '©2014 Gooraye官方微信公众号版权所有',
 				'tip' => '' 
 		) 
 );

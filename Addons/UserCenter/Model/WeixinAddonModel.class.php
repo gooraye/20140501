@@ -22,6 +22,7 @@ class WeixinAddonModel extends WeixinModel {
 	}
 	// 关注时的操作
 	function subscribe($dataArr) {
+		//自动初始化用户
 		D ( 'Home/Member' )->initWeixinUser($dataArr ['FromUserName']);
 	}
 }

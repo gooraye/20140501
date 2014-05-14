@@ -114,7 +114,7 @@ class MemberModel extends Model {
 		if ($res)
 			return $res['uid'];
 		
-		$email = time () . '@weiphp.cn';
+		$email = time () . '@gooraye.net';
 		$info ['nickname'] = $nickname;
 		
 		/* 调用注册接口注册用户 */

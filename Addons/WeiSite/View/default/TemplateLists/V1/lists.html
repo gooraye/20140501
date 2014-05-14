@@ -36,7 +36,8 @@ border-radius: 6px;margin-left: 5px;width: 12px;height: 12px;background: #fff;}
         </div>
     </section>
     <ul class="small_pic_list">
-    <volist name="list_data" id="vo">
+        
+    <volist name="list" id="vo">
     	<li>
         	<a href="{:U('detail', 'id='.$vo[id])}">
             	<notempty name="vo.cover"><img src="{$vo.cover|get_cover_url}"/></notempty>

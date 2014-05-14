@@ -4,7 +4,14 @@
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="__CSS__/font-awesome.css?v={:SITE_VERSION}" media="all">
 	<link rel="stylesheet" type="text/css" href="__CSS__/mobile_module.css?v={:SITE_VERSION}" media="all">
-    <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<!-- <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script> -->
+<!-- Cdn fail refers to local library -->
+  <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='__STATIC__/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+ </script>
     <script type="text/javascript" src="__JS__/prefixfree.min.js"></script>
     <script type="text/javascript" src="__JS__/m/dialog.js?v={:SITE_VERSION}"></script>
     <script type="text/javascript" src="__JS__/m/flipsnap.min.js"></script>
@@ -13,8 +20,8 @@
 	<title>{:C('WEB_SITE_TITLE')}</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta name="Keywords" content="weiphp 微信公众平台开发框架">
-    <meta name="Description" content="weiphp 微信公众平台开发框架">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
     <meta content="no-cache" http-equiv="pragma">

@@ -49,7 +49,7 @@ var WeiPHP_RAND_COLOR = ["#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#339
 		if(isAuto){
 			var point = 1;
 			setInterval(function(){
-				console.log(point);
+				// console.log(point);
 				flipsnap.moveToPoint(point);
 				$('.identify em').eq(point).addClass('cur').siblings().removeClass('cur');
 				if(point+1==$('.banner li').size()){

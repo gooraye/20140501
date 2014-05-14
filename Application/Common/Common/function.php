@@ -1044,7 +1044,14 @@ function get_cover_url($cover_id) {
 	if (empty ( $cover_id )) {
 		return '';
 	}
-	return SITE_URL . get_cover ( $cover_id, 'path' );
+
+	$url  = get_cover ( $cover_id, 'path' );
+	//如果带http www 直接返回
+	if(substr($url,0,4)  == 'http' || substr($url,0,3)  == 'www') 
+	{
+		return $url;
+	}
+	return SITE_URL . $url;
 }
 function get_picture_url($id, $img = false) {
 	$url = get_cover_url ( $id );
