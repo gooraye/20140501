@@ -16,7 +16,8 @@ class WeiSiteController extends BaseController {
 	function index() {
 		$map ['token'] = get_token ();
 		$map ['is_show'] = 1;
-		
+		$config = getAddonConfig ( 'WeiSite' ); // 获取后台插件的配置参数
+		$this->assign('telephone',$config['telephone']);
 		// 幻灯片
 		$slideshow = M ( 'weisite_slideshow' )->where ( $map )->order ( 'sort asc, id desc' )->select ();
 		foreach ( $slideshow as &$vo ) {

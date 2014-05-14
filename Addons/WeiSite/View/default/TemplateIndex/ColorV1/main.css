@@ -17,9 +17,10 @@ border-radius: 6px;margin-left: 5px;width: 12px;height: 12px;background: #fff;}
 .icon_lists .item .icon{ border-radius:40px; padding:20px; width:40px; height:40px; display:block; margin:0 auto 10px;}
 .icon_lists .item img{ width:40px; height:40px;}
 
-.icons-tel{
-	background: url(./tel.png) no-repeat 4px 8px;
-	margin-right: 5px;
+.arrow{
+	font-size: 16px;
+	position: relative;
+	margin-top: 5px;
 }
 .arrow:after{
 	content: "";

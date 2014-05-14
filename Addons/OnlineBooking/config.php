@@ -33,6 +33,12 @@ return array(
 		'type'=>'text',		 //	
 		'value'=>'预约时间保留当天，请认真填写预约订单。',			 //表单的默认值
 	),
+
+	'picture'=>array(
+		'title'=>'图片',//商户联系电话、手机
+		'type'=>'picture',		 //	
+		'value'=>'http://gooraye.qiniudn.com/dwyzaixianyuyue.jpg',			 //表单的默认值
+	)
 	
 );
 					

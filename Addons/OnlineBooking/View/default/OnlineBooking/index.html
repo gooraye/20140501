@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="{:ADDON_PUBLIC_PATH}/online_booking.css" media="all">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<!-- <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script> -->
 <!-- Cdn fail refers to local library -->
   <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
@@ -28,7 +27,7 @@
     <body onselectstart="return true;" ondragstart="return false;" id="onlinebooking">
         
     <div class="qiandaobanner">
-        <img src="{:ADDON_PUBLIC_PATH}/zaixianyuyue.jpg">
+        <img src="{$config['picture']}">
     </div>
     <div class="cardexplain">
     <!--后台可控制是否显示-->

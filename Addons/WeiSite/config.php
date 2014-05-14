@@ -54,6 +54,12 @@ return array (
 				'type' => 'hidden',
 				'value' => 'V1',
 				'tip' => ''
+		),
+		'telephone' => array (
+				'title' => '联系电话',
+				'type' => 'text',
+				'value' => '0575-85060707',
+				'tip' => '联系电话'
 		)	
 );
 					

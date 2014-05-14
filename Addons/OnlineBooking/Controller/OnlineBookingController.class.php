@@ -15,4 +15,9 @@ class OnlineBookingController extends AddonsController{
 		$this->assign("config",$config);
 		$this->display();
 	}
+	
+	public function booking()
+	{
+		
+	}
 }
