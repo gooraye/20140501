@@ -93,7 +93,7 @@ return array(
     ), //图片上传相关配置（文件上传类配置）
 
     'PICTURE_UPLOAD_DRIVER'=>'qiniu',	
-	
+
     //本地上传文件驱动配置
     'UPLOAD_LOCAL_CONFIG'=>array(),
     'UPLOAD_BCS_CONFIG'=>array(

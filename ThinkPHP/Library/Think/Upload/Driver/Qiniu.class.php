@@ -25,7 +25,7 @@ class Qiniu{
      */
     private $error = '';
 
-    private $config = array(
+    public $config = array(
         'secrectKey'     => '', //七牛服务器
         'accessKey'      => '', //七牛用户
         'domain'         => '', //七牛密码
@@ -78,6 +78,10 @@ class Qiniu{
      * @return boolean          保存状态，true-成功，false-失败
      */
     public function save(&$file) {
+        //测试用
+
+        // var_dump('qiniu配置 '. $this->config);
+
         $file['name'] = $file['savepath'] . $file['savename'];
         $key = str_replace('/', '_', $file['name']);
         $upfile = array(

@@ -66,6 +66,6 @@ return array(
         'FROM_NAME'   => '绍兴古睿信息科技', //发件人名称
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
         'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
-     ),
+     ),     
 
 );

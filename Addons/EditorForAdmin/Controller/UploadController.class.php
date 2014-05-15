@@ -19,25 +19,69 @@ class UploadController extends Controller{
 
 	/* 上传图片 */
 	public function upload(){
-		/* 上传配置 */
-		$setting = C('EDITOR_UPLOAD');
+		
+		if(C('PICTURE_UPLOAD_DRIVER') == 'local'){
 
-		// dump($setting);
-		/* 调用文件上传组件上传文件 */
-		$this->uploader = new Upload($setting, 'Local');
-		$info   = $this->uploader->upload($_FILES);
-		// dump($info);
-		if ($info) {
-			foreach ( $info as &$file ) {
-				$file ['rootpath'] = __ROOT__ . ltrim ( $setting ['rootPath'], "." );
+			/* 上传配置 */
+			$setting = C('EDITOR_UPLOAD');
+
+			// dump($setting);
+			/* 调用文件上传组件上传文件 */
+			$this->uploader = new Upload($setting, 'Local');
+			$info   = $this->uploader->upload($_FILES);
+		
+
+			if ($info) {
+						
+				foreach ( $info as &$file ) {
+					$file ['rootpath'] = __ROOT__ . ltrim ( $setting ['rootPath'], "." );
+				}
+				return $info ['imgFile'] ['rootpath'] . $info ['imgFile'] ['savepath'] . $info ['imgFile'] ['savename'];
+				
 			}
-			return $info ['imgFile'] ['rootpath'] . $info ['imgFile'] ['savepath'] . $info ['imgFile'] ['savename'];
+
+		}else{
+			return $this->vendorUpload();
 		}
+	}
+
+	public function vendorUpload()
+	{        
+	        /* 读取数据库中的配置 */
+	        // $config =   S('DB_CONFIG_DATA');
+	        // if(!$config){
+	        //     $config =   api('Config/lists');
+	        //     S('DB_CONFIG_DATA',$config);
+	        // }
+
+		// var_dump(C('PICTURE_UPLOAD_DRIVER'));
+		// var_dump(C('PICTURE_UPLOAD'));
+		// var_dump(C('UPLOAD_QINIU_CONFIG'));
+
+		
+		$driver = strtoupper(C('PICTURE_UPLOAD_DRIVER'));
+
+		/* 上传配置 */
+		$setting = C('UPLOAD_'.$driver.'_CONFIG');
+
+        
+		// var_dump($setting);
+		/* 调用文件上传组件上传文件 */
+		$this->uploader = new Upload(C('PICTURE_UPLOAD'), 
+			C('PICTURE_UPLOAD_DRIVER'),$setting);
+
+		$info   = $this->uploader->upload($_FILES);
+		// if(!$info){
+		//  	//dump($this->uploader->getError());
+		// }
+
+		// return $info;
+		return $info ['imgFile'] ['url'];
 	}
 
 	//keditor编辑器上传图片处理
 	public function ke_upimg(){
-		trace('ke_upimg','upload');
+
 		/* 返回标准数据 */
 		$return  = array('error' => 0, 'info' => '上传成功', 'data' => '');
 		$img = $this->upload();

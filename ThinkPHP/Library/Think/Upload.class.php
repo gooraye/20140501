@@ -49,6 +49,7 @@ class Upload{
     public function __construct($config = array(), $driver = '', $driverConfig = null){
     	/* 获取配置 */
         $this->config = array_merge($this->config, $config);
+
         $driver     =   $driver? $driver : C('FILE_UPLOAD_TYPE');
         trace("__construct",'__construct');
         /* 设置上传驱动 */
@@ -106,6 +107,7 @@ class Upload{
      * @param 文件信息数组 $files ，通常是 $_FILES数组
      */
     public function upload($files) {
+        
         if(empty($files)){
             $this->error = '没有上传的文件！';
             return false;
@@ -146,15 +148,15 @@ class Upload{
             }
 
             /* 调用回调函数检测文件是否存在 */
-			$data = call_user_func($this->callback, $file);
-			if( $this->callback && $data ){
-				if ( file_exists('.'.$data['path'])  ) {
-					$info[$key] = $data;
-					continue;
-				}elseif($this->removeTrash){
-					call_user_func($this->removeTrash,$data);//删除垃圾据
-				}
-			}
+	$data = call_user_func($this->callback, $file);
+	if( $this->callback && $data ){
+		if ( file_exists('.'.$data['path'])  ) {
+			$info[$key] = $data;
+			continue;
+		}elseif($this->removeTrash){
+			call_user_func($this->removeTrash,$data);//删除垃圾据
+		}
+	}
 
             /* 生成保存文件名 */
             $savename = $this->getSaveName($file);
@@ -183,6 +185,7 @@ class Upload{
             }
 
             /* 保存文件 并记录保存成功的文件 */
+            
             if ($this->uploader->save($file)) {
                 unset($file['error'], $file['tmp_name']);
                 $info[$key] = $file;
@@ -199,6 +202,7 @@ class Upload{
      * @param string $class 驱动类名称
      */
     private function setDriver($class, $config){
+        
         $this->uploader = new $class($this->rootPath, $config);
         if(!$this->uploader){
             E("不存在上传驱动：{$name}");
