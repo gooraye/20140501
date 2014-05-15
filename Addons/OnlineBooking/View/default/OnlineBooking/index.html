@@ -9,10 +9,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap3/css/bootstrap.min.css" media="all">
 <link rel="stylesheet" type="text/css" href="{:ADDON_PUBLIC_PATH}/online_booking.css" media="all">
-<link rel="stylesheet" type="text/css" href="{:ADDON_PUBLIC_PATH}/datepicker.css" media="all">
+<link rel="stylesheet" type="text/css" href="__STATIC__/datetimepicker/css/datetimepicker.css" media="all">
+<link rel="stylesheet" type="text/css" href="__STATIC__/datetimepicker/css/dropdown.css" media="all">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script> -->
 <!-- Cdn fail refers to local library -->
   <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
@@ -20,10 +23,10 @@
     }
  </script>
 
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/jquery.js"></script>
-      <style >
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<style >
             img{width:100%!important;}
-        </style>
+</style>
 </head>
     <body onselectstart="return true;" ondragstart="return false;" id="onlinebooking">
         
@@ -61,7 +64,7 @@
             <table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tbody><tr>
                     <th>联系电话</th>
-                    <td><input name="tel" class="px" id="tel"  value=""  placeholder="请输入您的电话" type="tel"></td>
+                    <td><input name="tel" class="px" id="tel"  value=""  placeholder="请输入您的电话" type="tel" ></td>
                 </tr>
             </tbody></table>
         </li>
@@ -70,7 +73,7 @@
             <tbody><tr>
                 <th>预约日期</th>
                 <td>
-                    <input type="text" class="px hasDatepicker" name="dateline" placeholder="" value=""  readonly="readonly" id="dateline" >
+                    <input type="text" class="px hasDatepicker" name="dateline" placeholder="预约日期" value="" readonly="readonly"  id="dateline" >
                 </td>
                 </tr>
             </tbody></table>
@@ -130,16 +133,23 @@
 
  $(document).ready(function () {
 
-    var nowTemp = new Date();
+                var nowTemp = new Date();
                 var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-                var ndate = $('#dateline').datepicker({
-                        format:"yyyy-mm-dd",
-                        onRender: function(date) {
-                           return date.valueOf() < now.valueOf() ? 'disabled' : '';
-                        }
-                }).on("changeDate", function(date){
-                        ndate.datepicker('hide');
-                });
+                // console.log($('#dateline'));
+                $('#dateline').datetimepicker({
+                format: 'mm-dd-yyyy'
+            });
+                // var ndate = $('#dateline').datepicker({
+                //         format:"yyyy-mm-dd",
+                //         onRender: function(date) {
+                //             // if(date.valueOf() < now.valueOf()){
+                //             //     $('#dateline').val(now.toString());
+                //             // }
+                //            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                //         }
+                // }).on("changeDate", function(date){
+                //         ndate.datepicker('hide');
+                // });
 
 
         $('.ajax-post_submit').click(function(){

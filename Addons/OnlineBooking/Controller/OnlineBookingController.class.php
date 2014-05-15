@@ -55,7 +55,7 @@ class OnlineBookingController extends AddonsController{
 					$result = $this->sendSMS();
 					break;
 				case '4':
-					$result = $this->sendMail();
+					$result = $this->sendMail($config['toaddress'],$body);
 					break;
 				default:
 					break;
@@ -73,12 +73,11 @@ class OnlineBookingController extends AddonsController{
 	/*
 	** 发送邮件
 	***/
-	function sendMail(){		
-		$body = '';
-		$result = think_send_mail('hebiduhebi@163.com','预约','预约',$body);
+	function sendMail($toaddress,$body){
+		
+		$result = think_send_mail($toaddress,'预约','预约提醒',$body);
 		
 		return $result;
-		// $this->show($result);
 	}
 	/***/
 	function sendSMS(){
