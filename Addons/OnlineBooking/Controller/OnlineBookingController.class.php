@@ -5,10 +5,10 @@ use Home\Controller\AddonsController;
 
 class OnlineBookingController extends AddonsController{
 
-	public function __construct() {
-		parent::__construct ();
-	}
-
+	 public function __construct() {
+	 	 parent::__construct ();
+	 	 
+	 }
 	public function index()
 	{
 		$config = getAddonConfig ( 'OnlineBooking' ); // 获取后台插件的配置参数	
@@ -40,9 +40,9 @@ class OnlineBookingController extends AddonsController{
 			$this->error("手机号与姓名必填!");		
 		}
 		
-		// if($data['token'] == -1 || $data['openid'] == -1){
-		// 	$this->error("参数错误，请重新尝试!");		
-		// }
+		if($data['token'] == -1 || $data['openid'] == -1){
+			$this->error("参数错误，请重新尝试!");		
+		}
 
 		$OnlineBooking->create($data);
 		$result = $OnlineBooking->add();

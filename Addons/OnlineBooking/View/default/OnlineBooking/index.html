@@ -24,9 +24,6 @@
  </script>
 
 <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<style >
-            img{width:100%!important;}
-</style>
 </head>
     <body onselectstart="return true;" ondragstart="return false;" id="onlinebooking">
         
@@ -43,8 +40,11 @@
     </ul>
     <!--后台可控制是否显示-->
     <ul class="round" >
-        <li class="arrow icons icons-addr"><a href="http://j.map.baidu.com/1u2hs"><span>地址：{$config['address']} </span></a></li>
-        <li class="arrow icons icons-tel"><a href="tel:{$config['tel'] }"><span>预约电话： {$config['tel']}</span></a></li>
+        <li class="arrow icons"><a href="{$config['addressMap']}"><span>
+         <img  src="{:ADDON_PUBLIC_PATH}/img/addr.png"  width="40px" height="40px" />地址：{$config['address']} </span></a></li>
+        <li class="arrow icons">
+         <img  src="{:ADDON_PUBLIC_PATH}/img/tel.png"  width="40px" height="40px" />
+            <a href="tel:{$config['tel'] }"><span>预约电话： {$config['tel']}</span></a></li>
     </ul>
    
     <!--粉丝填写过的信息的，直接就显示名字电话，粉丝没有填写过信息的话，这里就直接留空让粉丝填写-->

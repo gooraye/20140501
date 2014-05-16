@@ -66,7 +66,7 @@ class UserController extends HomeController {
 	 //                    $this->error("无访问权限！","/");
 	 //               }
 	 //          }
-
+		
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
 			if(C('WEB_SITE_VERIFY') && !check_verify($verify)){

@@ -1337,6 +1337,7 @@ function get_token() {
 	
 	$token = session ( 'token' );
 	
+
 	if (empty ( $token )) {
 		return - 1;
 	}

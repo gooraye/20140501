@@ -22,18 +22,27 @@ return array(
 		'type'=>'text',		 //	
 		'value'=>'绍兴县柯桥钱陶公路世贸中心英豪洲际公馆1楼',			 //表单的默认值
 	),
+	'addressMap'=>array(
+		'title'=>'地图地址',//商户地址
+		'type'=>'text',		 //	
+		'value'=>'http://j.map.baidu.com/1u2hs',			 //表单的默认值
+	),
 	'tel'=>array(
 		'title'=>'电话',//商户联系电话、手机
 		'type'=>'text',		 //	
-		'value'=>'0575-89871666、13867519285',			 //表单的默认值
+		'value'=>'0575-89871666',			 //表单的默认值
 	),
-
 	'info'=>array(
 		'title'=>'预约说明',//商户联系电话、手机
 		'type'=>'text',		 //	
 		'value'=>'预约时间保留当天，请认真填写预约订单。',			 //表单的默认值
 	),
-
+	'picture'=>array(
+		'title'=>'图片',//商户联系电话、手机
+		'type'=>'picture',		 //	
+		'value'=>'http://gooraye.qiniudn.com/dwyzaixianyuyue.jpg',			 //表单的默认值
+	)
+	,
 	'picture'=>array(
 		'title'=>'图片',//商户联系电话、手机
 		'type'=>'picture',		 //	

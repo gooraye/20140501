@@ -48,7 +48,9 @@ abstract class Controller {
 		 	$this->_initialize ();
 		// trace('__construct','upload');
 		 // if(C('PublicModule') )
+
 		 $this->initUser ();
+		 
 		// trace('initUser','upload');
 		 $this->initSite ();
 		// trace('initSite','upload');
@@ -94,13 +96,15 @@ abstract class Controller {
 		$index_1 = strtolower ( MODULE_NAME . '/*/*' );
 		$index_2 = strtolower ( MODULE_NAME . '/' . CONTROLLER_NAME . '/*' );
 		$index_3 = strtolower ( MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME );
+		//参考模块控制器方法 
+		$addons_1 = strtolower ( $_REQUEST['_addons'] . '/*/*' );
+		$addons_2 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_action'] . '/*' );
+		$addons_3 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_action'] . '/' . ACTION_NAME );
+
 		if ($index_1 == 'install/*/*') {
 			return true;
 		}
-		// dump($index_1,'1');
-		// dump($index_2,'2');
-		// dump($index_3,'3');
-
+		
 		$user = session ( 'user_auth' );
 		// 当前用户信息
 		$user ['token'] = get_token ();
@@ -109,7 +113,15 @@ abstract class Controller {
 		$access = array_map ( 'trim', explode ( "\n", C ( 'access' ) ) );
 		$access = array_map ( 'strtolower', $access );
 		$access = array_flip ( $access );
-		$guest_login = isset ( $access [$index_1] ) || isset ( $access [$index_2] ) || isset ( $access [$index_3] ) || $index_1 == 'admin/*/*';
+
+		// dump($addons_1);
+		// dump($access);
+		// dump( isset($access[$addons_1]));
+		// exit();
+		// 针对某些插件无需登录情况
+		// 添加了isset($access[$_REQUEST['_controller']]) 判断
+		$guest_login =  isset ( $access [$index_1] ) || isset ( $access [$index_2] ) || isset ( $access [$index_3] ) || $index_1 == 'admin/*/*';
+		$addons_login = isset($access[$addons_1]) || isset($access[$addons_2]) || isset($access[$addons_3]) ;
 		if (intval ( $user ['uid'] ) <= 0 && ! empty ( $user ['token'] ) && ! empty ( $user ['openid'] ) && $user ['token'] != '-1' && $user ['openid'] != '-1') {
 			$dao = D ( 'Home/Member' );
 			$uid = $dao->initWeixinUser ( $user ['openid'] );
@@ -117,20 +129,11 @@ abstract class Controller {
 			$dao->autoLogin ( $user );
 		}
 		
-
-		// dump(( $index_2 ));
-		// dump(( $index_1 ));
-		// dump(( $user ));
-		if (($index_3 == 'home/addons/execute' && empty ( $user ['uid'] )) || (! is_login () && ! $guest_login)) {			
-			 // dump(empty ( $user ['uid'] ));
-			 // dump('redirect');
-			 // return true;
+		if(  !$addons_login && ( (( $index_3 == 'home/addons/execute' && empty ( $user ['uid'] )) || (! is_login () && ! $guest_login )))) {
 			redirect ( U ( 'home/user/login' ) );
 		} elseif (is_login () && !is_administrator($user ['uid'])  && $index_2 != 'home/memberpublic/*' && $index_2 != 'home/forum/*' && $index_1 != 'admin/*/*' && (empty ( $user ['token'] ) || $user ['token'] == - 1) ) {	
-			//管理员不验证
-			 // dump(empty ( $user ['uid'] ));
-			 // dump('redirect');
-			 // return true;
+			
+
 			$token = M ( 'member_public' )->where ( 'uid=' . $user ['uid'] )->order ( 'is_use desc' )->getField ( 'token' );
 			
 			if (! $token && ($index_3 == 'home/index/main' || ($index_2 != 'home/index/*' && $index_2 != 'home/user/*'))) {
@@ -150,6 +153,7 @@ abstract class Controller {
 		
 		$this->assign ( 'mid', $this->mid ); // 登录者
 		$this->assign ( 'uid', $this->uid ); // 访问对象
+		
 	}
 	
 	/**

@@ -15,13 +15,29 @@ use Think\Controller;
  * 用于调度各个扩展的URL访问需求
  */
 class AddonsController extends Controller {
+
+	
+	 protected function _initialize(){
+	 	
+	        /* 读取站点配置 */
+	        $config = api('Config/lists');
+	        C($config); //添加配置
+	        
+	        if(!C('WEB_SITE_CLOSE')){
+	            $this->error('站点已经关闭，请稍后访问~');
+	        }
+	 }
 	protected $addons = null;
 	protected $addon, $model;
 	public function execute($_addons = null, $_controller = null, $_action = null) {
 		
 		/* 读取站点配置 */
-		$config = api ( 'Config/lists' );
-		C ( $config );
+	        $config =   S('DB_CONFIG_DATA');
+	        if(!$config){
+	            $config =   api('Config/lists');
+	            S('DB_CONFIG_DATA',$config);
+	        }
+	        C($config); //添加配置
 
 		if (C ( 'URL_CASE_INSENSITIVE' )) {
 			$_addons = ucfirst ( parse_name ( $_addons, 1 ) );
