@@ -7,12 +7,19 @@ class OnlineBookingController extends AddonsController{
 
 	 public function __construct() {
 	 	 parent::__construct ();
-	 	 
+
 	 }
 	public function index()
 	{
 		$config = getAddonConfig ( 'OnlineBooking' ); // 获取后台插件的配置参数	
 		$this->assign("config",$config);
+		$timepart = $config['timepart'];
+		$arrTime = explode("-",$timepart);
+
+		$this->assign("start",intval($arrTime[0]));
+		$this->assign("end",intval($arrTime[1]));
+		$this->assign("now",date("H"));
+
 		$this->display();
 	}
 

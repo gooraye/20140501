@@ -42,7 +42,7 @@ body{ background: #F8750E; font-family: '微软雅黑'; color: #fff; font-size: 
 <h1>抱歉,出错啦!</h1>
 <p class="error"><?php echo($error); ?></p>
 <p class="detail"></p>
-<!-- <p class="jump">
+ <!-- <p class="jump">
 <b id="wait"><?php echo($waitSecond); ?></b> 秒后页面将自动跳转
 </p> -->
 <!-- <div>
@@ -53,13 +53,17 @@ body{ background: #F8750E; font-family: '微软雅黑'; color: #fff; font-size: 
 </div>
 <script type="text/javascript">
 (function(){
- var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+ // var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+ 
+ var wait = 3,href = '';
+
  if(!href)
  {
     href = "http://www.gooraye.net";
  }
+
  var interval = setInterval(function(){
-     	var time = --wait.innerHTML;
+     	var time = --wait;
      	if(time <= 0) {
      		location.href = href;
      		clearInterval(interval);

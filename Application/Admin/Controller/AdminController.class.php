@@ -23,6 +23,11 @@ class AdminController extends Controller {
     static protected $allow = array( 'login','logout','get');
 
 
+    /* 空操作，用于输出404页面 */
+    public function _empty(){
+        $this->redirect('Index/index');
+    }
+    
     /**
      * 后台控制器初始化
      */

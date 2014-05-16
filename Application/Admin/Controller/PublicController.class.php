@@ -16,6 +16,10 @@ use User\Api\UserApi;
  */
 class PublicController extends \Think\Controller {
 
+    /* 空操作，用于输出404页面 */
+    public function _empty(){
+        $this->redirect('Index/index');
+    }
     /**
      * 后台用户登录
      * @author 丁丁 <346551990@qq.com>

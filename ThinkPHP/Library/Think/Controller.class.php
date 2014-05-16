@@ -98,8 +98,8 @@ abstract class Controller {
 		$index_3 = strtolower ( MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME );
 		//参考模块控制器方法 
 		$addons_1 = strtolower ( $_REQUEST['_addons'] . '/*/*' );
-		$addons_2 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_action'] . '/*' );
-		$addons_3 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_action'] . '/' . ACTION_NAME );
+		$addons_2 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_controller'] . '/*' );
+		$addons_3 = strtolower ( $_REQUEST['_addons'] . '/' . $_REQUEST['_controller'] . '/' . $_REQUEST['_action'] );
 
 		if ($index_1 == 'install/*/*') {
 			return true;
@@ -114,14 +114,18 @@ abstract class Controller {
 		$access = array_map ( 'strtolower', $access );
 		$access = array_flip ( $access );
 
-		// dump($addons_1);
-		// dump($access);
-		// dump( isset($access[$addons_1]));
-		// exit();
+		
 		// 针对某些插件无需登录情况
 		// 添加了isset($access[$_REQUEST['_controller']]) 判断
 		$guest_login =  isset ( $access [$index_1] ) || isset ( $access [$index_2] ) || isset ( $access [$index_3] ) || $index_1 == 'admin/*/*';
 		$addons_login = isset($access[$addons_1]) || isset($access[$addons_2]) || isset($access[$addons_3]) ;
+		// var_dump($addons_1);
+		// var_dump($addons_2);
+		// var_dump($addons_3);
+		// var_dump($addons_login);
+		// var_dump($access);
+		// var_dump( isset($addons_login));
+		// exit();
 		if (intval ( $user ['uid'] ) <= 0 && ! empty ( $user ['token'] ) && ! empty ( $user ['openid'] ) && $user ['token'] != '-1' && $user ['openid'] != '-1') {
 			$dao = D ( 'Home/Member' );
 			$uid = $dao->initWeixinUser ( $user ['openid'] );
