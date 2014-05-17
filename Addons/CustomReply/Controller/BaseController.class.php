@@ -24,7 +24,7 @@ class BaseController extends AddonsController {
 		$res ['class'] = $controller == 'customreplytext' ? 'current' : '';
 		$nav [] = $res;
 		
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tablist', $nav );
 		
 		$config = getAddonConfig ( 'CustomReply' );
 		$config ['cover_url'] = get_cover_url ( $config ['cover'] );

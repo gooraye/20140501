@@ -12,6 +12,19 @@ class DemoController extends HomeController {
 	/* 文档模型频道页 */
 	public function index() {
 		/* 分类信息 */
+		//  4 2 1
+		 $index = (7);
+		 $index  = $index & 2;
+		 $index2  = $index | 2;
+		 $str = $index.' '.$index2;
+
+
+		 $index3 = (3);
+		 $index3  = $index3 & 2;
+		 $index4  = $index3 | 2;
+		 $str .= $index3.' '.$index4;
+
+		 $this->show($str);
 	}
 
 	/* 邮件发送测试 */

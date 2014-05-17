@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS `wp_online_booking` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+`info`  text NOT NULL  COMMENT '备注',
+`type`  varchar(255) NOT NULL  COMMENT '选择项目',
+`timepart`  varchar(255) NOT NULL  COMMENT '时间段',
+`dateline`  int(10) NOT NULL  COMMENT '日期',
+`tel`  varchar(50) NOT NULL  COMMENT '手机号码',
+`truename`  varchar(50) NOT NULL  COMMENT '姓名',
+`token`  varchar(255) NOT NULL  COMMENT 'token',
+`openid`  varchar(255) NOT NULL  COMMENT 'openid',
+`status`  char(50) NOT NULL  DEFAULT 0 COMMENT '状态',
+PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci CHECKSUM=0 ROW_FORMAT=DYNAMIC DELAY_KEY_WRITE=0;
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('1','','house_book','8:00-9:00','0','','','','','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('2','11','house_book','17:00-18:00','0','12345678900','11','53705a8fb5564','-1','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('3','11','house_book','17:00-18:00','0','12345678900','11','53705a8fb5564','-1','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('4','11','house_book','17:00-18:00','0','12345678900','11','53705a8fb5564','-1','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('5','','house_book','15-16','0','12345678901','12','','','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('6','','house_book','15-16','0','12345678901','12','','','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('7','','house_book','15-16','2014','12345678901','12','','','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('8','','house_book','15-16','2014','12345678901','12','','','0');
+INSERT INTO `wp_online_booking` (`id`,`info`,`type`,`timepart`,`dateline`,`tel`,`truename`,`token`,`openid`,`status`) VALUES ('9','','其它','15:00-16:00','2014','12345678901','123','','','0');
+INSERT INTO `wp_model` (`name`,`title`,`extend`,`relation`,`need_pk`,`field_sort`,`field_group`,`attribute_list`,`template_list`,`template_add`,`template_edit`,`list_grid`,`list_row`,`search_key`,`search_list`,`create_time`,`update_time`,`status`,`engine_type`) VALUES ('online_booking','在线预约','0','','1','','1:基础','','','','','','10','','','1400033748','1400033748','1','MyISAM');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('info','备注','text NOT NULL','textarea','','','1','','0','0','1','1400033793','1400033793','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('type','选择项目','varchar(255) NOT NULL','string','','','1','','0','1','1','1400033842','1400033842','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('timepart','时间段','varchar(255) NOT NULL','string','','','1','','0','0','1','1400033900','1400033900','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('dateline','日期','int(10) NOT NULL','datetime','','','5','','0','0','1','1400033947','1400033947','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('tel','手机号码','varchar(50) NOT NULL','string','','','1','','0','1','1','1400033974','1400033974','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('truename','姓名','varchar(50) NOT NULL','string','','','1','','0','1','1','1400034005','1400034005','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('token','token','varchar(255) NOT NULL','string','','','4','','0','1','1','1400034035','1400034035','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('openid','openid','varchar(255) NOT NULL','string','','','4','','0','1','1','1400034056','1400034056','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('status','状态','char(50) NOT NULL','select','0','','3','0:创建成功\r\n1:审核失败\r\n2:审核成功','0','0','1','1400036907','1400036907','','3','','regex','','3','function');
+UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;

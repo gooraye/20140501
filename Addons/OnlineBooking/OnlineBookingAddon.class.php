@@ -10,7 +10,7 @@ use Common\Controller\Addon;
 
     class OnlineBookingAddon extends Addon{
 
-        public $info = array(
+           public $info = array(
             'name'=>'OnlineBooking',
             'title'=>'在线预约',
             'description'=>'在线预约模块',
@@ -18,8 +18,8 @@ use Common\Controller\Addon;
             'author'=>'hbd',
             'version'=>'0.1',
             'has_adminlist'=>1,
-            'type'=>1         
-        );
+            'type'=>1      
+           );
 
 	public function install() {
 		$install_sql = './Addons/OnlineBooking/install.sql';

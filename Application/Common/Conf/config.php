@@ -47,25 +47,24 @@ return array(
     'DB_PWD'    => '364945361',  // 密码
     'DB_PORT'   => '', // 端口
 
-    //  'DB_TYPE'   => 'mysql', // 数据库类型
-    // 'DB_HOST'   => 'hdm-118.hichina.com', // 服务器地址
-    // 'DB_NAME'   => 'hdm1180183_db', // 数据库名
-    // 'DB_USER'   => 'hdm1180183', // 用户名
-    // 'DB_PWD'    => '364945361',  // 密码
-    // 'DB_PORT'   => '', // 端口
 
     /* 文档模型配置 (文档模型核心配置，请勿更改) */
     'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
     //邮件配置
      'THINK_EMAIL' => array(
-        'SMTP_HOST'   => 'smtp.126.com', //SMTP服务器
+        'SMTP_HOST'   => 'smtp.gooraye.net', //SMTP服务器
         'SMTP_PORT'   => '465', //SMTP服务器端口
-        'SMTP_USER'   => 'hebiduhebi@126.com', //SMTP服务器用户名
-        'SMTP_PASS'   => '136799711', //SMTP服务器密码
-        'FROM_EMAIL'  => 'hebiduhebi@126.com', //发件人EMAIL
+        'SMTP_USER'   => 'gooraye@gooraye.net ', //SMTP服务器用户名
+        'SMTP_PASS'   => 'grxxkj136799711', //SMTP服务器密码
+        'FROM_EMAIL'  => 'gooraye@gooraye.net', //发件人EMAIL
+
+        // 'SMTP_USER'   => 'hebiduhebi@126.com', //SMTP服务器用户名
+        // 'SMTP_PASS'   => '136799711', //SMTP服务器密码
+        // 'FROM_EMAIL'  => 'hebiduhebi@126.com', //发件人EMAIL
+
         'FROM_NAME'   => '绍兴古睿信息科技', //发件人名称
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
         'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
      ),     
-
+     
 );

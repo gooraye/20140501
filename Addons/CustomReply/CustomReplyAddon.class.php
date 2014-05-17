@@ -15,8 +15,8 @@ use Common\Controller\Addon;
             'title'=>'自定义回复',
             'description'=>'支持图文回复、多图文回复、文本回复功能',
             'status'=>1,
-            'author'=>'凡星',
-            'version'=>'0.1',
+            'author'=>'hebidu',
+            'version'=>'1',
             'has_adminlist'=>1,
             'type'=>1         
         );

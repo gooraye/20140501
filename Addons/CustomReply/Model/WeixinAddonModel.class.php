@@ -27,7 +27,13 @@ class WeixinAddonModel extends WeixinModel {
 					continue;
 				
 				$param ['id'] = $info ['id'];
-				$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
+				
+				if(!isset($info['tourl']) || empty($info['tourl'])){
+					$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
+				}else{
+					$url = $info['tourl'];
+				}
+				// $url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 				
 				$articles [] = array (
 						'Title' => $info ['title'],
@@ -45,7 +51,12 @@ class WeixinAddonModel extends WeixinModel {
 			// 组装用户在微信里点击图文的时跳转URL
 			// 其中token和openid这两个参数一定要传，否则程序不知道是哪个微信用户进入了系统
 			$param ['id'] = $info ['id'];
-			$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
+
+			if(!isset($info['tourl']) || empty($info['tourl'])){
+				$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
+			}else{
+				$url = $info['tourl'];
+			}
 			
 			// 组装微信需要的图文数据，格式是固定的
 			$articles [0] = array (

@@ -9,15 +9,18 @@ class WeixinAddonModel extends WeixinModel {
 	function reply($dataArr, $keywordArr = array()) {
 		$this->config = getAddonConfig ( 'Chat' ); // 获取后台插件的配置参数	
 		//dump($this->config);
-		
-		// 先尝试小九机器人
-		//$content = $this->_xiaojo ( $dataArr ['Content'] );
-		
-		// 再尝试小黄鸡
-		//if (empty ( $content )) {
-		//	$content = $this->_simsim ( $dataArr ['Content'] );
-		//}
-		
+		$opens = intval( $this->config['opens'] );
+
+		//开启机器人
+		if (($opens &  1) === 1  ) {
+			//先尝试小九机器人
+			$content = $this->_xiaojo ( $dataArr ['Content'] );
+			//再尝试小黄鸡
+			if (empty ( $content )) {
+				$content = $this->_simsim ( $dataArr ['Content'] );
+			}
+		}
+
 		// TODO 此处可继续增加其它API接口
 		
 		// $content = $this->_fixed();

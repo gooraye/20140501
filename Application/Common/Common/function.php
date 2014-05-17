@@ -1262,6 +1262,18 @@ function addWeixinLog($data, $data_post = '') {
 	$log ['data_post'] = $data_post;
 	M ( 'weixin_log' )->add ( $log );
 }
+
+function addLog($context, $comefrom='',$possiblereason='',$type = 0) {
+	
+	$log ['createtime'] = time ();
+	$log ['status'] = 0;
+	$log['context'] = $context;
+	$log['comefrom'] = $comefrom;
+	$log['possiblereason']  = $possiblereason;
+	$log['type'] = $type;
+
+	M ( 'log' )->add ( $log );
+}
 /**
  * 取一个二维数组中的每个数组的固定的键知道的值来形成一个新的一维数组
  *

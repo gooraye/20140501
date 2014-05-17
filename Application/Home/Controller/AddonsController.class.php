@@ -27,6 +27,7 @@ class AddonsController extends Controller {
 	            $this->error('站点已经关闭，请稍后访问~');
 	        }
 	 }
+
 	protected $addons = null;
 	protected $addon, $model;
 	public function execute($_addons = null, $_controller = null, $_action = null) {
@@ -36,8 +37,8 @@ class AddonsController extends Controller {
 	        if(!$config){
 	            $config =   api('Config/lists');
 	            S('DB_CONFIG_DATA',$config);
-	        }
 	        C($config); //添加配置
+	        }
 
 		if (C ( 'URL_CASE_INSENSITIVE' )) {
 			$_addons = ucfirst ( parse_name ( $_addons, 1 ) );
@@ -50,7 +51,16 @@ class AddonsController extends Controller {
 		defined ( '_ACTION' ) or define ( '_ACTION', $_action );
 		
 		$this->_nav ();
-		
+
+		$map['token'] = get_token();
+
+		$member = M('MemberPublic')->where($map)->find();
+		// dump($member);
+		if($member){
+			$this->assign("WEB_SITE_TITLE",$member['public_name']);
+		}else{
+			//算是异常情况了
+		}
 		if (! empty ( $_addons ) && ! empty ( $_controller ) && ! empty ( $_action )) {
 			$Addons = A ( "Addons://{$_addons}/{$_controller}" )->$_action ();
 		} else {
@@ -60,7 +70,6 @@ class AddonsController extends Controller {
 	function _nav() {
 		$map ['name'] = _ADDONS;
 		$this->addon = $addon = M ( 'Addons' )->where ( $map )->find ();
-		
 		$nav = array ();
 		if ($addon ['has_adminlist']) {
 			$res ['title'] = $addon ['title'];
@@ -79,6 +88,7 @@ class AddonsController extends Controller {
 		}
 		$this->assign ( 'tablist', $nav );
 		
+		// dump($nav);
 		return $nav;
 	}
 	/**
@@ -196,6 +206,7 @@ class AddonsController extends Controller {
 		// dump($addon);
 		if ($addon ['custom_config'])
 			$this->assign ( 'custom_config', $this->fetch ( $addon ['addon_path'] . $addon ['custom_config'] ) );
+		
 		$this->display ();
 	}
 	
