@@ -57,7 +57,7 @@ class OnlineBookingController extends AddonsController{
 		$this->assign("projects",$projects);
 
 		// $this->save();
-		// $this->display();
+		 $this->display();
 	}
 
 	public function save()

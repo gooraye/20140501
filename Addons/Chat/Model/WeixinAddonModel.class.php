@@ -11,8 +11,36 @@ class WeixinAddonModel extends WeixinModel {
 		//dump($this->config);
 		$opens = intval( $this->config['opens'] );
 
-		//开启机器人
-		if (($opens &  1) === 1  ) {
+		$opens = 0;
+		for ($i=0; $i < count($this->config['opens']); $i++) { 
+			$opens += intval($this->config['opens'][$i]);
+		}
+
+		// dump($opens);
+		// $this->config['opens'];
+		// $this->replyText ( strval(strpos($dataArr['Content'],'天气')));
+		// return $opens;
+		// $content = $this->_weather($dataArr['Content']);
+		// $this->replyNews ( $content );
+		// return $content;
+		//开启天气预报
+		if(($opens & 4) === 4 ){
+
+			 $content = $this->_weather($dataArr['Content']);
+
+			// $this->replyText ($content);
+			
+			if(!empty($content)){
+
+				$res = $this->replyNews ( $content );
+				// addWeixinLog($content,'天气预报');
+				return $res;
+
+			}
+
+		 }
+		 
+		 if (($opens & 1) === 1  ) {//开启机器人
 			//先尝试小九机器人
 			$content = $this->_xiaojo ( $dataArr ['Content'] );
 			//再尝试小黄鸡
@@ -21,10 +49,10 @@ class WeixinAddonModel extends WeixinModel {
 			}
 		}
 
-		// TODO 此处可继续增加其它API接口
+		// // TODO 此处可继续增加其它API接口
 		
-		// $content = $this->_fixed();
-		// 最后只能随机回复了
+		// // $content = $this->_fixed();
+		// // 最后只能随机回复了
 		if (empty ( $content )) {
 			$content = $this->_rand ();
 		}
@@ -32,12 +60,7 @@ class WeixinAddonModel extends WeixinModel {
 		return $res;
 	}
 	
-	// 固定回复
-	private function _fixed() {
-		$this->config ['fixed_reply'] = array_map ( 'trim', explode ( "\n", $this->config ['fixed_reply'] ) );
-		
-		return $this->config ['fixed_reply'] ;
-	}
+	
 
 	// 随机回复
 	private function _rand() {
@@ -71,4 +94,51 @@ class WeixinAddonModel extends WeixinModel {
 		
 		return $data;
 	}
+
+
+	private function _weather($keyword){
+		if(strpos($keyword, '天气')  ===  0){
+			// addWeixinLog($keyword,$keyword);
+			// return '';
+		 	return $this->getWeatherInfo($keyword);
+
+		}
+
+		return '';
+	}
+
+
+	private function getWeatherInfo($cityName)
+	{
+		
+		$url = "http://api.map.baidu.com/telematics/v3/weather?location=".urlencode($cityName)."&output=json&ak=u8UAepm7wNYKh2ypXDTrn3o8";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$output = curl_exec($ch);
+		curl_close($ch);
+		$result = json_decode($output, true);
+		if ($result["error"] != 0){
+			// return $result["status"];
+			return '';
+		}
+		// addWeixinLog($result,"getWeatherInfo");
+
+		$curHour = (int)date('H',time());
+		$weather = $result["results"][0];
+		$weatherArray[] = array("Title" =>$weather['currentCity']."天气预报", "Description" =>"", "PicUrl" =>"", "Url" =>"");
+		for ($i = 0; $i < count($weather["weather_data"]); $i++) {
+			$weatherArray[] = array("Title"=>
+			$weather["weather_data"][$i]["date"]."\n".
+			$weather["weather_data"][$i]["weather"]." ".
+			$weather["weather_data"][$i]["wind"]." ".
+			$weather["weather_data"][$i]["temperature"],
+			"Description"=>"", 
+			"PicUrl"=>(($curHour >= 6) && ($curHour < 18))?$weather["weather_data"][$i]["dayPictureUrl"]:$weather["weather_data"][$i]["nightPictureUrl"], "Url"=>"");
+		}
+
+		addWeixinLog($weatherArray,"getWeatherInfo");
+		return $weatherArray;
+	}
+
 }

@@ -33,6 +33,7 @@ return array (
 				'title' => '开放的接口',
 				'type' => 'checkbox',
 				'options'=>array(		 //select 和radion、checkbox的子选项
+					 '4'=>'天气预报',		 //值=>文字
 					 '2'=>'其它',		 //值=>文字
 					 '1'=>'机器人'		 //值=>文字
 					// '0'=>'不提醒，在线查看',
