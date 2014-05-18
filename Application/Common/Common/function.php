@@ -1329,11 +1329,42 @@ function get_openid() {
 	}
 	$openid = session ( 'openid' );
 	
+	//在url参数中加密的openid 解密之
+	// if ( ! empty ( $_REQUEST ['wechatid'] )) {
+	// 	$openid =  think_decrypt( $_REQUEST ['wechatid'] );
+	// 	session ( 'openid', $openid );
+	// }
+
 	$isWeixinBrowser = isWeixinBrowser ();
 	if (empty ( $openid ) && $isWeixinBrowser) {
 		$callback = GetCurUrl ();
 		OAuthWeixin ( $callback );
 	}
+	
+	if (empty ( $openid )) {
+		return - 1;
+	}
+	
+	return $openid;
+}
+// 获取当前用户的OpenId
+function get_memberpublic() {
+	if (! empty ( $_REQUEST ['memberpublic'] )) {
+		session ( 'memberpublic', $_REQUEST ['memberpublic'] );
+	}
+	$openid = session ( 'memberpublic' );
+	
+	//在url参数中加密的openid 解密之
+	// if ( ! empty ( $_REQUEST ['wechatid'] )) {
+	// 	$openid =  think_decrypt( $_REQUEST ['wechatid'] );
+	// 	session ( 'openid', $openid );
+	// }
+
+	// $isWeixinBrowser = isWeixinBrowser ();
+	// if (empty ( $openid ) && $isWeixinBrowser) {
+	// 	$callback = GetCurUrl ();
+	// 	OAuthWeixin ( $callback );
+	// }
 	
 	if (empty ( $openid )) {
 		return - 1;

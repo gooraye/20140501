@@ -11,9 +11,27 @@ class OnlineBookingController extends AddonsController{
 	 }
 	public function index()
 	{
+
 		$config = getAddonConfig ( 'OnlineBooking' ); 
+		$token = get_token();
+		$openid = get_openid();
+		if($openid == -1){
+			$openid  = think_decrypt($_REQUEST['wechatid']);
+			session('openid',$openid);
+		}
 
+		// var_dump($token);
+		// var_dump($_REQUEST);
+		// var_dump( ! empty ( $_REQUEST ['wechatid'] ));
 
+		// $encrypt = think_encrypt($_REQUEST['wechatid']);
+		// $decrypt = think_decrypt($encrypt);
+		// var_dump(think_decrypt($_REQUEST['wechatid']));
+
+		// sleep(3);
+		// var_dump(think_decrypt($_REQUEST['wechatid']));
+		// var_dump($openid);
+		// exit();
 		// 获取后台插件的配置参数
 
 		$this->assign("config",$config);
@@ -38,7 +56,8 @@ class OnlineBookingController extends AddonsController{
 		$this->assign("path",$picture['path']);
 		$this->assign("projects",$projects);
 
-		$this->display();
+		// $this->save();
+		// $this->display();
 	}
 
 	public function save()
@@ -51,8 +70,8 @@ class OnlineBookingController extends AddonsController{
 		$data['dateline'] = $_POST['dateline'];	
 		$data['tel'] = $_POST['tel'];	
 		$data['truename'] = $_POST['truename'];
-		// $data['token'] = get_token();
-		// $data['openid'] = get_openid();
+		$data['token'] = get_token();
+		$data['openid'] = get_openid();
 		$br = '<br/>';
 		$body  = '姓名：'.$data['truename'].$br;
 		$body .= '联系电话：'.$data['tel'].$br;
@@ -61,15 +80,15 @@ class OnlineBookingController extends AddonsController{
 		$body .= '特色项目：'.$data['type'].$br;
 		$body .= '备注：'.$data['info'];
 		
-		if(empty($data['truename']) || empty($data['tel'] )){
-			$this->error("手机号与姓名必填!");		
-		}
+		// if(empty($data['truename']) || empty($data['tel'] )){
+		// 	$this->error("手机号与姓名必填!");		
+		// }
 		
-		if($data['token'] != -1 &&  $data['openid'] != -1){
-			// $this->error("参数错误，请重新尝试!");	
-			$OnlineBooking->create($data);
-			$result = $OnlineBooking->add();	
-		}
+		// if($data['token'] != -1 &&  $data['openid'] != -1){
+		// 	// $this->error("参数错误，请重新尝试!");	
+		// 	$OnlineBooking->create($data);
+		// 	$result = $OnlineBooking->add();	
+		// }
 
 		
 		
@@ -86,19 +105,32 @@ class OnlineBookingController extends AddonsController{
 
 		// dump($noticeWay);
 		// exit();
-		 
+
+		// for($i=0;$i<count($addresses);$i++){
+		// 	$tmp = explode(":", $addresses[$i]);
+		// 	if(count($tmp) === 2){
+		// 		$tmp[0]
+		// 	}
+		// }
+		// $config['toaddress'] = "\'mail\'=>\'hebiduhebi@126.com\',\'weixin\'=>\'oy6EYuNwX9g9u-E-7FQ72-avknmY\'";
+		//  dump($config['toaddress']);
+		 $addresses =str_replace("\\",'', "return array(".$config['toaddress'].");");
+		 // dump(str_replace("\\",'',$addresses));
+		 // exit();
+		$addresses = eval($addresses);
 		 //发送邮件
 		if(($noticeWay & 4) == 4){
-			$result[0] = $this->sendMail($config['toaddress'],$body);			
+			$result[0] = $this->sendMail($addresses['mail'],$body);			
 		}
 
+		//TODO：发送短信
 		if(($noticeWay & 1) == 1){
-			 $result[1] = $this->sendSMS($config['toaddress'],$body);
+			 // $result[1] = $this->sendSMS($addresses['mail'],$body);
 		}
 
 		//发送微信
 		if(($noticeWay & 2) == 2){
-			$result[2] = $this->sendWeixin($config['toaddress'],$body);
+			$result[2] = $this->sendWeixin($addresses['weixin'],$body);
 		}
 
 		if($result[0]  === true || $result[1]  === true || $result[2]  === true){
@@ -114,10 +146,13 @@ class OnlineBookingController extends AddonsController{
 	function sendWeixin($toaddress,$body){
 		
 		 $result = true;
-		 // think_send_mail($toaddress,'预约','预约提醒',$body);
-		// M('')
+		 // $fromusername = get_memberpublic();
+		 // $fromusername = "gh_e65caef2c01d";
+		 // $replytext = $this->replyText($toaddress,$body,$fromusername);
+		 // dump($replytext);
 		return $result;
 	}
+
 	/*
 	** 发送邮件
 	***/
@@ -127,9 +162,9 @@ class OnlineBookingController extends AddonsController{
 
 		for ($i=0; $i < count($toaddress); $i++) {
 			
-			$result = think_send_mail($toaddress,'预约','预约提醒',$body);
+		 	$result = think_send_mail($toaddress[$i],'预约','预约提醒',$body);
 
-		}
+		 }
 		
 		return $result;
 	}
@@ -140,16 +175,16 @@ class OnlineBookingController extends AddonsController{
 
 
 	/* 回复文本消息 */
-	public function replyText($content) {
+	public function replyText($touserName,$content,$fromusername) {
 		$msg ['Content'] = $content;
+		$msg ['ToUserName'] = $touserName;
+		$msg ['FromUserName'] = $fromusername;
 		$this->_replyData ( $msg, 'text' );
 	}
 
 	/* 发送回复消息到微信平台 */
 	private function _replyData($msg, $msgType) {
 		// 记录日志
-		$msg ['ToUserName'] = '';
-		$msg ['FromUserName'] = '';
 		$msg ['CreateTime'] = NOW_TIME;
 		$msg ['MsgType'] = $msgType;	
 		$xml = new \SimpleXMLElement ( '<xml></xml>' );
@@ -182,7 +217,5 @@ class OnlineBookingController extends AddonsController{
 			}
 		}
 	}
-
-
 
 }

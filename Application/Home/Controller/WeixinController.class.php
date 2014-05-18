@@ -17,13 +17,18 @@ class WeixinController extends HomeController {
 		if (! empty ( $data ['FromUserName'] )) {
 			session ( 'openid', $data ['FromUserName'] );
 		}
+
+		if (! empty ( $data ['ToUserName'] )) {
+			session ( 'memberpublic', $data ['ToUserName'] );
+		}
+		
 		// 记录日志
 		addWeixinLog ( $data, $GLOBALS ['HTTP_RAW_POST_DATA'] );
 		
 		// 回复数据
 		$this->reply ( $data, $weixin );
 		
-		// 结束程序。防止oneThink框架的调试信息输出
+		// 结束程序。防止调试信息输出
 		exit ();
 	}
 	private function reply($data, $weixin) {

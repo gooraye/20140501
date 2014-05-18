@@ -109,7 +109,8 @@ abstract class Controller {
 		// 当前用户信息
 		$user ['token'] = get_token ();
 		$user ['openid'] = get_openid ();
-
+		
+		// exit();
 		$access = array_map ( 'trim', explode ( "\n", C ( 'access' ) ) );
 		$access = array_map ( 'strtolower', $access );
 		$access = array_flip ( $access );

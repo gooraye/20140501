@@ -27,11 +27,13 @@ class WeixinAddonModel extends WeixinModel {
 					continue;
 				
 				$param ['id'] = $info ['id'];
+
 				
 				if(!isset($info['tourl']) || empty($info['tourl'])){
 					$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 				}else{
-					$url = $info['tourl'];
+					$wechatid = think_encrypt(get_openid()) ;
+					$url = $info['tourl'].'/wechatid/'. $wechatid;
 				}
 				// $url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 				
@@ -55,7 +57,8 @@ class WeixinAddonModel extends WeixinModel {
 			if(!isset($info['tourl']) || empty($info['tourl'])){
 				$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 			}else{
-				$url = $info['tourl'];
+				$wechatid = think_encrypt(get_openid()) ;
+				$url = $info['tourl'].'/wechatid/'. $wechatid;
 			}
 			
 			// 组装微信需要的图文数据，格式是固定的

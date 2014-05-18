@@ -13,8 +13,8 @@ return array(
 	),
 	'toaddress'=>array(//配置在表单中的键名 ,这个会是config[remindway]
 		'title'=>'收件人邮箱',//预约的提醒方式
-		'type'=>'text',		 //表单的类型：text、textarea、checkbox、radio、select等		
-		'value'=>'hebiduhebi@126.com',			 //表单的默认值
+		'type'=>'textarea',		 //表单的类型：text、textarea、checkbox、radio、select等		
+		'value'=>"'mail'=>'hebiduhebi@126.com','weixin'=>''",			 //表单的默认值
 	),
 
 	'address'=>array(
