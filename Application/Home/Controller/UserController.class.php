@@ -12,7 +12,7 @@ use User\Api\UserApi;
 
 /**
  * 用户控制器
- * 包括用户中心，用户登录及注册
+ * 包括用户中心，用户登陆及注册
  */
 class UserController extends HomeController {
 
@@ -52,7 +52,7 @@ class UserController extends HomeController {
 		}
 	}
 
-	/* 登录页面 */
+	/* 登陆页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		// $config	=	S('DB_CONFIG_DATA');
 	 //    	if(!$config){
@@ -67,19 +67,19 @@ class UserController extends HomeController {
 	 //               }
 	 //          }
 		
-		if(IS_POST){ //登录验证
+		if(IS_POST){ //登陆验证
 			/* 检测验证码 */
 			if(C('WEB_SITE_VERIFY') && !check_verify($verify)){
 				$this->error('验证码输入错误！');
 			}
 
-			/* 调用UC登录接口登录 */
+			/* 调用UC登陆接口登陆 */
 			$user = new UserApi;
 			$uid = $user->login($username, $password);
-			if(0 < $uid){ //UC登录成功
-				/* 登录用户 */
+			if(0 < $uid){ //UC登陆成功
+				/* 登陆用户 */
 				$Member = D('Member');
-				if($Member->login($uid)){ // 登录用户
+				if($Member->login($uid)){ // 登陆用户
 					$url = Cookie ( '__forward__' );
 					if ($url) {
 						Cookie ( '__forward__', null );
@@ -87,12 +87,12 @@ class UserController extends HomeController {
 						$url = U ( 'Home/MemberPublic/lists' );
 					}
 					
-					$this->success ( '登录成功！', $url );
+					$this->success ( '登陆成功！', $url );
 				} else {
 					$this->error($Member->getError());
 				}
 
-			} else { //登录失败
+			} else { //登陆失败
 				switch($uid) {
 					case -1: $error = '用户不存在或被禁用！'; break; //系统级别禁用
 					case -2: $error = '密码错误！'; break;
@@ -101,14 +101,14 @@ class UserController extends HomeController {
 				$this->error($error);
 			}
 
-		} else { //显示登录表单
+		} else { //显示登陆表单
 			$this->display();
 		}
 	}
 	
 	
 
-	/* 退出登录 */
+	/* 退出登陆 */
 	public function logout(){
 		if(is_login()){
 			D('Member')->logout();
@@ -118,7 +118,7 @@ class UserController extends HomeController {
 		}
 	}
 
-	/* 验证码，用于登录和注册 */
+	/* 验证码，用于登陆和注册 */
 	public function verify(){
 		$verify = new \Think\Verify();
 		$verify->entry(1);

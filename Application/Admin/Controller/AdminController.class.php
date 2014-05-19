@@ -34,7 +34,7 @@ class AdminController extends Controller {
     protected function _initialize(){
         // 获取当前用户ID
         define('UID',is_login());
-        if( !UID ){// 还没登录 跳转到登录页面
+        if( !UID ){// 还没登陆 跳转到登陆页面
             $this->redirect('Public/login');
         }
         /* 读取数据库中的配置 */

@@ -17,9 +17,9 @@ const ONETHINK_ADDON_PATH = './Addons/';
  */
 
 /**
- * 检测用户是否登录
+ * 检测用户是否登陆
  *
- * @return integer 0-未登录，大于0-当前登录用户ID
+ * @return integer 0-未登陆，大于0-当前登陆用户ID
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 function is_login() {
@@ -473,7 +473,7 @@ function time_format($time = NULL, $format = 'Y-m-d H:i') {
  */
 function get_username($uid = 0) {
 	static $list;
-	if (! ($uid && is_numeric ( $uid ))) { // 获取当前登录用户名
+	if (! ($uid && is_numeric ( $uid ))) { // 获取当前登陆用户名
 		return session ( 'user_auth.username' );
 	}
 	

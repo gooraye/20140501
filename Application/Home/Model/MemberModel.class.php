@@ -57,11 +57,11 @@ class MemberModel extends Model {
 	);
 	
 	/**
-	 * 登录指定用户
+	 * 登陆指定用户
 	 *
 	 * @param integer $uid
 	 *        	用户ID
-	 * @return boolean ture-登录成功，false-登录失败
+	 * @return boolean ture-登陆成功，false-登陆失败
 	 */
 	public function login($uid) {
 		/* 检测是否在当前应用注册 */
@@ -84,7 +84,7 @@ class MemberModel extends Model {
 			return false;
 		}
 		
-		/* 登录用户 */
+		/* 登陆用户 */
 		$this->autoLogin ( $user );
 		
 		// 记录行为
@@ -129,13 +129,13 @@ class MemberModel extends Model {
 	}
 	
 	/**
-	 * 自动登录用户
+	 * 自动登陆用户
 	 *
 	 * @param integer $user
 	 *        	用户信息数组
 	 */
 	public function autoLogin($user) {
-		/* 更新登录信息 */
+		/* 更新登陆信息 */
 		$data = array (
 				'uid' => $user ['uid'],
 				'login' => array (
@@ -147,7 +147,7 @@ class MemberModel extends Model {
 		);
 		$this->save ( $data );
 		
-		/* 记录登录SESSION和COOKIES */
+		/* 记录登陆SESSION和COOKIES */
 		$auth = array (
 				'uid' => $user ['uid'],
 				'username' => get_username ( $user ['uid'] ),

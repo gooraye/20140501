@@ -14,7 +14,7 @@
 <div class="qiandaobanner">
     <img width="100%" src="{$info.picurl|get_cover_url}">
 </div>
-<div class="cardexplain"><!--普通用户登录时显示--><!--商家房价及类型-->
+<div class="cardexplain"><!--普通用户登陆时显示--><!--商家房价及类型-->
 	<ul class="round">
 	<li class="title"><span class="none">微酒店</span></li>
 	<volist name='order' id='order2' key="k"><li class="dandanb"><!--订房--><a href="{:U('detail', 'id='.$order2[id])}"><span><table class="jiagebiao" width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div>{$order2.type}</div><div><img src="{$order2.picurl|get_cover_url}" class="showimg"><p>{$order2.typeinfo}</p><p>原价：<a class="yuanjia">￥{$order2.price}</a></p><p>优惠价：<a class="youhuijia">￥{$order2.yhprice}</a></p></div></td></tr></tbody></table></span></a></li></volist></ul>

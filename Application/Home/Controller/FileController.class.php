@@ -59,7 +59,7 @@ class FileController extends HomeController {
      * @author huajie <banhuajie@163.com>
      */
     public function uploadPicture(){
-        //TODO: 用户登录检测
+        //TODO: 用户登陆检测
 
         /* 返回标准数据 */
         $return  = array('status' => 1, 'info' => '上传成功', 'data' => '');

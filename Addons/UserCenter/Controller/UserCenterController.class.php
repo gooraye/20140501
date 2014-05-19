@@ -36,7 +36,7 @@ class UserCenterController extends AddonsController {
 						'field' => array (
 								'last_login_time' 
 						),
-						'title' => '最近登录时间' 
+						'title' => '最近登陆时间' 
 				),
 				array (
 						'field' => array (

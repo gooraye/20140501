@@ -21,7 +21,7 @@ class PublicController extends \Think\Controller {
         $this->redirect('Index/index');
     }
     /**
-     * 后台用户登录
+     * 后台用户登陆
      * @author 丁丁 <346551990@qq.com>
      */
     public function login($username = null, $password = null, $verify = null){
@@ -46,20 +46,20 @@ class PublicController extends \Think\Controller {
                 $this->error('验证码输入错误！');
             }
 
-            /* 调用UC登录接口登录 */
+            /* 调用UC登陆接口登陆 */
             $User = new UserApi;
             $uid = $User->login($username, $password);
-            if(0 < $uid){ //UC登录成功
-                /* 登录用户 */
+            if(0 < $uid){ //UC登陆成功
+                /* 登陆用户 */
                 $Member = D('Member');
-                if($Member->login($uid)){ //登录用户
-                    //TODO:跳转到登录前页面
-                    $this->success('登录成功！', U('Index/index'));
+                if($Member->login($uid)){ //登陆用户
+                    //TODO:跳转到登陆前页面
+                    $this->success('登陆成功！', U('Index/index'));
                 } else {
                     $this->error($Member->getError());
                 }
 
-            } else { //登录失败
+            } else { //登陆失败
                 switch($uid) {
                     case -1: $error = '用户不存在或被禁用！'; break; //系统级别禁用
                     case -2: $error = '密码错误！'; break;
@@ -76,7 +76,7 @@ class PublicController extends \Think\Controller {
         }
     }
 
-    /* 退出登录 */
+    /* 退出登陆 */
     public function logout(){
         if(is_login()){
             D('Member')->logout();
