@@ -32,10 +32,10 @@ class FrontController extends Controller {
         }
     }
 
-	/* 用户登录检测 */
+	/* 用户登陆检测 */
 	protected function login(){
-		/* 用户登录检测 */
-		is_login() || $this->error('您还没有登录，请先登录！', U('User/login'));
+		/* 用户登陆检测 */
+		is_login() || $this->error('您还没有登陆，请先登陆！', U('User/login'));
 	}
 
 }
