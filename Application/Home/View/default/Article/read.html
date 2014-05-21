@@ -6,6 +6,7 @@
 		<header class="bar" >
 		<div class="container">
 		<h2>{$info.title}</h2>
+
 		</div>
 		</header>
 		<!-- Contents
@@ -16,7 +17,9 @@
 		</section>
 		<p class="bottom clearfix">
 		<span class="pull-left author">
-		（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}</span>
+		（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}
+		<small>浏览数:{$info.view}</small>
+		</span>
 		<span class="pull-right">
 		<article:prev name="prev" info="info">
 		<a href="{:U('?id='.$prev['id'])}" class="btn btn-gray">上一篇</a>
