@@ -28,12 +28,11 @@ class BaseController extends AddonsController {
 		$res ['class'] = $controller == 'coupons' ? 'current' : '';
 		$nav [] = $res;
 		
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tablist', $nav );
 		
 		$config = getAddonConfig ( 'Card' );
 		$config ['background_url'] = $config ['background'] == 11 ? $config ['background_custom'] : ADDON_PUBLIC_PATH . '/card_bg_' . $config ['background'] . '.png';
 		$this->assign ( 'config', $config );
-		//dump ( $config );
-		//dump(get_token());
+		
 	}
 }

@@ -16,6 +16,10 @@ body.a{
 .a span{
 	color:#777;
 }
+.a a{	
+	transition: all 0.2s ease 0s;
+	outline: 0;
+}
 .a a:hover{
 	text-decoration: none;
 	color:#333;
@@ -250,6 +254,90 @@ body.a{
 	position: relative;
 	background: rgba(254, 254, 254, 0.68);
 }
+/* 边栏  */
+.main-color-bg{
+	background-color: #eee0e2;
+}
+
+.widget-tab-titles{
+	
+}
+.widget-tabs-title-container ul li h5{
+	margin: 0px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.widget-tabs-title-container ul li{
+	float:left;
+	border-bottom: none !important;
+	padding: 6px 0 !important;
+	float: left;
+	/*width: 96px;*/
+	width:40%;
+	margin-left: 5px;
+	text-align: center;
+	position: relative;
+}
+.widget-tabs-title-container ul li.active:after{
+	border-color: #eee0e2 #FFFFFF;
+	border-style: solid;
+	border-width: 10px 11px 0;
+	bottom: -10px;
+	content: "";
+	display: block;
+	left: 40%;
+	position: absolute;
+	width: 0;
+}
+.tab-content{
+	padding: 6px;
+	display: none;
+}
+.tab-content ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+.tab-content ul li{
+	overflow: hidden;
+	margin-bottom: 7px;
+	padding: 0 0 10px 0 !important;
+}
+.tab-content .thumbnail{
+	width: 70px;
+	float: left;
+	margin: 0px;
+	margin-right: 15px;
+	padding: 0px;
+	border: 0px;
+
+}
+.tab-content .wp-post-image{
+	width: 70px;
+	height: 70px;
+	display: block;
+}
+.tab-content .entry-meta span{
+	color:#999999;
+}
+.tab-content .entry-meta{
+	overflow: hidden;
+	line-height: 1.2;
+	font-size: 13px;
+	color: #999999;
+	margin-top: 8px;
+}
+.tab-content .post-right h6{
+	font-size: 14px;
+}
+.tab-content .entry-meta .sep{
+	margin: 0 5px;
+}
+.tab-content .entry-meta .author{
+	padding: 0px;
+}
+
 /*其它尺寸适应*/
 
 @media (max-width: 767px){

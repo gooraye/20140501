@@ -55,8 +55,7 @@ class CustomMenuController extends AddonsController {
 		$res ['name'] = str_replace ( '├──', '', $d ['title'] );
 		
 		if (! empty ( $d ['keyword'] )) {
-			$res ['type'] = 'click';
-			
+			$res ['type'] = 'click';		
 			$res ['key'] = $d ['keyword'];
 		} else {
 			$res ['type'] = 'view';
@@ -92,7 +91,8 @@ class CustomMenuController extends AddonsController {
 		$map ['token'] = get_token ();
 		$info = M ( 'member_public' )->where ( $map )->find ();
 		$url_get = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $info ['appid'] . '&secret=' . $info ['secret'];
-		
+
+
 		$ch1 = curl_init ();
 		$timeout = 5;
 		curl_setopt ( $ch1, CURLOPT_URL, $url_get );
@@ -111,7 +111,8 @@ class CustomMenuController extends AddonsController {
 		
 		$url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' . $access ['access_token'];
 		$header [] = "content-type: application/x-www-form-urlencoded; charset=UTF-8";
-		
+		// var_dump($tree);
+		// exit();
 		$ch = curl_init ();
 		curl_setopt ( $ch, CURLOPT_URL, $url );
 		curl_setopt ( $ch, CURLOPT_CUSTOMREQUEST, "POST" );

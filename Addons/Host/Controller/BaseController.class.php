@@ -27,7 +27,7 @@ class BaseController extends AddonsController {
 		
 	
 				
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tablist', $nav );
 		
 		$config = getAddonConfig ( 'WeiSite' );
 		$config ['cover_url'] = get_cover_url ( $config ['cover'] );

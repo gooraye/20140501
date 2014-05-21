@@ -74,6 +74,18 @@
 
         }
         $(function(){
+            //边栏导航
+            
+            $(".widget-tabs-title-container a").click(function(ev){
+                    ev.preventDefault();
+                    $(".widget-tabs-title-container .active").removeClass("active");
+                    $(this).parent().parent().addClass("active");
+
+                    var ids = $(".widget-tabs-title-container .active a").attr("href");
+                    // console.log(ids);
+                    $(".tab-content").hide();
+                    $(ids).fadeIn(500);
+            });
             // $('a[rel=#overlay]')
             $('.features div').hover(function(ele){
                      $(this).addClass("hover");
@@ -120,7 +132,7 @@
     </script>
 
 
-    <div class="row col-md-12 text-center  " style="padding-bottom:30px;">© 2014 古睿信息科技有限公司.</div>
+    <div class="row col-md-12 text-center  " style="padding-bottom:30px;">Copyright© 2014 古睿信息科技有限公司 All Rights Reserve.</div>
     <!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
     {:hook('pageFooter', 'widget')}    
 

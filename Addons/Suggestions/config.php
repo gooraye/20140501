@@ -17,6 +17,13 @@ return array (
 						'0' => '否' 
 				),
 				'value' => '0' 
-		) 
+		) ,
+		'logo' => array(
+
+			'title' => '建议意见logo',
+			'type' => 'text',
+			'value' => 'http://gooraye.qiniudn.com/gr_logotext.png', 
+
+		)
 );
 					

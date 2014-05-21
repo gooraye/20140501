@@ -12,6 +12,7 @@ class WeixinAddonModel extends WeixinModel {
 		// 其中token和openid这两个参数一定要传，否则程序不知道是哪个微信用户进入了系统
 		$param ['token'] = get_token ();
 		$param ['openid'] = get_openid ();
+		$param ['wechatid'] = think_encrypt(get_openid ()) ;
 		$url = addons_url ( 'Card://Card/show', $param );
 		
 		// 组装微信需要的图文数据，格式是固定的

@@ -11,10 +11,13 @@ class WeixinAddonModel extends WeixinModel{
 		$param ['token'] = get_token ();
 		$param ['openid'] = get_openid ();
 		$url = addons_url ( 'Suggestions://Suggestions/suggest', $param );
+
+		$config = getAddonConfig ( 'WeixinAddon' ); // 获取后台插件的配置参数
+		
 		$articles [0] = array (
 				'Title' => '建议意见',
 				'Description' => '请点击进入填写反馈内容',
-				'PicUrl' => 'http://weiphp.cn/Public/Home/images/about/logo.jpg',
+				'PicUrl' => $config['logo'],
 				'Url' => $url
 		);
 		

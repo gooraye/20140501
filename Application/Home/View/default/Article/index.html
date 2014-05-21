@@ -2,7 +2,7 @@
 <!-- Contents
     ================================================== -->
  <div class="container container-body ">
-           <section class="center-block main-content">
+           <section class="center-block main-content col-lg-8 col-md-8 col-sm-12">
                <div class="bar">
                     <h3>{$category.title}</h3>
                </div>
@@ -14,29 +14,17 @@
                         </div>
                         <hr/>
                      </article:list>
-               <!--      <volist name="list" id="item" empty="暂时没有信息" >
-                        <div class="item">
-                            <span><a href="{:U('Article/detail?id='.$item['id'])}">{$item.title}</a></span>
-                            <span class="pull-right"> {$item.create_time|time_format}</span>
-                        </div>
-                        <hr/>
-                    </volist> -->
-              <!--       <div>
-                        <p class="lead">{$list.description}</p>
-                    </div> -->
-                  <!--   <div>
-                        <span><a href="{:U('Article/detail?id='.$list['id'])}">查看全文</a></span> 
-                        <span class="pull-right">
-                             <span class="author">{$list.uid|get_username}</span> 
-                             <span>于 {$list.create_time|time_format}</span> 发表在 <span>
-                            <a href="{:U('Article/lists?category='.get_category_name($list['category_id']))}">{$list.category_id|get_category_title}</a></span> 
-                            <span>阅读( {$list.view} )</span>&nbsp;&nbsp; 
-                        </span>
-                    </div>-->
-
-                    <!-- </article:list> -->
+              
                 </div>
 
             </section>
+            <aside class="col-lg-4 col-md-4 col-sm-12">
+                <!-- 边栏 -->    
+                <include file="Base/_articleaside" />
+
+            </aside>
 </div>
+
+
 <include file="Base/_footer" />
+

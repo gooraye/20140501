@@ -13,11 +13,11 @@ class WeixinController extends HomeController {
 		$weixin = D ( 'Weixin' );
 		// 获取数据
 		$data = $weixin->getData ();
-		
+		//openid
 		if (! empty ( $data ['FromUserName'] )) {
 			session ( 'openid', $data ['FromUserName'] );
 		}
-
+		//公众号
 		if (! empty ( $data ['ToUserName'] )) {
 			session ( 'memberpublic', $data ['ToUserName'] );
 		}

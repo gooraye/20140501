@@ -22,7 +22,7 @@ class QuestionController extends AddonsController {
 		$res ['class'] = 'current';
 		$nav [] = $res;
 		
-		$this->assign ( 'nav', $nav );
+		$this->assign ( 'tablist', $nav );
 	}
 	// 通用插件的列表模型
 	public function lists() {

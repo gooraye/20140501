@@ -48,7 +48,7 @@ body > .navbar .brand:hover {
 }
 /* reset the nav*/
 .navbar .nav > li{ line-height:50px;}
-.navbar .nav > li > a{ padding:0 20px;; line-height:50px; color:#FFCBCB;;white-space: nowrap;
+.navbar .nav > li > a{ padding:0 20px;; line-height:50px; color:#222;;white-space: nowrap;
 overflow: hidden; text-overflow:ellipsis}
 .navbar-inverse .nav li.dropdown > .dropdown-toggle{ padding-right:0; padding-left:0}
 .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret{ vertical-align:middle; margin-top:-2px;border-top-color:#000; border-bottom-color:#000; position:absolute; top:26px; right:5px;}

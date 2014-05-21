@@ -26,9 +26,12 @@ class ArticleController extends HomeController {
 		$map = array('category_id' => 2);
 		$articlesModel = D('Document');
 		$list = $articlesModel->where($map)->select();
+		$newestlist = $this->get_newest_articles();
 		// dump($list);
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
+		$this->assign("newestlist",$newestlist);
+		$this->assign("hotlist",$this->get_hot_articles());
 		$this->assign($list);
 		$this->display($category['template_index']);
 	}
@@ -37,7 +40,7 @@ class ArticleController extends HomeController {
 	public function lists($page = 1){
 		/* 分类信息 */
 		$category = $this->category();
-
+		$newestlist = $this->get_newest_articles();
 		/* 获取当前分类列表 */
 		$Document = D('Document');
 		$list = $Document->page($page, $category['list_row'])->lists($category['id']);
@@ -49,6 +52,8 @@ class ArticleController extends HomeController {
 		$this->assign('category', $category);
 		$this->assign('list', $list);
 		$this->assign("channels",$this->get_navs());
+		// $this->assign("newestlist",$newestlist);
+		// $this->assign("hotlist",$this->get_hot_articles());
 		$this->display($category['template_lists']);
 	}
 
@@ -94,6 +99,8 @@ class ArticleController extends HomeController {
 		$this->assign('category', $category);
 		$this->assign('info', $info);
 		$this->assign('page', $page); //页码
+		$this->assign("newestlist",$this->get_newest_articles());
+		$this->assign("hotlist",$this->get_hot_articles());
 		$this->display($tmpl);
 	}
 
@@ -118,6 +125,36 @@ class ArticleController extends HomeController {
 		} else {
 			$this->error('分类不存在或被禁用！');
 		}
+	}
+
+	//获取4条最新的新闻
+	function get_newest_articles(){
+		$articles = S('article_newest');
+
+		if(empty($articles)){
+			$doc = D('Document');
+			$map['status'] = 1;
+			$map['category_id'] = 2;
+			$articles = $doc->where($map)->order("update_time")->limit(4)->select();
+			// var_dump($articles);
+			S('article_newest',$articles,300);
+		}
+		return $articles;
+	}
+
+	//获取4条最热的新闻
+	function get_hot_articles(){
+		$articles = S('article_hot');
+
+		if(empty($articles)){
+			$doc = D('Document');
+			$map['status'] = 1;
+			$map['category_id'] = 2;
+			$articles = $doc->where($map)->order("view desc")->limit(4)->select();
+			
+			S('article_hot',$articles,300);
+		}
+		return $articles;
 	}
 
 }

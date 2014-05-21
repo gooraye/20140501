@@ -2,32 +2,37 @@
 
 
 	 <div class="container container-body">
-	<div class="main-content">
-	    	<header class="bar" >
-			<div class="container">
-				<h2>{$info.title}</h2>
-			</div>
+		<div class="main-content col-md-8 col-lg-8 col-sm-12">
+		<header class="bar" >
+		<div class="container">
+		<h2>{$info.title}</h2>
+		</div>
 		</header>
-	        <!-- Contents
-	        ================================================== -->
-	         <section class="panel">
-	        	<div class="p-content">	{$info.content}
-	        	</div>		
-	        	
-	         </section>
+		<!-- Contents
+		================================================== -->
+		<section class="panel ">
+		<div class="p-content">	{$info.content}
+		</div>        	
+		</section>
 		<p class="bottom clearfix">
-			<span class="pull-left author">
-	（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}</span>
-			<span class="pull-right">
-				<article:prev name="prev" info="info">
-		                        <a href="{:U('?id='.$prev['id'])}" class="btn btn-gray">上一篇</a>
-		                    </article:prev>
-		                    <article:next name="next" info="info">
-		                        <a href="{:U('?id='.$next['id'])}" class="btn btn-gray">下一篇</a>
-		                    </article:next>
-			</span>
+		<span class="pull-left author">
+		（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}</span>
+		<span class="pull-right">
+		<article:prev name="prev" info="info">
+		<a href="{:U('?id='.$prev['id'])}" class="btn btn-gray">上一篇</a>
+		</article:prev>
+		<article:next name="next" info="info">
+		<a href="{:U('?id='.$next['id'])}" class="btn btn-gray">下一篇</a>
+		</article:next>
+		</span>
 		</p>
-	       {:hook('documentDetailAfter',$info)}
-		 </div>
+		{:hook('documentDetailAfter',$info)}
+		</div>
+
+		
+	            <aside class="col-lg-4 col-md-4 col-sm-12">
+	                <!-- 边栏 --> 
+	                <include file="Base/_articleaside" />
+	            </aside>
 	</div>
 	<include file="Base/_footer"/>

@@ -1040,9 +1040,9 @@ function get_cover($cover_id, $field = null) {
 	) )->getById ( $cover_id );
 	return empty ( $field ) ? $picture : $picture [$field];
 }
-function get_cover_url($cover_id) {
+function get_cover_url($cover_id,$default='') {
 	if (empty ( $cover_id )) {
-		return '';
+		return $default;
 	}
 
 	$url  = get_cover ( $cover_id, 'path' );
@@ -1170,6 +1170,7 @@ function parse_field_attr($string) {
 	}
 	return $value;
 }
+
 /* 解析列表定义规则 */
 function get_list_field($data, $grid, $model) {
 	// 获取当前字段数据

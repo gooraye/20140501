@@ -4,7 +4,7 @@
 
 <body>
 	<div class="container body">
-    	<img src="{:ADDON_PUBLIC_PATH}/images/suggest_head.png" width="100%"/>
+    	<img src="{$config['logo']}" width="100%"/>
     	<div class="p_10"> 
             <!-- 表单 -->
             <form method="post">
@@ -38,7 +38,7 @@
           	</div>
             </form>
         </div>
-        <p class="copyright">2014&copy;WeiPHP</p>
+        <p class="copyright">2014&copy;{$WEB_SITE_TITLE} 版权所有</p>
         <script type="text/javascript">
 			$('.submit-btn').click(function(){
 				//$.Dialog.loading();//loading等待调用  loading完成$.Dialog.close();关闭loading

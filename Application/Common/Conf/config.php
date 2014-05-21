@@ -1,25 +1,30 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
-// +----------------------------------------------------------------------
 
 /**
  * 系统配文件
- * 所有系统级别的配置
  */
 return array(
+
+    
+
+   // 'APP_SUB_DOMAIN_DEPLOY'   =>    1, // 开启子域名配置
+  
+
+  //  'APP_SUB_DOMAIN_RULES'    =>    array(      
+   //     'admin'        => 'Admin', 
+ //   ),
+
+
     /* 模块相关配置 */
-    'AUTOLOAD_NAMESPACE' => array('Addons' => ONETHINK_ADDON_PATH), //扩展模块列表
+    'AUTOLOAD_NAMESPACE' => array('Addons' => ONETHINK_ADDON_PATH), 
+
+    /* 扩展模块列表 */
     'DEFAULT_MODULE'     => 'Home',
     'MODULE_DENY_LIST'   => array('Common', 'User'),
-    //'MODULE_ALLOW_LIST'  => array('Home','Admin'),
 
     /* 系统数据加密设置 */
-    'DATA_AUTH_KEY' => 'MkD3_28numNZay@?LVc=&B~f;XKGQs],zJhOA-S{', //默认数据加密KEY
+    'DATA_AUTH_KEY' => 'MkD3_28numNZay@?LVc=&B~f;XKGQs],zJhOA-S{', 
+    //默认数据加密KEY
 
     /* 调试配置 */
     'SHOW_PAGE_TRACE' => true,
@@ -37,8 +42,7 @@ return array(
     /* 全局过滤配置 */
     'DEFAULT_FILTER' => 'safe', //全局过滤函数
 
-    /* 数据库配置 */    
- 
+    /* 数据库配置 */ 
      'DB_PREFIX' => 'wp_', // 数据库表前缀
     'DB_TYPE'   => 'mysql', // 数据库类型
     'DB_HOST'   => 'hdm-118.hichina.com', // 服务器地址
@@ -47,9 +51,9 @@ return array(
     'DB_PWD'    => '364945361',  // 密码
     'DB_PORT'   => '', // 端口
 
-
     /* 文档模型配置 (文档模型核心配置，请勿更改) */
     'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
+
     //邮件配置
      'THINK_EMAIL' => array(
         'SMTP_HOST'   => 'smtp.gooraye.net', //SMTP服务器
@@ -65,6 +69,6 @@ return array(
         'FROM_NAME'   => '绍兴古睿信息科技', //发件人名称
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
         'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
-     ),     
+     ), 
      
 );
