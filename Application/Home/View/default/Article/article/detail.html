@@ -1,8 +1,17 @@
 	<include file="Base/_head"/>
 
 
+<style type="text/css">
+	#uyan_frame div,
+	#uyan_frame{
+		 -webkit-box-sizing: content-box; 
+		-moz-box-sizing: content-box;
+		 box-sizing: content-box; 
+	}
+</style>
+
 	 <div class="container container-body">
-	<div class="main-content">
+	<div class="main-content col-md-8 col-lg-8 col-sm-12">
 	    	<header class="bar" >
 			<div class="container">
 				<h2>{$info.title}</h2>
@@ -16,8 +25,10 @@
 	        	
 	         </section>
 		<p class="bottom clearfix">
-			<span class="pull-left author">
-	（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}</span>
+			<span class="pull-left extra-meta">
+	（责任编辑： {$info.uid|get_username}）发表于 {$info.create_time|time_format}
+			<small>浏览数:{$info.view}</small></span>
+
 			<span class="pull-right">
 				<article:prev name="prev" info="info">
 		                        <a href="{:U('?id='.$prev['id'])}" class="btn btn-gray">上一篇</a>
@@ -29,5 +40,11 @@
 		</p>
 	       {:hook('documentDetailAfter',$info)}
 		 </div>
+
+
+	            <aside class="col-lg-4 col-md-4 col-sm-12">
+	                <!-- 边栏 --> 
+	                <include file="Base/_articleaside" />
+	            </aside>
 	</div>
 	<include file="Base/_footer"/>

@@ -1040,12 +1040,13 @@ function get_cover($cover_id, $field = null) {
 	) )->getById ( $cover_id );
 	return empty ( $field ) ? $picture : $picture [$field];
 }
-function get_cover_url($cover_id,$default='') {
+function get_cover_url($cover_id,$default='http://gooraye.qiniudn.com/gr_Goo.png') {
 	if (empty ( $cover_id )) {
 		return $default;
 	}
 
-	$url  = get_cover ( $cover_id, 'path' );
+	$url  = get_cover ( $cover_id, 'url' );
+
 	//如果带http www 直接返回
 	if(substr($url,0,4)  == 'http' || substr($url,0,3)  == 'www') 
 	{

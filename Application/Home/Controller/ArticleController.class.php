@@ -135,7 +135,7 @@ class ArticleController extends HomeController {
 			$doc = D('Document');
 			$map['status'] = 1;
 			$map['category_id'] = 2;
-			$articles = $doc->where($map)->order("update_time")->limit(4)->select();
+			$articles = $doc->where($map)->order("update_time desc")->limit(4)->select();
 			// var_dump($articles);
 			S('article_newest',$articles,300);
 		}

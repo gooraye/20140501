@@ -66,15 +66,17 @@ class FileController extends HomeController {
 
         /* 调用文件上传组件上传文件 */
         $Picture = D('Picture');
-        $pic_driver = C('PICTURE_UPLOAD_DRIVER');
+        $pic_driver = strtoupper(C('PICTURE_UPLOAD_DRIVER'));
+        // var_dump(C("UPLOAD_{$pic_driver}_CONFIG"));
         $info = $Picture->upload(
             $_FILES,
             C('PICTURE_UPLOAD'),
             C('PICTURE_UPLOAD_DRIVER'),
             C("UPLOAD_{$pic_driver}_CONFIG")
         ); //TODO:上传到远程服务器
-
+        
         /* 记录图片信息 */
+        // var_dump($info['download']);
         if($info){
             $return['status'] = 1;
             $return = array_merge($info['download'], $return);

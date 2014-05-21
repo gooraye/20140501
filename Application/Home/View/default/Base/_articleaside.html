@@ -19,7 +19,7 @@
                                           <volist name="hotlist" id="vo">                                    
                                             <li>
                                             <div class="thumbnail">
-                                            <img src="{$vo['cover']|get_cover_url='http://gooraye.qiniudn.com/gr_Goo.png'}" class=" wp-post-image" alt="捕获">          
+                                            <img src="{$vo['cover_id']|get_cover_url='http://gooraye.qiniudn.com/gr_Goo.png'}" class=" wp-post-image" alt="img">          
                                             </div>
                                             <div class="post-right">
                                             <h6>
@@ -45,11 +45,11 @@
                                     <volist name="newestlist" id="vo">                                    
                                             <li>
                                             <div class="thumbnail">
-                                            <img src="{$vo['cover']|get_cover_url='http://gooraye.qiniudn.com/gr_Goo.png'}" class=" wp-post-image" alt="捕获">          
+                                            <img src="{$vo['cover_id']|get_cover_url}" class=" wp-post-image" alt="img">          
                                             </div>
                                             <div class="post-right">
                                             <h6>
-                                                <!-- {:U('Home/news/read/'.$vo['id'])} -->
+                                                <!-- {:U('/news/read')}/$vo['id'] -->
                                             <a href="" target="_blank">
                                                 {$vo.title}
                                             </a>

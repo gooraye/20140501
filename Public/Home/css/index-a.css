@@ -147,6 +147,11 @@ body.a{
 	color: #777;
 	padding:  20px 60px 20px 60px;
 }
+.a .footer ul{
+	margin-top: 10px;
+}
+
+
 .a .footer a{ 
 	color:#777;
 }
@@ -212,9 +217,7 @@ body.a{
 	padding: 10px;
 	background: #F3F3F3;
 }
-.a .author {
-	padding: 6px 12px;
-}
+
 .a .asidebar{
 	height: 100%;
 	padding: 0px;
@@ -273,7 +276,7 @@ body.a{
 	padding: 6px 0 !important;
 	float: left;
 	/*width: 96px;*/
-	width:40%;
+	width:45%;
 	margin-left: 5px;
 	text-align: center;
 	position: relative;
