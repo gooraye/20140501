@@ -1,68 +1,82 @@
-<extend name="Base/login_base" />
-<block name="header">
-<header class="jumbotron subhead" id="overview">
-  <div class="container">
-    <h2>用户登陆</h2>
-    <p><span><span class="pull-left"><span>还没有账号? <a href="{:U('User/register')}">立即注册</a></span> </span></p>
-  </div>
-</header>
-</block>
-<block name="body">
-<section class="login_box" >
-	<form class="login-form" action="__SELF__" method="post">
-    	  <div class="form_title">
-          	登&nbsp;&nbsp;&nbsp;录
-          </div>
-          <div class="form_body">
-          		<div class="input_panel">
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>用户登陆 | 古睿后台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="__STATIC__/fullscreenlogin/css/reset.css">
+        <link rel="stylesheet" href="__STATIC__/fullscreenlogin/css/supersized.css">
+        <link rel="stylesheet" href="__STATIC__/fullscreenlogin/css/style.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="page-container">
+		
+            <h1>登陆</h1>
+			<div class="error"></div>
+            <form action="__SELF__" method="post">
+                <input type="text" name="username" class="username" placeholder="请输入用户名">
+                <input type="password" name="password" class="password" placeholder="请输入密码">
+                                  <php>if(C('WEB_SITE_VERIFY')) { </php>
                   <div class="control-group">
-                    <label class="control-label" for="inputEmail">用户名</label>
-                    <div class="controls">
-                      <input type="text" id="inputEmail" class="span3" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="inputPassword">密码</label>
-                    <div class="controls">
-                      <input type="password" id="inputPassword"  class="span3" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
-                    </div>
-                  </div>
-                  <php>if(C('WEB_SITE_VERIFY')) { </php>
-                  <div class="control-group">
-                    <label class="control-label" for="inputPassword">验证码</label>
+                    <label class="control-label" for="inputPassword"></label>
                     <div class="controls">
                       <input type="text" id="verify" class="span3" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
+                      
                       <a href="javascript:;" class="reloadverify_a">换一张?</a>
                     </div>
                   </div>
-                  
+                 
                   <php> } </php>
-               </div>
+               
               <php>if(C('WEB_SITE_VERIFY')) { </php>
               
               <div class="control-group">
                 <label class="control-label"></label>
                 <div class="controls">
-                    <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
+                    <img width="300" class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
                 </div>
               </div>
               <php> } </php>
-              <div class="controls Validform_checktip text-warning"></div>
-              <div class="control-group">
-                <div class="controls">
-                  <label class="checkbox">
-                    <input type="checkbox"> 自动登陆
-                  </label>
-                  <br/>
-                  <button type="submit" class="btn">登 陆</button>
-                </div>
-              </div>
-          </div>
-       </form>
-</section>
-</block>
-<block name="side"> </block>
-<block name="script">
+                <button type="submit">登陆</button>
+                
+            </form>
+          <!--   <div class="connect">
+                <p>Or connect with:</p>
+                <p>
+                    <a class="facebook" href=""></a>
+                    <a class="twitter" href=""></a>
+                </p>
+            </div> -->
+        </div> 
+        <script type="text/javascript">
+           
+                window.PATH_VAR = {
+                    'STATIC':'__STATIC__'
+                };
+        </script>
+        <!-- Javascript -->
+        <script src="__STATIC__/fullscreenlogin/js/jquery-1.8.2.min.js"></script>
+       
+        <script src="__STATIC__/fullscreenlogin/js/supersized.3.2.7.min.js"></script>
+        <script src="__STATIC__/fullscreenlogin/js/supersized-init.js"></script>
+        <script src="__STATIC__/fullscreenlogin/js/scripts.js"></script>
+        
 	<script type="text/javascript">
 
     	$(document)
@@ -83,7 +97,8 @@
     			if(data.status){
     				window.location.href = data.url;
     			} else {
-    				self.find(".Validform_checktip").text(data.info);
+					alert(data.info);
+    				$(".error").text(data.info).show();
     				//刷新验证码
     				$(".reloadverify").click();
     			}
@@ -101,4 +116,8 @@
             });
 		});
 	</script>
-</block>
+
+    </body>
+
+</html>
+

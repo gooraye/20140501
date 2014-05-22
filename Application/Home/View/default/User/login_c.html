@@ -1,0 +1,97 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>用户登陆 | 古睿前台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+<link rel="stylesheet" type="text/css" media="screen" href="__STATIC__/login/css/login_2.css" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js?v={:SITE_VERSION}"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+<script src="__STATIC__/login/js/js.js"/></script>
+</head>
+
+<body>
+<span href="#" class="button" id="toggle-login">古睿前台登陆</span>
+
+<div id="login">
+  <div id="triangle"></div>
+  <h1>Log in</h1>
+  <form action="__SELF__" method="post">
+    <input type="username" placeholder="Username" name="username" class="username"/>
+    <input type="password" placeholder="Password" name="password" class="password" />
+     <php>if(C('WEB_SITE_VERIFY')) { </php>
+                  <div class="control-group">
+                    <label class="control-label" for="inputPassword"></label>
+                    <div class="controls" style="position:relative;">
+                      <input type="text" id="verify" class="span3" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
+                      <a href="javascript:;" class="reloadverify_a">换一张?</a>
+                    </div>
+                  </div>
+                 
+                  <php> } </php>
+               
+              <php>if(C('WEB_SITE_VERIFY')) { </php>
+              
+              <div class="control-group">
+                <label class="control-label"></label>
+                <div class="controls">
+                    <img width="350" class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
+                </div>
+              </div>
+              <php> } </php>
+              <div class="controls Validform_checktip text-warning"></div>
+    <input type="submit" value="Log in" />
+  </form>
+</div>
+	<script type="text/javascript">
+
+    	$(document)
+	    	.ajaxStart(function(){
+	    		$("button:submit").addClass("log-in").attr("disabled", true);
+	    	})
+	    	.ajaxStop(function(){
+	    		$("button:submit").removeClass("log-in").attr("disabled", false);
+	    	});
+
+
+    	$("form").submit(function(){
+    		var self = $(this);
+    		$.post(self.attr("action"), self.serialize(), success, "json");
+    		return false;
+
+    		function success(data){
+    			if(data.status){
+    				window.location.href = data.url;
+    			} else {
+					//alert(data.info);
+    				self.find(".Validform_checktip").text(data.info);
+    				//刷新验证码
+    				$(".reloadverify").click();
+    			}
+    		}
+    	});
+
+		$(function(){
+			var verifyimg = $(".verifyimg").attr("src");
+            $(".reloadverify,.reloadverify_a").click(function(){
+                if( verifyimg.indexOf('?')>0){
+                    $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+                }else{
+                    $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+                }
+            });
+		});
+	</script>
+</body>
+</html>
+
+

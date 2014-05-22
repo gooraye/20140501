@@ -197,9 +197,8 @@ body.a{
 	font-size: 16px;
 }
 .a .main-content .bar{
-	
-	color:#fff;
-	background: #4f4d4c;
+	background:#eee0e2;
+	color: #777;
 }
 .a .main-content .bar h3{
 	margin: 0px;
@@ -234,7 +233,6 @@ body.a{
 .a .asidebar .item.current{
 	background-color: #E4E4E4;
 }
-
 .a .bottom{
 	background: #eee;
 	margin: 0px;
@@ -261,18 +259,11 @@ body.a{
 }
 /* 边栏  */
 .main-color-bg{
-	/*background-color: #eee0e2;*/
-	background-color: #4f4d4c;
+	background-color: #eee0e2;
 }
 
 .widget-tab-titles{
 	
-}
-.widget-tabs-title-container ul li a{
-	color: #fff;
-}
-.widget-tabs-title-container ul li a:hover{
-	color:#ccc;
 }
 .widget-tabs-title-container ul li h5{
 	margin: 0px;

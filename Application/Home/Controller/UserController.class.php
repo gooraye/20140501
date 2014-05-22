@@ -102,7 +102,7 @@ class UserController extends HomeController {
 			}
 
 		} else { //显示登陆表单
-			$this->display();
+			$this->display("login_c");
 		}
 	}
 	

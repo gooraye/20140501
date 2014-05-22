@@ -32,8 +32,12 @@ class WeixinAddonModel extends WeixinModel {
 				if(!isset($info['tourl']) || empty($info['tourl'])){
 					$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 				}else{
-					$wechatid = think_encrypt(get_openid()) ;
-					$url = $info['tourl'].'/wechatid/'. $wechatid;
+					if(strpos($info['tourl'],"gooraye.net") === false){
+					$url = $info['tourl'];
+					}else{
+						$wechatid = think_encrypt(get_openid()) ;
+						$url = $info['tourl'].'/wechatid/'. $wechatid;
+					}
 				}
 				// $url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 				
@@ -57,8 +61,12 @@ class WeixinAddonModel extends WeixinModel {
 			if(!isset($info['tourl']) || empty($info['tourl'])){
 				$url = addons_url ( 'CustomReply://CustomReply/detail', $param );
 			}else{
-				$wechatid = think_encrypt(get_openid()) ;
-				$url = $info['tourl'].'/wechatid/'. $wechatid;
+				if(strpos($info['tourl'],"gooraye.net") === false){
+					$url = $info['tourl'];
+				}else{
+					$wechatid = think_encrypt(get_openid()) ;
+					$url = $info['tourl'].'/wechatid/'. $wechatid;
+				}
 			}
 			
 			// 组装微信需要的图文数据，格式是固定的
