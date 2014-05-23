@@ -80,12 +80,12 @@ class UserController extends HomeController {
 				/* 登陆用户 */
 				$Member = D('Member');
 				if($Member->login($uid)){ // 登陆用户
-					$url = Cookie ( '__forward__' );
-					if ($url) {
-						Cookie ( '__forward__', null );
-					} else {
-						$url = U ( 'Home/MemberPublic/lists' );
-					}
+					// $url = Cookie ( '__forward__' );
+					// if ($url) {
+					// 	Cookie ( '__forward__', null );
+					// } else {
+					$url = U ( 'Home/MemberPublic/lists' );
+					// }
 					
 					$this->success ( '登陆成功！', $url );
 				} else {

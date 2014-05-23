@@ -12,7 +12,7 @@ class WeixinAddonModel extends WeixinModel{
 		$param ['openid'] = get_openid ();
 		$url = addons_url ( 'Suggestions://Suggestions/suggest', $param );
 
-		$config = getAddonConfig ( 'WeixinAddon' ); // 获取后台插件的配置参数
+		$config = getAddonConfig ( 'Suggestions' ); // 获取后台插件的配置参数
 		
 		$articles [0] = array (
 				'Title' => '建议意见',

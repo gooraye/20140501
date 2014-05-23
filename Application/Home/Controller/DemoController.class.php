@@ -13,18 +13,22 @@ class DemoController extends HomeController {
 	public function index() {
 		/* 分类信息 */
 		//  4 2 1
-		 $index = (7);
-		 $index  = $index & 2;
-		 $index2  = $index | 2;
-		 $str = $index.' '.$index2;
+		 // $index = (7);
+		 // $index  = $index & 2;
+		 // $index2  = $index | 2;
+		 // $str = $index.' '.$index2;
 
 
-		 $index3 = (3);
-		 $index3  = $index3 & 2;
-		 $index4  = $index3 | 2;
-		 $str .= $index3.' '.$index4;
+		 // $index3 = (3);
+		 // $index3  = $index3 & 2;
+		 // $index4  = $index3 | 2;
+		 // $str .= $index3.' '.$index4;
+		// 1 +2 + 4 + 8 
+		 $str = (15 & 1);
+		 var_dump($str);
+		 exit();
+//		 $this->show($str);
 
-		 $this->show($str);
 	}
 
 	/* 邮件发送测试 */

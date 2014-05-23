@@ -15,6 +15,7 @@ return array(
 		'title'=>'收件人邮箱',//预约的提醒方式
 		'type'=>'textarea',		 //表单的类型：text、textarea、checkbox、radio、select等		
 		'value'=>"'mail'=>'hebiduhebi@126.com','weixin'=>''",			 //表单的默认值
+		'tip' => '多个收件箱以,隔开是英文,'
 	),
 
 	'address'=>array(

@@ -22,7 +22,11 @@ border-radius: 6px;margin-left: 5px;width: 12px;height: 12px;background: #fff;}
     <ul class="small_pic_list">
     <volist name="list_data" id="vo">
     	<li>
-        	<a href="{:U('detail', 'id='.$vo[id])}">
+        	<empty name="vo.tourl">
+                 <a href="{:U('detail', 'id='.$vo[id])}">
+              <else/>
+                <a href="{$vo[tourl] }">
+              </empty>
             	<notempty name="vo.cover"><img src="{$vo.cover|get_cover_url}"/></notempty>
                 <h6>{$vo.title}</h6>
                 <p>{$vo.intro}</p>

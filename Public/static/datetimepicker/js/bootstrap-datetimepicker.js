@@ -36,8 +36,8 @@
 		var that = this;
 
 		this.element = $(element);
-		this.language = options.language || this.element.data('date-language') || "en";
-		this.language = this.language in dates ? this.language : "en";
+		this.language = options.language || this.element.data('date-language') || "zh-CN";
+		this.language = this.language in dates ? this.language : "zh-CN";
 		this.isRTL = dates[this.language].rtl || false;
 		this.formatType = options.formatType || this.element.data('format-type') || 'standard';
 		this.format = DPGlobal.parseFormat(options.format || this.element.data('date-format') || dates[this.language].format || DPGlobal.getDefaultFormat(this.formatType, 'input'), this.formatType);

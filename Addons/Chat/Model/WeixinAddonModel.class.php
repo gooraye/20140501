@@ -15,7 +15,7 @@ class WeixinAddonModel extends WeixinModel {
 		for ($i=0; $i < count($this->config['opens']); $i++) { 
 			$opens += intval($this->config['opens'][$i]);
 		}
-
+		addWeixinLog($opens,"opens");
 		// dump($opens);
 		// $this->config['opens'];
 		// $this->replyText ( strval(strpos($dataArr['Content'],'天气')));

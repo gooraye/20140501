@@ -23,8 +23,7 @@
                                             </div>
                                             <div class="post-right">
                                             <h6>
-                                                <!-- {:U('Home/news/read/'.$vo['id'])} -->
-                                            <a href="" target="_blank">
+                                            <a href="{:U('article/detail?id='.$vo['id'])}" target="_blank">
                                                 {$vo.title}
                                             </a>
                                             </h6>
@@ -49,8 +48,7 @@
                                             </div>
                                             <div class="post-right">
                                             <h6>
-                                                <!-- {:U('/news/read')}/$vo['id'] -->
-                                            <a href="" target="_blank">
+                                            <a href="{:U('article/detail?id='.$vo['id'])}" target="_blank">
                                                 {$vo.title}
                                             </a>
                                             </h6>

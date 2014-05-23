@@ -45,6 +45,7 @@ if (typeof WeixinJSBridge == "undefined"){
 </script>
 
 <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8" ></script>
 </head>
 <body onselectstart="return true;" ondragstart="return false;" id="onlinebooking">
     
@@ -100,7 +101,7 @@ if (typeof WeixinJSBridge == "undefined"){
         <tbody><tr>
             <th>预约日期</th>
             <td>
-                <input type="text" class="px hasDatepicker" name="dateline" placeholder="预约日期" value="" readonly="readonly"  id="dateline" >
+                <input type="text" class="px hasDatepicker" name="dateline" placeholder="预约日期" value="" date-language="zh-CN"   id="dateline" >
             </td>
             </tr>
         </tbody></table>
@@ -180,7 +181,8 @@ $(document).ready(function () {
                 format: 'yyyy-mm-dd',
                 minView:'month',
                 todayBtn:true,
-                autoclose:true
+                autoclose:true,
+                language:'zh-CN'
             });
             // var ndate = $('#dateline').datepicker({
             //         format:"yyyy-mm-dd",
