@@ -40,8 +40,10 @@ if (! empty ( $_GET ['echostr'] ) && ! empty ( $_GET ["signature"] ) && ! empty 
  * local 
  */
 $local = array( 'localhost', '127.0.0.1');
-$test = array( 'gooraye.duapp.com');
-if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $test ) ) {    
+$test = array( 'gooraye.duapp.com','gooraye.duapp.com:8080');
+//var_dump($_SERVER['HTTP_HOST']);
+//exit();
+if ( in_array( $_SERVER[ 'HTTP_HOST' ], $test ) ) {    
   	define ( 'APP_STATUS', "test" );
   	define ( 'APP_DEBUG', true );
 }
