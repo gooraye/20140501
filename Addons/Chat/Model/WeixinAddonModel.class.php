@@ -23,13 +23,15 @@ class WeixinAddonModel extends WeixinModel {
 		// $content = $this->_weather($dataArr['Content']);
 		// $this->replyNews ( $content );
 		// return $content;
+		$content = '';
+		if(($opens & 8) === 8 && empty($content)){
+			$content = $this->_joke($dataArr['Content']);
+		}
+
 		//开启天气预报
-		if(($opens & 4) === 4 ){
-
+		if(($opens & 4) === 4 && empty($content)){
 			 $content = $this->_weather($dataArr['Content']);
-
-			// $this->replyText ($content);
-			
+				
 			if(!empty($content)){
 
 				$res = $this->replyNews ( $content );
@@ -37,10 +39,11 @@ class WeixinAddonModel extends WeixinModel {
 				return $res;
 
 			}
+			
 
 		 }
 		 
-		 if (($opens & 1) === 1  ) {//开启机器人
+		 if (($opens & 1) === 1  && empty ( $content )) {//开启机器人
 			//先尝试小九机器人
 			$content = $this->_xiaojo ( $dataArr ['Content'] );
 			//再尝试小黄鸡
@@ -60,7 +63,24 @@ class WeixinAddonModel extends WeixinModel {
 		return $res;
 	}
 	
-	
+	//笑话
+	private function  _joke($keyword){
+		$output = "";
+		if($keyword == "笑话"){
+			$url = $this->config ['jok_key'] ;
+//			$url = "http://apix.sinaapp.com/joke/?appkey=trialuser";
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$output = curl_exec($ch);
+			curl_close($ch);
+			
+			addWeixinLog($output,"joke");
+		}
+		return $output;
+	}
+
+
 
 	// 随机回复
 	private function _rand() {
@@ -139,6 +159,39 @@ class WeixinAddonModel extends WeixinModel {
 
 		addWeixinLog($weatherArray,"getWeatherInfo");
 		return $weatherArray;
+	}
+
+
+	// 关注公众号事件
+	public function subscribe() {
+		return true;
+	}
+	
+	// 取消关注公众号事件
+	public function unsubscribe() {
+		return true;
+	}
+	
+	// 扫描带参数二维码事件
+	public function scan() {
+		return true;
+	}
+	
+	// 上报地理位置事件
+	public function location() {
+		return true;
+	}
+	
+	// 自定义菜单事件
+	public function click($dataArr) {
+		// var_dump($dataArr
+		addWeixinLog($dataArr['EventKey'],"click");
+		$content = $this->_joke($dataArr['EventKey']);
+		if(!empty($content))
+		{
+			$this->replyText($content);
+		}
+		return true;
 	}
 
 }

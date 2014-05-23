@@ -33,7 +33,7 @@
                 } else if (!$.belowthefold(this, settings) &&
                     !$.rightoffold(this, settings)) {
                         $this.trigger("appear");
-                        console.log("1");
+                        //console.log("1");
                         counter = 0;
                 } else {
                     if (++counter > settings.failure_limit) {

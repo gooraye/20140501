@@ -90,4 +90,23 @@ class DemoController extends HomeController {
 		$result = curl_exec($ch);
 		$this->show($result);
 	}
+
+	public function Joke(){
+		$output = "";
+		$keyword  = "笑话";
+		if($keyword == "笑话"){
+			// $url = $this->config ['jok_key'] ;
+			$url = "http://apix.sinaapp.com/joke/?appkey=gooraye";
+//			$url = "http://apix.sinaapp.com/joke/?appkey=trialuser";
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$output = curl_exec($ch);
+			curl_close($ch);
+			
+			addWeixinLog($joke,"joke");
+		}
+		echo $output;
+	}
+
 }

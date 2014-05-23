@@ -1,5 +1,11 @@
 <?php
 return array (
+		'jok_key' => array ( // 配置在表单中的键名 ,这个会是config[random]
+				'title' => '笑话接口:', // 表单的文字
+				'type' => 'text', // 表单的类型：text、textarea、checkbox、radio、select等
+				'value' => 'http://apix.sinaapp.com/joke/?appkey=gooraye',  // 表单的默认值
+				'tip'=>'笑话接口'
+				),
 		'simsim_key' => array ( // 配置在表单中的键名 ,这个会是config[random]
 				'title' => '小黄鸡KEY:', // 表单的文字
 				'type' => 'text', // 表单的类型：text、textarea、checkbox、radio、select等
@@ -33,6 +39,7 @@ return array (
 				'title' => '开放的接口',
 				'type' => 'checkbox',
 				'options'=>array(		 //select 和radion、checkbox的子选项
+					 '8'=>'笑话',		 //值=>文字
 					 '4'=>'天气预报',		 //值=>文字
 					 '2'=>'其它',		 //值=>文字
 					 '1'=>'机器人'		 //值=>文字

@@ -35,7 +35,7 @@ class UserController extends HomeController {
 			/* 检测密码 */
 			if($password != $repassword){
 				$this->error('密码和重复密码不一致！');
-			}			
+			}		
 
 			/* 调用注册接口注册用户 */
             		$User = new UserApi;
