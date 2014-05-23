@@ -16,7 +16,11 @@ define('UC_CLIENT_PATH', dirname(dirname(__FILE__)));
  * local 
  */
 $local = array( 'localhost', '127.0.0.1');
-if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
+$test = array( 'gooraye.duapp.com');
+if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $test ) ) {    
+	require_cache(UC_CLIENT_PATH . '/Conf/test.php');
+}
+elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
 	require_cache(UC_CLIENT_PATH . '/Conf/local.php');
 }
 else{

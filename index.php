@@ -40,13 +40,18 @@ if (! empty ( $_GET ['echostr'] ) && ! empty ( $_GET ["signature"] ) && ! empty 
  * local 
  */
 $local = array( 'localhost', '127.0.0.1');
-if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
-  define ( 'APP_STATUS', "local" );
-/**
- * 系统调试设置
- * 项目正式部署后请设置为false
-*/
-  define ( 'APP_DEBUG', true );
+$test = array( 'gooraye.duapp.com');
+if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $test ) ) {    
+  	define ( 'APP_STATUS', "test" );
+  	define ( 'APP_DEBUG', true );
+}
+elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
+  	define ( 'APP_STATUS', "local" );
+	/**
+	 * 系统调试设置
+	 * 项目正式部署后请设置为false
+	*/
+  	define ( 'APP_DEBUG', true );
 }
 
 

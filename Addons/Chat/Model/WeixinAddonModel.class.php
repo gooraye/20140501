@@ -67,15 +67,17 @@ class WeixinAddonModel extends WeixinModel {
 	private function  _joke($keyword){
 		$output = "";
 		if($keyword == "笑话"){
+			$this->config = getAddonConfig ( 'Chat' ); // 获取后台插件的配置参数	
 			$url = $this->config ['jok_key'] ;
-//			$url = "http://apix.sinaapp.com/joke/?appkey=trialuser";
+//			$url = "http://apix.sinaapp.com/joke/?appkey=gooraye";
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$output = curl_exec($ch);
 			curl_close($ch);
 			
-			addWeixinLog($output,"joke");
+//			addWeixinLog($url,"jok_key");
+//			addWeixinLog($output,"joke");
 		}
 		return $output;
 	}
