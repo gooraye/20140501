@@ -25,9 +25,10 @@ body{
 }
 
 #login{
-  width:400px;
-  margin:0 auto;
-  margin-top:8px;
+ width: 98%;
+margin: 0 auto;
+margin-top: 8px;
+max-width: 400px;
 }
 
 #triangle{

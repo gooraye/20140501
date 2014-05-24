@@ -57,7 +57,6 @@ elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {
 }
 
 
-
 // 网站根路径设置
 define ( 'SITE_PATH', dirname ( __FILE__ ) );
 /**

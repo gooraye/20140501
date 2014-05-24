@@ -7,12 +7,14 @@ return array(
 
     
 
-   // 'APP_SUB_DOMAIN_DEPLOY'   =>    1, // 开启子域名配置
+    'APP_SUB_DOMAIN_DEPLOY'   =>    1, // 开启子域名配置
   
 
-  //  'APP_SUB_DOMAIN_RULES'    =>    array(      
-   //     'admin'        => 'Admin', 
- //   ),
+    'APP_SUB_DOMAIN_RULES'    =>    array(      
+        // 'admin.gooraye.net'        => 'Admin/', 
+        // 'admin'        => 'Admin/', 
+        'admin'        => 'Home/', 
+    ),
 
 
     /* 模块相关配置 */

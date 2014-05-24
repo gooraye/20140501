@@ -39,6 +39,7 @@ class SuggestionsController extends AddonsController {
 	}
 	function suggest() {
 		$config = getAddonConfig ( 'Suggestions' );
+		$toaddress = $config['toaddress'];
 		$this->assign ( $config );
 		
 		$data ['uid'] = $this->mid;
@@ -64,12 +65,30 @@ class SuggestionsController extends AddonsController {
 			$data ['content'] = I ( 'content' );
 			
 			$res = M ( 'suggestions' )->add ( $data );
-			if ($res)
+			if ($res){
+				$this->sendMail($toaddress,$data ['content']);
 				$this->success ( '增加成功，谢谢您的反馈' );
+			}
 			else
 				$this->error ( '增加失败，请稍后再试' );
 		} else {
 			$this->display ();
 		}
+	}
+
+	/*
+	** 发送邮件
+	***/
+	function sendMail($toaddress,$body){
+
+		$toaddress = explode(",", $toaddress);
+
+		for ($i=0; $i < count($toaddress); $i++) {
+			
+		 	$result = think_send_mail($toaddress[$i],'意见反馈','意见反馈提醒',$body);
+
+		 }
+		
+		return $result;
 	}
 }
