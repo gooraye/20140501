@@ -16,12 +16,27 @@ class IndexController extends HomeController {
 	
 	// 系统首页
 	public function index() {
+
 		$map = array('status' => 1,'pid' => 0);
 		$channel = D('Channel');
 		$list = $channel->where($map)->select();
 		$this->assign("channels",$list);
+
+		$this->display ();
+
+	}
+
+	//metro风格首页
+	public function index_a(){
+		$map = array('category_id' => 2);
+		$articlesModel = D('Document');
+		$list = $articlesModel->where($map)->select();
+		$newestlist = $this->get_newest_articles();
+		$this->assign("newestlist",$newestlist);
 		$this->display ();
 	}
+
+
 	// 系统介绍
 	public function introduction() {
 		$this->display ();
@@ -60,29 +75,7 @@ class IndexController extends HomeController {
 	public function update_version() {
 		die ( M ( 'update_version' )->getField ( "max(`version`)" ) );
 	}
-	// 远程获取升级包信息
-	public function update_json() {
-		$old_version = intval ( $_REQUEST ['version'] );
-		$new_version = M ( 'update_version' )->getField ( "max(`version`)" );
 		
-		$res = array ();
-		if ($old_version < $new_version) {
-			$res = M ( 'update_version' )->field ( 'version,title,description,create_date' )->where ( 'version>' . $old_version )->select ();
-		}
-		
-		die ( json_encode ( $res ) );
-	}
-	// 下载升级包
-	public function download_update_package() {
-		$map ['version'] = intval ( $_REQUEST ['version'] );
-		$package = M ( 'update_version' )->where ( $map )->getField ( 'package' );
-		if (empty ( $package )) {
-			$this->error ( '下载的文件不存在或已被移除' );
-		}
-		M ( 'update_version' )->where ( $map )->setInc ( 'download_count' );
-		
-		redirect ( $package );
-	}
 	public function main() {
 		if (! is_login ()) {
 			$url = U ( 'home/user/login' );
@@ -190,5 +183,21 @@ class IndexController extends HomeController {
 		$this->assign("cases",$cases);
 		$this->assign("channels",$this->get_navs());
 		$this->display();
+	}
+
+
+	//获取4条最新的新闻
+	function get_newest_articles(){
+		$articles = S('index_article_newest');
+
+		if(empty($articles)){
+			$doc = D('Document');
+			$map['status'] = 1;
+			$map['category_id'] = 2;
+			$articles = $doc->where($map)->order("update_time desc")->limit(4)->select();
+			// var_dump($articles);
+			S('index_article_newest',$articles,300);
+		}
+		return $articles;
 	}
 }
