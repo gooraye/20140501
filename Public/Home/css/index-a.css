@@ -4,8 +4,8 @@ body.a{
 	font-family: "Microsoft YaHei","FangSong_GB2312","HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	background: floralwhite;
-	-webkit-filter: grayscale(50%);
-	filter: grayscale(50%);
+/*	-webkit-filter: grayscale(50%);
+	filter: grayscale(50%);*/
 	/*background: url(../images/bg.jpg) repeat;"Comic Sans MS",*/
 }
 .a .greybg{

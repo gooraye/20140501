@@ -1,12 +1,12 @@
 <?php
 return array(
 	'remindway'=>array(//配置在表单中的键名 ,这个会是config[remindway]
-		'title'=>'预约的提醒方式,暂支持邮箱、微信',//预约的提醒方式
+		'title'=>'预约的提醒方式,暂支持邮箱、短信',//预约的提醒方式
 		'type'=>'checkbox',		 //表单的类型：text、textarea、checkbox、radio、select等
 		'options'=>array(		 //select 和radion、checkbox的子选项
 			'4'=>'邮箱',		 //值=>文字
-			 '2'=>'微信',		 //值=>文字
-			// '1'=>'短信'		 //值=>文字
+			// '2'=>'微信',		 //值=>文字
+			 '1'=>'短信'		 //值=>文字
 			// '0'=>'不提醒，在线查看',
 		),
 		'value'=>'4',			 //表单的默认值
@@ -14,7 +14,7 @@ return array(
 	'toaddress'=>array(//配置在表单中的键名 ,这个会是config[remindway]
 		'title'=>'收件人邮箱',//预约的提醒方式
 		'type'=>'textarea',		 //表单的类型：text、textarea、checkbox、radio、select等		
-		'value'=>"'mail'=>'hebiduhebi@126.com','weixin'=>''",			 //表单的默认值
+		'value'=>"mail:hebiduhebi@126.com;sms:13484379290",			 //表单的默认值
 		'tip' => '多个收件箱以,隔开是英文,'
 	),
 

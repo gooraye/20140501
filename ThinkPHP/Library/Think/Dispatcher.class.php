@@ -22,6 +22,7 @@ class Dispatcher {
      */
     static public function dispatch() {
         
+       
         $varPath        =   C('VAR_PATHINFO');
         $varModule      =   C('VAR_MODULE');
         $varController  =   C('VAR_CONTROLLER');
@@ -36,6 +37,10 @@ class Dispatcher {
         // 开启子域名部署
         if(C('APP_SUB_DOMAIN_DEPLOY')) {
             $rules      = C('APP_SUB_DOMAIN_RULES');
+            // dump($rules);
+            // dump('HTTP_HOST'.$_SERVER['HTTP_HOST']);
+            // dump($rules[$_SERVER['HTTP_HOST']]);
+            // exit();
             if(isset($rules[$_SERVER['HTTP_HOST']])) { // 完整域名或者IP配置
                 define('APP_DOMAIN',$_SERVER['HTTP_HOST']); // 当前完整域名
                 $rule = $rules[APP_DOMAIN];
@@ -49,6 +54,7 @@ class Dispatcher {
                     $subDomain = implode('.', $domain);
                     define('SUB_DOMAIN',$subDomain); // 当前完整子域名
                     $domain2   = array_pop($domain); // 二级域名
+                    // dump($domain2);
                     if($domain) { // 存在三级域名
                         $domain3 = array_pop($domain);
                     }
@@ -138,9 +144,12 @@ class Dispatcher {
 
         // URL常量
         define('__SELF__',strip_tags($_SERVER[C('URL_REQUEST_URI')]));
-
+        
         // 获取模块名称
         define('MODULE_NAME', self::getModule($varModule));
+
+        // dump(__SELF__);
+
         // 检测模块是否存在
         if( MODULE_NAME && (!in_array_case(MODULE_NAME,C('MODULE_DENY_LIST')) || $domainModule ) && is_dir(APP_PATH.MODULE_NAME)){
             

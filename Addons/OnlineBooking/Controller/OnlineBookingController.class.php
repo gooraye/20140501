@@ -114,18 +114,29 @@ class OnlineBookingController extends AddonsController{
 		// }
 		// $config['toaddress'] = "\'mail\'=>\'hebiduhebi@126.com\',\'weixin\'=>\'oy6EYuNwX9g9u-E-7FQ72-avknmY\'";
 		//  dump($config['toaddress']);
-		 $addresses =str_replace("\\",'', "return array(".$config['toaddress'].");");
-		 // dump(str_replace("\\",'',$addresses));
+
+//		 $addresses =str_replace("\\",'', "return array(".$config['toaddress'].");");
+		 $toaddresses = explode(';', $config['toaddress']);
+
+		 $addresses = array();
+		 foreach ($toaddresses as $key => $value) {
+		 	$wayaddress = explode(':', $value);
+		 	if(count($wayaddress) == 2){
+		 		$addresses[$wayaddress[0]] = $wayaddress[1];
+		 	}
+		 }
+
 		 // exit();
-		$addresses = eval($addresses);
+
+//		$addresses = eval($addresses);
 		 //发送邮件
 		if(($noticeWay & 4) == 4){
 			$result[0] = $this->sendMail($addresses['mail'],$body);			
 		}
 
-		//TODO：发送短信
+		//发送短信
 		if(($noticeWay & 1) == 1){
-			 // $result[1] = $this->sendSMS($addresses['mail'],$body);
+			  $result[1] = $this->sendSMS($addresses['sms'],$body);
 		}
 
 		//发送微信
@@ -133,10 +144,22 @@ class OnlineBookingController extends AddonsController{
 			$result[2] = $this->sendWeixin($addresses['weixin'],$body);
 		}
 
-		if($result[0]  === true || $result[1]  === true || $result[2]  === true){
+		if($result[0]  === true || $result[1]  ===  true || $result[2]  === true){
+
 			$this->success("提交成功，请等候客服联系您!");
+
 		}else{
-			$this->error("提交失败!".$result);
+
+			$err = '';
+			if($result[0] !== true){
+				$err .= $result[0];
+			} 
+
+			if($result[1] !== true){
+				$err .= $result[1];
+			}
+			
+			$this->error("提交失败,".$err);
 		}
 	
 	}
@@ -170,6 +193,29 @@ class OnlineBookingController extends AddonsController{
 	}
 	/***/
 	function sendSMS($toaddress,$body){
+		vendor('phpSMS.HaiyanSMS#class');
+		$sms = new \HaiyanSMS();
+
+		$smslog = D ( 'Addons://SMSWX/SmsLog' );
+		$data['mobiles'] = $toaddress;
+		$data['content'] = $body;
+		$data['title'] = '在线预约';
+		$data['cTime'] = time();
+		$data['token'] = get_token();
+		$smslog->data($data)->add();
+
+		$smsConfig = getAddonConfig ( 'SMSWX' ); 
+
+		$sendNum = $smslog->count();
+
+		$leave = (int)$smsConfig['sendtotal'] - $sendNum;
+		if( $leave > 0 )
+		{
+			$sms->SendSMS($body,$toaddress,'预约提醒','');
+		}
+		if( $sms->IsFailed() ){
+			return $sms->errmsg;
+		}
 		return true;
 	}
 

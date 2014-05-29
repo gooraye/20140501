@@ -1,17 +1,18 @@
 <?php
-
-namespace Addons\HelloWorld\Model;
-
+        	
+namespace Addons\SMSWX\Model;
 use Home\Model\WeixinModel;
-
+        	
 /**
- * HelloWorld的微信模型
+ * SMSWX的微信模型
  */
-class WeixinAddonModel extends WeixinModel {
+class WeixinAddonModel extends WeixinModel{
 	function reply($dataArr, $keywordArr = array()) {
-		$this->replyText ( '欢迎您来到WeiPHP的世界-_-' );
-	}
-	
+		$config = getAddonConfig ( 'SMSWX' ); // 获取后台插件的配置参数	
+		//dump($config);
+
+	} 
+
 	// 关注公众号事件
 	public function subscribe() {
 		return true;
@@ -35,6 +36,6 @@ class WeixinAddonModel extends WeixinModel {
 	// 自定义菜单事件
 	public function click() {
 		return true;
-	}
+	}	
 }
         	

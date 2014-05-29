@@ -26,6 +26,7 @@ class IndexController extends AdminController {
 	 * @author 麦当苗儿 <zuojiazi@vip.qq.com>
 	 */
 	public function index() {
+		 
 		if (UID) {
 			$hide = M ( 'menu' )->where ( 'id=1' )->getField ( 'hide' );
 			if ($hide) {
@@ -34,6 +35,8 @@ class IndexController extends AdminController {
 			}
 			$this->display ();
 		} else {
+			// var_dump(U('Public/login@admin.gooraye.net'));
+			// exit();
 			$this->redirect ( 'Public/login' );
 		}
 	}

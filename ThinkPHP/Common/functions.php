@@ -676,7 +676,7 @@ function U($url='',$vars='',$suffix=true,$domain=true) {
     // 解析URL
     $info   =  parse_url($url);
     
-    //weiphp 增加插件地址支持
+    //增加插件地址支持
     if(isset($_GET['_addons']) && strpos($info['path'],'/')===false){
     	$info['query'] = '_addons='.$_GET['_addons'].'&_controller='.$_GET['_controller'].'&_action='.$info['path'].'&'.$info['query'];
     	$info['path'] = 'home/addons/execute';
@@ -694,6 +694,9 @@ function U($url='',$vars='',$suffix=true,$domain=true) {
     }elseif(false !== strpos($url,'@')) { // 解析域名
         list($url,$host)    =   explode('@',$info['path'], 2);
     }
+
+
+
     // 解析子域名
     if(isset($host)) {
         $domain = $host.(strpos($host,'.')?'':strstr($_SERVER['HTTP_HOST'],'.'));
@@ -701,18 +704,21 @@ function U($url='',$vars='',$suffix=true,$domain=true) {
         $domain = $_SERVER['HTTP_HOST'];
         if(C('APP_SUB_DOMAIN_DEPLOY') ) { // 开启子域名部署
             $domain = $domain=='localhost'?'localhost':'www'.strstr($_SERVER['HTTP_HOST'],'.');
+
             // '子域名'=>array('模块[/控制器]');
+           
             foreach (C('APP_SUB_DOMAIN_RULES') as $key => $rule) {
                 $rule   =   is_array($rule)?$rule[0]:$rule;
-                if(false === strpos($key,'*') && 0=== strpos($url,$rule)) {
+                if(false === strpos($key,'*') && 0 === strpos($url,$rule)) {
                     $domain = $key.strstr($domain,'.'); // 生成对应子域名
                     $url    =  substr_replace($url,'',0,strlen($rule));
                     break;
                 }
             }
+
         }
     }
-
+    
     // 解析参数
     if(is_string($vars)) { // aaa=1&bbb=2 转换成数组
         parse_str($vars,$vars);
@@ -823,6 +829,7 @@ function U($url='',$vars='',$suffix=true,$domain=true) {
     if($domain) {
         $url   =  (is_ssl()?'https://':'http://').$domain.$url;
     }
+
     return $url;
 }
 

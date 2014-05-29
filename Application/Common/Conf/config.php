@@ -4,19 +4,9 @@
  * 系统配文件
  */
 return array(
-
-    
-
-    'APP_SUB_DOMAIN_DEPLOY'   =>    1, // 开启子域名配置
-  
-
-    'APP_SUB_DOMAIN_RULES'    =>    array(      
-        // 'admin.gooraye.net'        => 'Admin/', 
-        // 'admin'        => 'Admin/', 
-        'admin'        => 'Home/', 
-    ),
-
-
+    // 开启子域名配置  
+   // 'APP_SUB_DOMAIN_DEPLOY' =>   1, 
+//    'APP_SUB_DOMAIN_RULES' => array('admin'=>'Admin','admin.gooraye.net'=>'Admin','www'=>'Home','www.gooraye.net'=>'Home'),
     /* 模块相关配置 */
     'AUTOLOAD_NAMESPACE' => array('Addons' => ONETHINK_ADDON_PATH), 
 
@@ -72,5 +62,12 @@ return array(
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
         'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
      ), 
+
+     //海岩短信接口配置
+     'HAIYAN_SMS' => array(
+        'userid' => '8570', 
+        'account' => 'gooraye' , 
+        'pwd' => 'gooraye136799711', 
+    ),
      
 );

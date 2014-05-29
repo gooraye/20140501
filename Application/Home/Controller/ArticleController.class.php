@@ -91,8 +91,24 @@ class ArticleController extends HomeController {
 		$Document->where($map)->setInc('view');
 
 		if(IS_POST){
-			// sleep (3);
-			$this->ajaxReturn($info,"JSON");
+			$retInfo['info'] = $info;
+			$doc = D('Document');
+			if(empty($info)){
+				$retInfo['status'] = 0;
+				$retInfo['errmsg'] = '无法获取数据！';
+			}else{
+				$prev = $doc->prev($info);
+				$next = $doc->next($info);
+				if(!empty($prev)){
+					$retInfo['prev'] = U('/home/Article/detail?id='.$prev[id]);
+				}
+				if(!empty($next)){					
+					$retInfo['next'] = U('/home/Article/detail?id='.$next[id]);
+				}
+				$retInfo['status'] = 1;
+				$retInfo['errmsg'] = '';
+			}
+			$this->ajaxReturn($retInfo,"JSON");
 		}
 		/* 模板赋值并渲染模板 */
 		$this->assign("channels",$this->get_navs());

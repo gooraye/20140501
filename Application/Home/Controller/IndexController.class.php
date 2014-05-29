@@ -66,10 +66,7 @@ class IndexController extends HomeController {
 		// D('')
 		$this->display ();
 	}
-	// 授权协议
-	public function license() {
-		$this->display ();
-	}
+	
 	
 	// 远程获取最新版本号
 	public function update_version() {

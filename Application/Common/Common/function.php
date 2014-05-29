@@ -1604,3 +1604,16 @@ function safe($text, $type = 'html') {
 
     return $mail->Send() ? true : $mail->ErrorInfo;
  }
+
+ /**
+ ** 是否在新窗口打开链接的字符描述
+ ** @author 贝贝 <hebiduhebi@163.com>
+ **/
+function get_url_target($target){
+	
+	if($target == 1){
+		return "_blank";
+	}
+
+	return "_self";
+}

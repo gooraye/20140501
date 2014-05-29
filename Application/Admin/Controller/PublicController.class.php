@@ -35,11 +35,11 @@ class PublicController extends \Think\Controller {
     	   
           // dump(C('ADMIN_KEY'));
             // dump(I('get.key','0'));
-          if(!IS_POST){
-               if(I('get.key','0')  != C('ADMIN_KEY')){
-                    $this->error("无访问权限！","/");
-               }
-          }
+          // if(!IS_POST){
+          //      if(I('get.key','0')  != C('ADMIN_KEY')){
+          //           $this->error("无访问权限！","/");
+          //      }
+          // }
         if(IS_POST){
             /* 检测验证码 TODO: */
             if(C('WEB_SITE_VERIFY') && !check_verify($verify)){

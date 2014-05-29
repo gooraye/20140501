@@ -27,45 +27,6 @@ $(function ($) {
     $('#sidebar-nav ul li').css('height',navHeight);
 
      
-      
-      
-     //TWITTER INIT (Updated with compatibility on Twitter's new API):
-     //PLEASE READ DOCUMENTATION FOR INFO ABOUT SETTING UP YOUR OWN TWITTER CREDENTIALS:
-      // $(function ($) {
-      //     $('#ticker').tweet({
-      //         modpath: './twitter/',
-      //         count: 5,
-      //         loading_text: 'loading twitter feed flame...',
-      //         username:'designovastudio'
-      //         /* etc... */
-      //     });
-      //   }); 
-
-
-        //Setup Flickr Feed
-  // $('#flickr').jflickrfeed({
-  //   limit: 12, //Number of images to be displayed
-  //   qstrings: {
-  //     id: '36587311@N08'//Change this to any Flickr Set ID as you prefer.
-  //   },
-  //   itemTemplate: '<div class="flickr-thumb flickr-photo"><a href="{{image_b}}" target="_blank"><img class="img-responsive" src="{{image_m}}" alt="{{title}}" /></a></div>'
-  // });
-  
-
- //HOME PAGE 2 - TICKER
-  // var current = 1; 
-  // var height = $('.ticker').height(); 
-  // var numberDivs = $('.ticker').children().length; 
-  // var first = $('.ticker h1:nth-child(1)'); 
-  // setInterval(function() {
-  //     var number = current * -height;
-  //     first.css('margin-top', number + 'px');
-  //     if (current === numberDivs) {
-  //         first.css('margin-top', '0px');
-  //         current = 1;
-  //     } else {current++;}
-  // }, 2500); 
-
 
 $('.carousel').carousel({
   interval: 2000
@@ -122,45 +83,7 @@ $('.carousel').carousel({
 
     $('#about .welcome-text').waypoint(function (event, direction) {
         if (direction === 'down') {
-            //Pie-Chart Invokes
-      $(function() {
-        // $('.chart1').easyPieChart({
-        //     barColor: '#FD5253',
-        //     trackColor: '#ccc',
-        //     scaleColor: false,
-        //     lineCap: 'butt',
-        //     lineWidth: 15,
-        //     size: 140,
-        //     animate: 2000,
-        // });
-        // $('.chart2').easyPieChart({
-        //     barColor: '#149CA8',
-        //     trackColor: '#ccc',
-        //     scaleColor: false,
-        //     lineCap: 'butt',
-        //     lineWidth: 15,
-        //     size: 140,
-        //     animate: 2000,
-        // });
-        // $('.chart3').easyPieChart({
-        //     barColor: '#7C9C71',
-        //     trackColor: '#ccc',
-        //     scaleColor: false,
-        //     lineCap: 'butt',
-        //     lineWidth: 15,
-        //     size: 140,
-        //     animate: 2000,
-        // });
-        // $('.chart4').easyPieChart({
-        //     barColor: '#CCB361',
-        //     trackColor: '#ccc',
-        //     scaleColor: false,
-        //     lineCap: 'butt',
-        //     lineWidth: 15,
-        //     size: 140,
-        //     animate: 2000,
-        // });
-});
+     
         } 
     }, { offset: 10 });
 

@@ -49,10 +49,6 @@ if ( in_array( $_SERVER[ 'HTTP_HOST' ], $test ) ) {
 }
 elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
   	define ( 'APP_STATUS', "local" );
-	/**
-	 * 系统调试设置
-	 * 项目正式部署后请设置为false
-	*/
   	define ( 'APP_DEBUG', true );
 }
 
@@ -65,10 +61,10 @@ define ( 'SITE_PATH', dirname ( __FILE__ ) );
  */
 define ( 'APP_PATH', './Application/' );
 
-if (! is_file ( APP_PATH . 'User/Conf/config.php' )) {
-	header ( 'Location: ./install.php' );
-	exit ();
-}
+// if (! is_file ( APP_PATH . 'User/Conf/config.php' )) {
+// 	header ( 'Location: ./install.php' );
+// 	exit ();
+// }
 
 /**
  * 缓存目录设置

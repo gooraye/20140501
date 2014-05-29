@@ -2897,11 +2897,40 @@ section{
 }*/
 /*大背景图片*/
 body{
-    background: url(../images/bg/index006.jpg) !important;
+    /*background: url(../images/bg/index006.jpg) !important;*/
+    background: #111 !important;
 }
 #home,
 #about,
 #contact,
 #address-panel{
     background: inherit;
+}
+/* 重写bootstrap 的样式 */
+.modal{
+    background:rgba(41, 38, 38, 0.78);
+    z-index:10000;
+}
+
+.modal .modal-header{
+    background: #706D6D;
+}
+
+.modal .loading{
+    background:url(http://www.gooraye.net/Public/static/images/loading.gif) 50% no-repeat;
+}
+.modal .modal-dialog{
+    width:100%;
+    padding-top: 0px;
+}
+.close{
+    font-size: 28px;
+}
+
+.btn.btn-flat {
+    color:#fff;
+    background-color: #1abc9c;
+}
+.btn.btn-flat:hover, .btn.btn-flat:focus {
+background-color: #48c9b0;
 }

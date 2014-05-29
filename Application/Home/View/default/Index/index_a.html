@@ -208,7 +208,7 @@
         <div class="tile nav-tile tile-01 next-bg-eight">
           <a class="tile-nav scroll-link" href="#contact" data-soffset="0">
             <div class="nav-hover next-bg-one">
-                <h5>你需要项目吗？</h5>
+                <h5>你需要做项目吗？</h5>
                 <p>马上联系我们</p>
              </div>
             <span>联系我们</span>
@@ -237,9 +237,9 @@
               <span class="title1" >。。。</span>
             </a>
             <else /> 
-              <a href="{:U('article/detail?id='.$newestlist[0][id])}">
+              <a class="metroread" href="#" data-post="{:U('article/detail?id='.$newestlist[0][id])}">
                 <img alt="" title="" class="img1" src="{$newestlist[0]['cover_id']|get_cover_url}">
-                <span class="title1" >{$newestlist[0].title|msubstr=###,0,7}</span>
+                <span class="title1" >{$newestlist[0].title|msubstr=###,0,12}</span>
               </a>
             </if>
 
@@ -249,9 +249,9 @@
               <span class="title2" >。。。</span>
             </a>
             <else /> 
-              <a href="{:U('article/detail?id='.$newestlist[1][id])}">
+              <a class="metroread"  href="#" data-post="{:U('article/detail?id='.$newestlist[1][id])}">
                 <img alt="" title="" class="img2" src="{$newestlist[1]['cover_id']|get_cover_url}">
-                <span class="title2" >{$newestlist[1]['title']|msubstr=###,0,7}</span>
+                <span class="title2" >{$newestlist[1]['title']|msubstr=###,0,12}</span>
               </a>
             </if>
           </div>
@@ -283,9 +283,9 @@
               <span class="title1" >。。。</span>
             </a>
             <else /> 
-              <a href="{:U('article/detail?id='.$newestlist[2][id])}">
+              <a class="metroread"  href="#" data-post="{:U('article/detail?id='.$newestlist[2][id])}">
                 <img alt="" title="" class="img1" src="{$newestlist[2]['cover_id']|get_cover_url}">
-                <span class="title1" >{$newestlist[2]['title']|msubstr=###,0,7}</span>
+                <span class="title1" >{$newestlist[2]['title']|msubstr=###,0,12}</span>
               </a>
             </if>
 
@@ -295,9 +295,9 @@
               <span class="title1" >。。。</span>
             </a>
             <else /> 
-              <a href="{:U('article/detail?id='.$newestlist[3][id])}">
+              <a class="metroread"  href="#" data-post="{:U('article/detail?id='.$newestlist[3][id])}">
                 <img alt="" title="" class="img2" src="{$newestlist[3]['cover_id']|get_cover_url}">
-                <span class="title2" >{$newestlist[3]['title']|msubstr=###,0,7}</span>
+                <span class="title2" >{$newestlist[3]['title']|msubstr=###,0,12}</span>
               </a>
             </if>
           </div>
@@ -386,9 +386,9 @@
         <div class="tile tile-01 thumb">
           <div class="tile-nav flipY">
                 <img alt="" title="" class="img1" src="__STATIC__/metro/images/mimg/cat01.jpg">
-                <span class="title1" style="text-align:center;">专业的我们</span>
+                <span class="title1" style="text-align:center;font-size:16px;">专业的我们</span>
                 <img alt="" title="" class="img2" src="__STATIC__/metro/images/mimg/cat03.jpg">
-                <span class="title2" style="text-align:center;">等待您到来</span>
+                <span class="title2" style="text-align:center;font-size:16px;">等待您到来</span>
           </div>
         </div>
       <!-- Tile : Ends -->
@@ -836,6 +836,36 @@
 </section>
 <!-- mastwrap : ends -->
 
+<!-- 文章阅读metro容器 -->
+<div class="modal" id="articlepanel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">title</h4>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-flat prevarticle"  onclick="post(this)" data-post=''>上一篇</button>
+        <button type="button" class="btn btn-flat nextarticle" onclick="post(this)"  data-post=''>下一篇</button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-flat prevarticle"  onclick="post(this)"  data-post=''>上一篇</button>
+        <button type="button" class="btn btn-flat nextarticle"   onclick="post(this)"  data-post=''>下一篇</button>
+      </div>
+       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">title</h4>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 文章阅读metro容器 END -->
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <!-- Cdn fail refers to local library -->
   <script type="text/javascript">
@@ -859,12 +889,79 @@
 <script src="__STATIC__/metro/js/script.js"></script>
 
 
-<script>
+<script type="text/javascript">
       $(function() {
           Boxgrid.init();
       });
 </script>
+<script type="text/javascript">
+  function post(ele){
 
+//    console.log($href);
+    var $href =  $(ele).attr("data-post");
+    if(!$href){
+        return ;
+    }
+//    console.log($href);
+    $.ajax({
+            type:'post',
+            dataType: "json",
+            url:$href,
+            beforeSend:function(){
+               //显示加载中
+               $("#articlepanel").show();
+               //添加加载样式
+               $("#articlepanel .modal-title").text('加载中...');
+               $("#articlepanel .modal-body").text('');
+               $("#articlepanel .modal-body").addClass('loading');
+            }
+        }).done(function(data){
+
+//             console.log(data);
+            $("#articlepanel .modal-body").removeClass('loading');
+            if(data.status == 1){
+              $("#articlepanel .modal-title").text(data.info.title);
+              $("#articlepanel .modal-body").html(data.info.content);
+              if(data.prev){
+                  $("#articlepanel .prevarticle").text('上一篇');
+                  $("#articlepanel .prevarticle").attr("data-post",data.prev);
+              } else{
+                  $("#articlepanel .prevarticle").attr("data-post",'');
+                  $("#articlepanel .prevarticle").text('没有了');
+                }
+              if(data.next){
+                  $("#articlepanel .nextarticle").text('下一篇');
+                  $("#articlepanel .nextarticle").attr("data-post",data.next);
+              }else{                  
+                  $("#articlepanel .nextarticle").attr("data-post",'');
+                  $("#articlepanel .nextarticle").text('没有了');
+              }
+
+            }else{
+              $("#articlepanel .modal-title").text('加载失败！');
+              $("#articlepanel .modal-body").html(data.info.errmsg);
+            }
+
+        }).fail(function(){
+            alert("加载出错！");
+        });
+  }
+  //文章阅读
+  $(function(){
+    $("#articlepanel .close").click(function(){
+        $("#articlepanel").hide();
+    })
+    $(".metroread").click(function(ev){
+        ev.preventDefault();
+        post($(this));
+    });
+
+
+
+  })
+
+
+</script>
 
 </body>
 </html>

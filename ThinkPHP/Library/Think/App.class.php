@@ -20,6 +20,7 @@ class App {
      * @return void
      */
     static public function init() {
+
         // 加载动态应用公共文件和配置
         load_ext_file(COMMON_PATH);
         // URL调度
@@ -134,6 +135,7 @@ class App {
             $method = new \ReflectionMethod($module,'__call');
             $method->invokeArgs($module,array($action,''));
         }
+
         return ;
     }
 
@@ -143,6 +145,7 @@ class App {
      * @return void
      */
     static public function run() {
+        
         // 应用初始化标签
         Hook::listen('app_init');
         App::init();

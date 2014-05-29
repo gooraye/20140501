@@ -191,7 +191,7 @@ class PublicGroupController extends AdminController {
 		
 		foreach ( $list_data ['list_grids'] as $k => &$g ) {
 			if ($g ['title'] == '操作') {
-				$g ['href'] = 'editPublicAdmin&id=[id]|编辑,delPublicAdmin&id=[id]|删除';
+				$g ['href'] = 'editPublicConfig&id=[id]|配置,editPublicAdmin&id=[id]|编辑,delPublicAdmin&id=[id]|删除';
 			}
 			if ($g ['title'] == '当前公众号') {
 				unset ( $list_data ['list_grids'] [$k] );
@@ -204,6 +204,7 @@ class PublicGroupController extends AdminController {
 		$this->assign ( 'add_button', false );
 		$this->display ( 'Think:lists' );
 	}
+
 	function editPublicAdmin() {
 		$model = $this->getModel ( 'member_public' );
 		$id = I ( 'id', 0, 'intval' );
@@ -268,4 +269,7 @@ class PublicGroupController extends AdminController {
 			$this->error ( '删除失败！' );
 		}
 	}
+
+	
+
 }

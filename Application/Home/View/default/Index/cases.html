@@ -40,9 +40,9 @@
 			  },
 			  success: function (data){
 			  	$(".loadingmask").hide();
-			  	// console.log(data);
-		    		if(data){
-		    			$('.article-content').html(data.content);
+			  	 //console.log(data);
+		    		if(data.status){
+		    			$('.article-content').html(data.info.content);
 		    		} else {
 		    			alert('请重试！');
 		    		}
