@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="嘿嘿~~看你能玩到多少关">
+		<title>火爆朋友圈的男女暧昧游戏，95%的人在“高潮”前失败了呦，不服来战	</title>
+		<link href="__CSS__/mobile_module.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+		<link href="{:ADDON_PUBLIC_PATH}/LoveKiller.css?v={:SITE_VERSION}" rel="stylesheet"	type="text/css">		
+		<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/jquery.min.js?v={:SITE_VERSION}"></script>
+		 <script type="text/javascript" src="__JS__/prefixfree.min.js"></script>
+    <script type="text/javascript" src="__JS__/m/dialog.js?v={:SITE_VERSION}"></script>
+    <script type="text/javascript" src="__JS__/m/flipsnap.min.js"></script>
+    <script type="text/javascript" src="__JS__/m/mobile_module.js?v={:SITE_VERSION}"></script>
+    <script type="text/javascript" src="__JS__/admin_common.js?v={:SITE_VERSION}"></script>
+		<SCRIPT type="text/javascript">
+			if ($(window).width() < 500) {
+				var girdWidth = 60
+			} else {
+				girdWidth = 90
+			}
+			var posturl="{$isinfo_url}";
+			var hh = "{$hurl}";
+		</SCRIPT>
+	</head>
+	<body>
+		<div class="container">			
+			<DIV class="container">				
+				<DIV class="above-game" style=" margin-top:5px;">
+					<A class="restart-button">
+						重新开始
+					</A>
+					<DIV class="scores-container" style="float:left;">
+						<DIV class="score-container">
+							0
+						</DIV>
+						<DIV class="best-container">
+							0
+						</DIV>
+					</DIV>					
+				</DIV>
+				<DIV class="game-container">
+					<DIV class="game-message">
+						<P>
+						</P>
+						<BR>
+						<DIV class="lower">
+							<A class="keep-playing-button">
+								分享到朋友圈炫耀下咯~
+							</A>
+							<A class="retry-button">
+								人家还想要嘛
+							</A>
+						</DIV>
+					</DIV>
+					<DIV class="grid-container">
+						<DIV class="grid-row">
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+						</DIV>
+						<DIV class="grid-row">
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+						</DIV>
+						<DIV class="grid-row">
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+						</DIV>
+						<DIV class="grid-row">
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+							<DIV class="grid-cell">
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV class="tile-container">
+						<DIV class="tile tile-2 tile-position-2-1 tile-new">
+							<DIV class="tile-inner" style="font-family: 黑体; font-size: 45px;">
+								单身
+							</DIV>
+						</DIV>
+						<DIV class="tile tile-2 tile-position-2-4 tile-new">
+							<DIV class="tile-inner" style="font-family: 黑体; font-size: 45px;">
+								单身
+							</DIV>
+						</DIV>
+					</DIV>
+				</DIV>				
+				<DIV class="heading">
+					<H1 class="title">
+						嘿嘿~~看你能玩到多少关
+					</H1>					
+				</DIV>
+				<div>
+				<P class="game-intro">
+						分享到朋友圈，比比谁才是真正的恋爱高手~
+				</P>
+				</div>
+				<P>
+					滑动方块，使两个相同的方块重合就可以生成新的方块，类似于2+2=4，4+4=8。
+					<FONT color="#ff0000">
+						95%的人在“高潮”前失败了呦，不服来战！
+					</FONT>
+				</P>
+				<P>
+					给微信公众号「
+					<FONT color="#ff0000">
+						{$info.wxaccount}
+					</FONT>
+					」发送“
+					<FONT color="#ff0000">
+						我要高潮
+					</FONT>
+					”获取游戏通关攻略！PS：游戏仅能支持手机玩
+				</P>				
+				<p><font color="red"size="16"><b>快点点击右上角按钮分享给小伙伴们吧!</b></font></p>				 
+			</DIV>			
+			<p><img src="{:ADDON_PUBLIC_PATH}/dianwo.jpg" alt="点我啊"></p>			
+			<SCRIPT>
+				$(function(){					
+					$(".userinfo").width($(document).width());
+					$(".userinfo").height($(document).height());
+					$(".userinfobg").width($(document).width());
+					$(".userinfobg").height($(document).height());
+					if(posturl != ""){
+						$(".userinfo").show();
+						$(".userinfobg").show();
+					}
+					
+					$("#btn_submit").bind("click",function(){			
+						var truename = $('#truename').val();
+						var mobile = $('#mobile').val();
+						if(truename!=undefined && truename==""){
+							$.Dialog.fail("请填写昵称！");//成功调用 提示一秒后自动关闭
+							return false;
+						}
+						if(mobile!=undefined && mobile==""){
+							$.Dialog.fail("请填写联系电话！");//成功调用 提示一秒后自动关闭
+							return false;
+						}
+						document.title = "火爆朋友圈的男女暧昧游戏，" + truename + "原来是恋爱大神，不服来战！";
+						$.ajax({
+							type: 'POST',
+							url: posturl,
+							data:{truename:truename,mobile:mobile},
+							dataType: 'json',
+							cache: false,
+							error: function() {
+								$(".userinfo").hide();
+								$(".userinfobg").hide();
+							},
+							success: function(json) {				
+								$(".userinfo").hide();
+								$(".userinfobg").hide();
+							}
+						});
+					});
+					csfun();
+					
+				});
+				var islogcs=false;
+				var islogh=false;
+				function csfun(){
+					if(islogcs){return false;}
+					islogcs = true;
+					$.ajax({
+							type: 'GET',
+							url: "{$csurl}",
+							data:{},
+							dataType: 'json',
+							cache: false,
+							error: function() {
+								
+							},
+							success: function(json) {				
+								islogcs = false;
+							}
+					});
+				}
+				
+				
+				var my_list = {
+					2 : '单身',
+					4 : '搭讪',
+					8 : '约会',
+					16 : '表白',
+					32 : '恋爱',
+					64 : '牵手',
+					128 : '拥抱',
+					256 : '接吻',
+					512 : '前戏',
+					1024 : '{:ADDON_PUBLIC_PATH}/1024.jpg',
+					2048 : '{:ADDON_PUBLIC_PATH}/2048.jpg',
+					4096 : '{:ADDON_PUBLIC_PATH}/4096.jpg',
+					8192 : '{:ADDON_PUBLIC_PATH}/8192.jpg',
+					16384 : '{:ADDON_PUBLIC_PATH}/16384.jpg',
+					32768 : '32768',
+					65536 : '65536',
+					131072 : '131072',
+					262144 : '262144',
+					524288 : '524288',
+					1048576 : '1048576',
+					2097152 : '2097152',
+					4194304 : '4194304',
+					8388608 : '8388608',
+					16777216 : '16777216',
+					33554432 : '33554432',
+					67108864 : '67108864',
+					134217728 : '134217728',
+					268435456 : '268435456',
+					536870912 : '536870912',
+					1073741824 : '1073741824',
+					2147483648 : '2147483648'
+				}
+				var my_mark = {
+					2 : '骚年，你到现在还是单身你家里人造吗！',
+					4 : '搭讪失败，见到女生就脸红？敢不敢分享到朋友圈',
+					8 : '不主动买单还想约会？你这么抠门你的朋友们造吗？',
+					16 : '没关系，表白总要多试几次！宝贝给人家点个“赞”好不好嘛',
+					32 : '终于和喜欢的人表白了！值得分享到朋友圈庆祝下',
+					64 : '好歹恋爱了一回，分享到朋友圈炫耀下咯',
+					128 : '牵手的滋味还不错吧！和朋友圈的小伙伴分享下嘛',
+					256 : '呦呵，都拥抱了呀！分享下让朋友羡慕嫉妒恨吧~',
+					512 : '保留了几十年的初吻就这样没了！分享炫耀下~',
+					1024 : '太牛啦！爱爱要记得带套套哦!make自己的love让别人羡慕去吧',
+					2048 : '恭喜！Happy ending！一直性福哦！这么厉害一定要分享让大家都知道 ',
+					4096 : '战斗力这么强！一定要分享到朋友圈炫耀下~',
+					8192 : '审美疲劳时，可以试试震动棒！分享到朋友圈炫耀下~',
+					16384 : '相濡以沫，此生财富不过如此！分享到朋友圈炫耀下~',
+					32768 : 'Game Over, 分数: 32768',
+					65536 : 'Game Over, 分数: 65536',
+					131072 : 'Game Over, 分数: 131072',
+					262144 : 'Game Over, 分数: 262144',
+					524288 : 'Game Over, 分数: 524288',
+					1048576 : 'Game Over, 分数: 1048576',
+					2097152 : 'Game Over, 分数: 2097152',
+					4194304 : 'Game Over, 分数: 4194304',
+					8388608 : 'Game Over, 分数: 8388608',
+					16777216 : 'Game Over, 分数: 16777216',
+					33554432 : 'Game Over, 分数: 33554432',
+					67108864 : 'Game Over, 分数: 67108864',
+					134217728 : 'Game Over, 分数: 134217728',
+					268435456 : 'Game Over, 分数: 268435456',
+					536870912 : 'Game Over, 分数: 536870912',
+					1073741824 : 'Game Over, 分数: 1073741824',
+					2147483648 : 'Game Over, 分数: 2147483648'
+				}
+				var my_goal = 1024;
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/bind_polyfill.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/classlist_polyfill.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/animframe_polyfill.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/keyboard_input_manager.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/html_actuator.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/grid.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/tile.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/local_storage_manager.js">
+			</SCRIPT>
+			<SCRIPT src="{:ADDON_PUBLIC_PATH}/game_manager.js">
+			</SCRIPT>
+			<SCRIPT>
+				window.requestAnimationFrame(function() {
+					var game = new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager)
+				});
+			</SCRIPT>			
+		</div>
+		<DIV class="userinfobg" style="display:none;"></div>
+		<DIV class="userinfo" style="display:none;">
+			<div class="cen">
+				<div id="tab1" class="tab-pane">
+						<div style="font-size:25px; padding-top:50px; padding-bottom:20px; font-weight:bold;">
+							大侠，敢问尊姓大名
+						</div>
+					   <div class="form-item cf">
+							<label class="item-label">昵称</label>
+							<div class="controls">
+							  <input type="text" class="text input-medium" name="truename" id="truename" value="" />
+							 </div>
+					   </div>                   
+					   <div class="form-item cf">
+							<label class="item-label">联系电话</label>
+							<div class="controls">
+							  <input type="text" class="text input-large" name="mobile" id="mobile" value="" />
+							</div>
+					   </div>
+													 
+					   <div class="form-item cf tb pt_10">							
+							<button class="home_btn submit-btn ajax-post mb_10 flex_1" id="btn_submit" type="button" target-form="form-horizontal">确  定</button>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

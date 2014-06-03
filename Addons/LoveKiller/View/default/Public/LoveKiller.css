@@ -1,0 +1,438 @@
+html {
+	background: rgb(250, 248, 239); margin: 0px; padding: 0px; color: rgb(119, 110, 101); font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif; font-size: 18px;
+}
+body {
+	background: rgb(250, 248, 239); margin: 0px; padding: 0px; color: rgb(119, 110, 101); font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif; font-size: 18px;
+}
+body {
+	margin: 0px;
+}
+.heading::after {
+	clear: both; display: block; content: "";
+}
+h1.title {
+	margin: 10px 0px; font-size: 40px; font-weight: bold; float: left; display: block;
+	
+}
+.scores-container {
+	text-align: right; float: right;
+}
+.score-container {
+	background: rgb(187, 173, 160); padding: 15px 25px; border-radius: 3px; height: 25px; text-align: center; color: white; line-height: 47px; font-size: 1.2em; font-weight: bold; margin-top: 8px; display: inline-block; position: relative;
+}
+.best-container {
+	background: rgb(187, 173, 160); padding: 15px 25px; border-radius: 3px; height: 25px; text-align: center; color: white; line-height: 47px; font-size: 1.2em; font-weight: bold; margin-top: 8px; display: inline-block; position: relative;
+}
+.score-container::after {
+	left: 0px; top: 10px; width: 100%; text-align: center; color: rgb(238, 228, 218); text-transform: uppercase; line-height: 13px; font-size: 13px; position: absolute;
+}
+.best-container::after {
+	left: 0px; top: 10px; width: 100%; text-align: center; color: rgb(238, 228, 218); text-transform: uppercase; line-height: 13px; font-size: 13px; position: absolute;
+}
+.score-container .score-addition {
+	animation:move-up 600ms ease-in both; right: 10px; color: rgba(119, 110, 101, 0.9); line-height: 25px; font-size: 1.2em; font-weight: bold; position: absolute; z-index: 100; -webkit-animation: move-up 600ms ease-in; -moz-animation: move-up 600ms ease-in; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both;
+}
+.best-container .score-addition {
+	animation:move-up 600ms ease-in both; right: 10px; color: rgba(119, 110, 101, 0.9); line-height: 25px; font-size: 1.2em; font-weight: bold; position: absolute; z-index: 100; -webkit-animation: move-up 600ms ease-in; -moz-animation: move-up 600ms ease-in; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both;
+}
+.score-container::after {
+	content: "Score";
+}
+.best-container::after {
+	content: "Best";
+}
+p {
+	line-height: 1.65; margin-top: 0px; margin-bottom: 10px;
+}
+a {
+	color: rgb(119, 110, 101); font-weight: bold; text-decoration: underline; cursor: pointer;
+}
+strong.important {
+	text-transform: uppercase;
+}
+hr {
+	border-width: medium medium 1px; border-style: none none solid; border-color: currentColor currentColor rgb(216, 212, 208); margin-top: 20px; margin-bottom: 30px;
+}
+.container {
+	margin: 0px auto; width: 500px;
+}
+.game-container {
+	background: rgb(187, 173, 160); padding: 15px; border-radius: 6px; width: 500px; height: 500px; margin-top: 40px; position: relative; cursor: default; box-sizing: border-box; -ms-user-select: none; -ms-touch-action: none; -webkit-touch-callout: none; -ms-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; touch-action: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.game-container .game-message {
+	background: rgba(0, 0, 0, 0.5); animation:fade-in 800ms 1200ms both; left: 0px; top: 0px; text-align: center; right: 0px; bottom: 0px; display: none; position: absolute; z-index: 100; -webkit-animation: fade-in 800ms ease 1200ms; -moz-animation: fade-in 800ms ease 1200ms; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both;
+}
+.game-container .game-message p {
+	height: 30px; color: rgb(255, 255, 255); line-height: 60px; font-size: 30px; font-weight: bold; margin-top: 200px;
+}
+.game-container .game-message .lower {
+	margin-top: 59px; display: block;
+}
+.game-container .game-message a {
+	background: rgb(143, 122, 102); padding: 0px 20px; border-radius: 3px; height: 40px; color: rgb(249, 246, 242); line-height: 42px; text-decoration: none; margin-left: 9px; margin-right: 9px; display: inline-block;
+}
+.game-container .game-message a.keep-playing-button {
+	display: none;
+	margin-bottom:10px;
+}
+.game-container .game-won.game-message {
+	background: rgba(237, 194, 46, 0.5); color: rgb(249, 246, 242);
+}
+.game-container .game-won.game-message a.keep-playing-button {
+	display: inline-block;
+}
+.game-container .game-won.game-message {
+	display: block;
+}
+.game-container .game-over.game-message {
+	display: block;
+}
+.grid-container {
+	position: absolute; z-index: 1;
+}
+.grid-row {
+	margin-bottom: 15px;
+}
+:last-child.grid-row {
+	margin-bottom: 0px;
+}
+.grid-row::after {
+	clear: both; display: block; content: "";
+}
+.grid-cell {
+	background: rgba(238, 228, 218, 0.35); border-radius: 3px; width: 106.25px; height: 106.25px; margin-right: 15px; float: left;
+}
+:last-child.grid-cell {
+	margin-right: 0px;
+}
+.tile-container {
+	position: absolute; z-index: 2;
+}
+.tile {
+	width: 107px; height: 107px; line-height: 116.25px;
+}
+.tile .tile-inner {
+	width: 107px; height: 107px; line-height: 116.25px;
+}
+.tile-position-1-1.tile {
+	transform: translate(0px, 0px); -webkit-transform: translate(0px, 0px); -moz-transform: translate(0px, 0px);
+}
+.tile-position-1-2.tile {
+	transform: translate(0px, 121px); -webkit-transform: translate(0px, 121px); -moz-transform: translate(0px, 121px);
+}
+.tile-position-1-3.tile {
+	transform: translate(0px, 242px); -webkit-transform: translate(0px, 242px); -moz-transform: translate(0px, 242px);
+}
+.tile-position-1-4.tile {
+	transform: translate(0px, 363px); -webkit-transform: translate(0px, 363px); -moz-transform: translate(0px, 363px);
+}
+.tile-position-2-1.tile {
+	transform: translate(121px, 0px); -webkit-transform: translate(121px, 0px); -moz-transform: translate(121px, 0px);
+}
+.tile-position-2-2.tile {
+	transform: translate(121px, 121px); -webkit-transform: translate(121px, 121px); -moz-transform: translate(121px, 121px);
+}
+.tile-position-2-3.tile {
+	transform: translate(121px, 242px); -webkit-transform: translate(121px, 242px); -moz-transform: translate(121px, 242px);
+}
+.tile-position-2-4.tile {
+	transform: translate(121px, 363px); -webkit-transform: translate(121px, 363px); -moz-transform: translate(121px, 363px);
+}
+.tile-position-3-1.tile {
+	transform: translate(242px, 0px); -webkit-transform: translate(242px, 0px); -moz-transform: translate(242px, 0px);
+}
+.tile-position-3-2.tile {
+	transform: translate(242px, 121px); -webkit-transform: translate(242px, 121px); -moz-transform: translate(242px, 121px);
+}
+.tile-position-3-3.tile {
+	transform: translate(242px, 242px); -webkit-transform: translate(242px, 242px); -moz-transform: translate(242px, 242px);
+}
+.tile-position-3-4.tile {
+	transform: translate(242px, 363px); -webkit-transform: translate(242px, 363px); -moz-transform: translate(242px, 363px);
+}
+.tile-position-4-1.tile {
+	transform: translate(363px, 0px); -webkit-transform: translate(363px, 0px); -moz-transform: translate(363px, 0px);
+}
+.tile-position-4-2.tile {
+	transform: translate(363px, 121px); -webkit-transform: translate(363px, 121px); -moz-transform: translate(363px, 121px);
+}
+.tile-position-4-3.tile {
+	transform: translate(363px, 242px); -webkit-transform: translate(363px, 242px); -moz-transform: translate(363px, 242px);
+}
+.tile-position-4-4.tile {
+	transform: translate(363px, 363px); -webkit-transform: translate(363px, 363px); -moz-transform: translate(363px, 363px);
+}
+.tile {
+	transition:transform 100ms ease-in-out; position: absolute; -webkit-transition: 100ms ease-in-out; -moz-transition: 100ms ease-in-out; -webkit-transition-property: -webkit-transform; -moz-transition-property: -moz-transform;
+}
+.tile .tile-inner {
+	background: rgb(238, 228, 218); border-radius: 3px; text-align: center; font-size: 2.5em; font-weight: bold; z-index: 10;
+}
+.tile-2.tile .tile-inner {
+	background: rgb(238, 228, 218); box-shadow: 0px 0px 30px 10px rgba(243,215,116,0), inset 0px 0px 0px 1px rgba(255,255,255,0);
+}
+.tile-4.tile .tile-inner {
+	background: rgb(237, 224, 200); box-shadow: 0px 0px 30px 10px rgba(243,215,116,0), inset 0px 0px 0px 1px rgba(255,255,255,0);
+}
+.tile-8.tile .tile-inner {
+	background: rgb(242, 177, 121); color: rgb(249, 246, 242);
+}
+.tile-16.tile .tile-inner {
+	background: rgb(245, 149, 99); color: rgb(249, 246, 242);
+}
+.tile-32.tile .tile-inner {
+	background: rgb(246, 124, 95); color: rgb(249, 246, 242);
+}
+.tile-64.tile .tile-inner {
+	background: rgb(246, 94, 59); color: rgb(249, 246, 242);
+}
+.tile-128.tile .tile-inner {
+	background: rgb(237, 207, 114); color: rgb(249, 246, 242); font-size: 45px; box-shadow: 0px 0px 30px 10px rgba(243,215,116,0.2381), inset 0px 0px 0px 1px rgba(255,255,255,0.14286);
+}
+@media screen and (max-width:520px)
+{
+.tile-128.tile .tile-inner {
+	font-size: 25px;
+}
+}
+.tile-256.tile .tile-inner {
+	background: rgb(237, 204, 97); color: rgb(249, 246, 242); font-size: 45px; box-shadow: 0px 0px 30px 10px rgba(243,215,116,0.31746), inset 0px 0px 0px 1px rgba(255,255,255,0.19048);
+}
+@media screen and (max-width:520px)
+{
+.tile-256.tile .tile-inner {
+	font-size: 25px;
+}
+}
+.tile-512.tile .tile-inner {
+	background: rgb(237, 200, 80); color: rgb(249, 246, 242); font-size: 45px; box-shadow: 0px 0px 30px 10px rgba(243,215,116,0.39683), inset 0px 0px 0px 1px rgba(255,255,255,0.2381);
+}
+@media screen and (max-width:520px)
+{
+.tile-512.tile .tile-inner {
+	font-size: 25px;
+}
+}
+.tile-1024.tile .tile-inner {
+	background: rgb(237, 197, 63); color: rgb(249, 246, 242); font-size: 35px; box-shadow: 0px 0px 30px 10px rgba(243,215,116,0.47619), inset 0px 0px 0px 1px rgba(255,255,255,0.28571);
+}
+@media screen and (max-width:520px)
+{
+.tile-1024.tile .tile-inner {
+	font-size: 15px;
+}
+}
+.tile-2048.tile .tile-inner {
+	background: rgb(237, 194, 46); color: rgb(249, 246, 242); font-size: 35px; box-shadow: 0px 0px 30px 10px rgba(243,215,116,0.55556), inset 0px 0px 0px 1px rgba(255,255,255,0.33333);
+}
+@media screen and (max-width:520px)
+{
+.tile-2048.tile .tile-inner {
+	font-size: 15px;
+}
+}
+.tile-super.tile .tile-inner {
+	background: rgb(60, 58, 50); color: rgb(249, 246, 242); font-size: 30px;
+}
+@media screen and (max-width:520px)
+{
+.tile-super.tile .tile-inner {
+	font-size: 10px;
+}
+}
+.tile-new .tile-inner {
+	animation:appear 200ms 100ms backwards; -webkit-animation: appear 200ms ease 100ms; -moz-animation: appear 200ms ease 100ms; -webkit-animation-fill-mode: backwards; -moz-animation-fill-mode: backwards;
+}
+.tile-merged .tile-inner {
+	animation:pop 200ms 100ms backwards; z-index: 20; -webkit-animation: pop 200ms ease 100ms; -moz-animation: pop 200ms ease 100ms; -webkit-animation-fill-mode: backwards; -moz-animation-fill-mode: backwards;
+}
+.above-game::after {
+	clear: both; display: block; content: "";
+}
+.game-intro {
+	line-height: 30px; margin-bottom: 0px; 
+}
+.restart-button {
+	background: rgb(143, 122, 102); padding: 0px 20px; border-radius: 3px; height: 40px; text-align: center; color: rgb(249, 246, 242); line-height: 42px; text-decoration: none; float: right; display: block;
+}
+.game-explanation {
+	margin-top: 50px;
+}
+@media screen and (max-width:520px)
+{
+html {
+	font-size: 15px;
+}
+body {
+	font-size: 15px;
+}
+body {
+	margin: 0px 0px; padding: 0px 0px;
+}
+h1.title {
+	font-size: 27px;
+}
+.container {
+	margin: 0px auto; width: 320px;
+}
+.score-container {
+	padding: 15px 10px; margin-top: 0px; min-width: 40px;
+}
+.best-container {
+	padding: 15px 10px; margin-top: 0px; min-width: 40px;
+}
+.heading {
+	 margin-bottom: 10px;  margin-top:10px;
+}
+.game-intro {
+	line-height: 1.65; display: block; box-sizing: border-box;
+}
+.restart-button {
+	padding: 0px; width: 110px; margin-top: 2px; display: block; box-sizing: border-box;
+}
+.game-container {
+	background: rgb(187, 173, 160); padding: 10px; border-radius: 6px; width: 320px; height: 320px; margin-top: 17px; position: relative; cursor: default; box-sizing: border-box; -ms-user-select: none; -ms-touch-action: none; -webkit-touch-callout: none; -ms-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; touch-action: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.game-container .game-message {
+	background: rgba(0, 0, 0, 0.5);  animation:fade-in 800ms 1200ms both; left: 0px; top: 0px; text-align: center; right: 0px; bottom: 0px; display: none; position: absolute; z-index: 100; -webkit-animation: fade-in 800ms ease 1200ms; -moz-animation: fade-in 800ms ease 1200ms; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both;
+}
+.game-container .game-message p {
+	height: 60px; line-height: 60px; font-size: 60px; font-weight: bold; margin-top: 222px;
+}
+.game-container .game-message .lower {
+	margin-top: 59px; display: block;
+}
+.game-container .game-message a {
+	background: rgb(143, 122, 102); padding: 0px 20px; border-radius: 3px; height: 40px; color: rgb(249, 246, 242); line-height: 42px; text-decoration: none; margin-left: 9px; display: inline-block;
+}
+.game-container .game-message a.keep-playing-button {
+	display: none;
+	margin-bottom:10px;
+}
+.game-container .game-won.game-message {
+	background: rgba(237, 194, 46, 0.5); color: rgb(249, 246, 242);
+}
+.game-container .game-won.game-message a.keep-playing-button {
+	display: inline-block;
+}
+.game-container .game-won.game-message {
+	display: block;
+}
+.game-container .game-over.game-message {
+	display: block;
+}
+.grid-container {
+	position: absolute; z-index: 1;
+}
+.grid-row {
+	margin-bottom: 10px;
+}
+:last-child.grid-row {
+	margin-bottom: 0px;
+}
+.grid-row::after {
+	clear: both; display: block; content: "";
+}
+.grid-cell {
+	background: rgba(238, 228, 218, 0.35); border-radius: 3px; width: 67.5px; height: 67.5px; margin-right: 10px; float: left;
+}
+:last-child.grid-cell {
+	margin-right: 0px;
+}
+.tile-container {
+	position: absolute; z-index: 2;
+}
+.tile {
+	width: 67.5px; height: 67.5px; line-height: 67.5px;
+}
+.tile .tile-inner {
+	width: 67.5px; height: 67.5px; line-height: 67.5px;
+}
+.tile-position-1-1.tile {
+	transform: translate(0px, 0px); -webkit-transform: translate(0px, 0px); -moz-transform: translate(0px, 0px);
+}
+.tile-position-1-2.tile {
+	transform: translate(0px, 77.5px); -webkit-transform: translate(0px, 77.5px); -moz-transform: translate(0px, 77.5px);
+}
+.tile-position-1-3.tile {
+	transform: translate(0px, 155px); -webkit-transform: translate(0px, 155px); -moz-transform: translate(0px, 155px);
+}
+.tile-position-1-4.tile {
+	transform: translate(0px, 232.5px); -webkit-transform: translate(0px, 232.5px); -moz-transform: translate(0px, 232.5px);
+}
+.tile-position-2-1.tile {
+	transform: translate(77.5px, 0px); -webkit-transform: translate(77.5px, 0px); -moz-transform: translate(77.5px, 0px);
+}
+.tile-position-2-2.tile {
+	transform: translate(77.5px, 77.5px); -webkit-transform: translate(77.5px, 77.5px); -moz-transform: translate(77.5px, 77.5px);
+}
+.tile-position-2-3.tile {
+	transform: translate(77.5px, 155px); -webkit-transform: translate(77.5px, 155px); -moz-transform: translate(77.5px, 155px);
+}
+.tile-position-2-4.tile {
+	transform: translate(77.5px, 232.5px); -webkit-transform: translate(77.5px, 232.5px); -moz-transform: translate(77.5px, 232.5px);
+}
+.tile-position-3-1.tile {
+	transform: translate(155px, 0px); -webkit-transform: translate(155px, 0px); -moz-transform: translate(155px, 0px);
+}
+.tile-position-3-2.tile {
+	transform: translate(155px, 77.5px); -webkit-transform: translate(155px, 77.5px); -moz-transform: translate(155px, 77.5px);
+}
+.tile-position-3-3.tile {
+	transform: translate(155px, 155px); -webkit-transform: translate(155px, 155px); -moz-transform: translate(155px, 155px);
+}
+.tile-position-3-4.tile {
+	transform: translate(155px, 232.5px); -webkit-transform: translate(155px, 232.5px); -moz-transform: translate(155px, 232.5px);
+}
+.tile-position-4-1.tile {
+	transform: translate(232.5px, 0px); -webkit-transform: translate(232.5px, 0px); -moz-transform: translate(232.5px, 0px);
+}
+.tile-position-4-2.tile {
+	transform: translate(232.5px, 77.5px); -webkit-transform: translate(232.5px, 77.5px); -moz-transform: translate(232.5px, 77.5px);
+}
+.tile-position-4-3.tile {
+	transform: translate(232.5px, 155px); -webkit-transform: translate(232.5px, 155px); -moz-transform: translate(232.5px, 155px);
+}
+.tile-position-4-4.tile {
+	transform: translate(232.5px, 232.5px); -webkit-transform: translate(232.5px, 232.5px); -moz-transform: translate(232.5px, 232.5px);
+}
+.tile .tile-inner {
+	font-size: 1.5em;
+}
+.game-message p {
+	height: 30px !important; line-height: 30px !important; font-size: 30px !important; margin-top: 90px !important;
+}
+.game-message .lower {
+	margin-top: 30px !important;
+}
+}
+#load {
+	width: 1px; height: 1px; overflow: hidden;
+}
+.clear {
+	clear: both;
+}
+
+.userinfo{	
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:100;
+	color:#FFFFFF;
+	
+}
+.userinfo .cen{
+	margin:0px auto;
+	width:250px;
+	height:400px;
+}
+
+.userinfobg{
+	background-color:#000000;
+	opacity:0.5;
+	left:0px;
+	top:0px;
+	width:100%;
+	position:absolute;
+	z-index:99;
+}

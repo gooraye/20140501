@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS `wp_ml_lovek_manage` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+`title`  varchar(255) NOT NULL  DEFAULT '嘿嘿~~看你能玩到多少关' COMMENT '游戏活动标题',
+`description`  text NOT NULL  COMMENT '游戏活动描述',
+`playcount`  int(10) UNSIGNED NOT NULL  DEFAULT 0 COMMENT '游戏次数',
+`wxaccount`  varchar(255) NOT NULL  COMMENT '微信公众号',
+`keyword`  varchar(255) NOT NULL  DEFAULT 'love' COMMENT '关键词',
+`highestrecord`  int(10) UNSIGNED NOT NULL  DEFAULT 0 COMMENT '最高记录',
+`token`  varchar(255) NOT NULL  COMMENT 'Token',
+`username`  varchar(255) NOT NULL  COMMENT '玩家昵称',
+PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci CHECKSUM=0 ROW_FORMAT=DYNAMIC DELAY_KEY_WRITE=0;
+INSERT INTO `wp_model` (`name`,`title`,`extend`,`relation`,`need_pk`,`field_sort`,`field_group`,`attribute_list`,`template_list`,`template_add`,`template_edit`,`list_grid`,`list_row`,`search_key`,`search_list`,`create_time`,`update_time`,`status`,`engine_type`) VALUES ('ml_lovek_manage','恋爱高手数据管理','0','','1','{"1":["keyword","title","description","wxaccount"]}','1:基础','','','','','id:编号\r\nkeyword:关键词\r\ntitle:游戏活动标题\r\nplaycount:游戏次数\r\nhighestrecord:最高分数\r\nid:操作:loglists&id=[id]|数据监测,show&id=[id]|预览,[EDIT]&id=[id]|编辑,[DELETE]|删除','10','title','description','1400906774','1400934957','1','MyISAM');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('title','游戏活动标题','varchar(255) NOT NULL','string','嘿嘿~~看你能玩到多少关','','1','','0','1','1','1400908753','1400908598','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('description','游戏活动描述','text NOT NULL','textarea','','','1','','0','1','1','1400908733','1400908689','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('playcount','游戏次数','int(10) UNSIGNED NOT NULL','num','0','玩家游戏的次数','0','','0','0','1','1400907208','1400907208','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('wxaccount','微信公众号','varchar(255) NOT NULL','string','','用户在游戏中显示的关注名称','1','','0','1','1','1400919777','1400919777','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('keyword','关键词','varchar(255) NOT NULL','string','love','','1','','0','1','1','1400907076','1400907076','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('highestrecord','最高记录','int(10) UNSIGNED NOT NULL','num','0','用户的最高得分记录','0','','0','0','1','1400907167','1400907167','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('token','Token','varchar(255) NOT NULL','string','','','0','','0','0','1','1400906883','1400906852','','3','','regex','get_token','1','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('username','玩家昵称','varchar(255) NOT NULL','string','','','0','','0','0','1','1400906945','1400906945','','3','','regex','','3','function');
+UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;
+
+CREATE TABLE IF NOT EXISTS `wp_ml_lovek_log` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+`openid`  varchar(255) NOT NULL  COMMENT '用户id',
+`manage_id`  int(10) UNSIGNED NOT NULL  COMMENT '游戏活动id',
+`playcount`  int(10) UNSIGNED NOT NULL  DEFAULT 0 COMMENT '游戏次数',
+`highestrecord`  int(10) UNSIGNED NOT NULL  DEFAULT 0 COMMENT '最高分数',
+`cTime`  int(10) NOT NULL  COMMENT '加入时间',
+PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci CHECKSUM=0 ROW_FORMAT=DYNAMIC DELAY_KEY_WRITE=0;
+INSERT INTO `wp_model` (`name`,`title`,`extend`,`relation`,`need_pk`,`field_sort`,`field_group`,`attribute_list`,`template_list`,`template_add`,`template_edit`,`list_grid`,`list_row`,`search_key`,`search_list`,`create_time`,`update_time`,`status`,`engine_type`) VALUES ('ml_lovek_log','恋爱高手玩家列表','0','','1','','1:基础','','','','','id:编号\r\nopenid:玩家ID\r\nplaycount:游戏次数\r\nhighestrecord:最高分数\r\ncTime|time_format:加入时间','10','openid','highestrecord','1400929631','1400938524','1','MyISAM');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('openid','用户id','varchar(255) NOT NULL','string','','','0','','0','0','1','1400929821','1400929821','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('manage_id','游戏活动id','int(10) UNSIGNED NOT NULL','num','','','0','','0','1','1','1400929715','1400929715','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('playcount','游戏次数','int(10) UNSIGNED NOT NULL','num','0','','0','','0','0','1','1400929923','1400929871','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('highestrecord','最高分数','int(10) UNSIGNED NOT NULL','num','0','可以用于抽奖','0','','0','0','1','1400929910','1400929910','','3','','regex','','3','function');
+INSERT INTO `wp_attribute` (`name`,`title`,`field`,`type`,`value`,`remark`,`is_show`,`extra`,`model_id`,`is_must`,`status`,`update_time`,`create_time`,`validate_rule`,`validate_time`,`error_info`,`validate_type`,`auto_rule`,`auto_time`,`auto_type`) VALUES ('cTime','加入时间','int(10) NOT NULL','datetime','','','0','','0','0','1','1400933534','1400933534','','3','','regex','time','3','function');
+UPDATE `wp_attribute` SET model_id= (SELECT MAX(id) FROM `wp_model`) WHERE model_id=0;
