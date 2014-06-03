@@ -1,0 +1,36 @@
+<include file="Public/mobile_head"/>
+<link href="{:CUSTOM_TEMPLATE_PATH}Lists/SeekerListV1/lists.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">	
+<body id="weisite">
+<div class="container">
+ 
+         <div class="intro_top">
+            <div class="intro_top_con">
+                <img src="{:CUSTOM_TEMPLATE_PATH}Lists/SeekerListV1/dept_list.png" width="20" class="deptimg" /><span>菜单列表</span>
+            </div>
+        </div>
+      
+         <ul class="small_pic_list">
+    <volist name="list_data" id="vo">
+    	<li>
+        	<a href="{:U('detail', 'id='.$vo[id])}">
+                <h6>{$vo.title}</h6>
+                <p>{$vo.intro}</p>
+                <span class="list_time">{$vo.cTime|time_format}</span>
+            </a>
+        </li>
+        </volist>
+    </ul>       
+    
+    <!-- 分页 -->
+    <div class="page"> {$_page|default=''} </div>
+</div>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+</notempty>
+</body>
+</html>

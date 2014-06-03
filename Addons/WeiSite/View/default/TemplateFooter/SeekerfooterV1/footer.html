@@ -1,0 +1,18 @@
+<!-- 底部导航菜单无限添加 by Seeker -->
+<script src="{:CUSTOM_TEMPLATE_PATH}Footer/SeekerfooterV1/footer.js?v={:SITE_VERSION}"></script>
+<link href="{:CUSTOM_TEMPLATE_PATH}Footer/SeekerfooterV1/footer.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<div class="foot_holder">
+  <div class="foot_box">
+    <div class="backbtn"> <a href="#" onclick="self.location=document.referrer;"> <span class="backtb">&nbsp;</span></a> </div>
+    <div class="lolist"> <span class="listtb"></span> </div>
+    <div class="list_tbtip"></div>
+    <div class="list_detail">
+      <ul class="ulShow">
+        <volist name="footer" id="vo">
+          <li class="bor1"><a href="{$vo.url}" class="bor2"> <span class="list_jl"><img src="{$vo.icon}"/></span>{$vo.title}</a></li>
+        </volist>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="foot_screen"></div>

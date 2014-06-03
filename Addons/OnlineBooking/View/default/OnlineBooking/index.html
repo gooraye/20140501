@@ -21,33 +21,34 @@
 if (typeof jQuery == 'undefined') {
     document.write(unescape("%3Cscript src='__STATIC__/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
 }
-function onBridgeReady(){
-     WeixinJSBridge.invoke('getNetworkType',{},
-        function(e){
-            WeixinJSBridge.log(e.err_msg);
-            // alert(e.err_msg);
-        });
+
+// function onBridgeReady(){
+//      WeixinJSBridge.invoke('getNetworkType',{},
+//         function(e){
+//             WeixinJSBridge.log(e.err_msg);
+//             // alert(e.err_msg);
+//         });
 
 
-}
+// }
 
-if (typeof WeixinJSBridge == "undefined"){
-    if( document.addEventListener ){
-        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    }else if (document.attachEvent){
-        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
-        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-}else{
-    onBridgeReady();
-}
+// if (typeof WeixinJSBridge == "undefined"){
+//     if( document.addEventListener ){
+//         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//     }else if (document.attachEvent){
+//         document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+//         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//     }
+// }else{
+//     onBridgeReady();
+// }
 
 </script>
 
 <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8" ></script>
 </head>
-<body onselectstart="return true;" ondragstart="return false;" id="onlinebooking">
+<body  id="onlinebooking">
     
 <div class="qiandaobanner">        
  <img src="{$path}">
@@ -156,8 +157,10 @@ if (typeof WeixinJSBridge == "undefined"){
     </li>
 </form>
 </ul>
+
 <div class="footReturn">
-    <input id="showcard" class="submit ajax-post_submit" value="提交" type="button"> 
+    <input id="showcard"  class="submit ajax_post_submit" value="提交" type="button"> 
+    
      <div class="window" id="windowcenter">
         <div id="title" class="wtitle">操作提示<span class="close" id="alertclose"></span></div>
         <div class="content">
@@ -171,8 +174,7 @@ if (typeof WeixinJSBridge == "undefined"){
 
 <script type="text/javascript">
 
-$(document).ready(function () {
-
+$(function () {
             var nowTemp = new Date();
             var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
             // console.log($('#dateline'));
@@ -197,7 +199,8 @@ $(document).ready(function () {
             // });
 
 
-    $('.ajax-post_submit').click(function(){
+    $('.ajax_post_submit').click(function(){
+
         tel_num = $("#tel").val();
         if('undefined' !== typeof(tel_num)){
             if(tel_num ==''){

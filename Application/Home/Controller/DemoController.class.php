@@ -49,10 +49,13 @@ class DemoController extends HomeController {
 		vendor('phpSMS.HaiyanSMS#class');
 		 $haiyanSMS = new \HaiyanSMS();
 
+		//$result = $haiyanSMS->QueryBalance();
+		//dump($haiyanSMS->IsFailed());
+		$result = $haiyanSMS->SendSMS("姓名：123 联系电话：123456789001 日期： 时间：12:00-13:00 特色项目：其它 备注：",'18257567105');
+		dump($haiyanSMS->IsFailed());
+		dump($haiyanSMS->errmsg);
 		$result = $haiyanSMS->QueryBalance();
-		dump($haiyanSMS->IsFailed());
-		$result = $haiyanSMS->SendSMS('古睿信息科技','18257567105','预约','');
-		dump($haiyanSMS->IsFailed());
+
 		$this->show($result);
 	}
 

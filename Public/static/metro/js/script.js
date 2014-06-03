@@ -5,8 +5,6 @@
 
 (function(){
   "use strict";
-
-
 $(function ($) {
 
      //Detecting viewpot dimension and calculating the adjustments of components   
@@ -49,13 +47,15 @@ $('.carousel').carousel({
     });
 
     //Parallax Init
-    $(window).stellar({
-        responsive: true,
-        horizontalScrolling: false,
-        parallaxBackgrounds: true,
-        parallaxElements: true,
-        hideDistantElements: true
-    });
+    if($(window).width() > 480){
+
+      $(window).stellar({
+          responsive: true,
+          horizontalScrolling: false,
+          parallaxBackgrounds: true,
+          parallaxElements: true,
+          hideDistantElements: true
+      });
 
 
 
@@ -87,6 +87,7 @@ $('.carousel').carousel({
         } 
     }, { offset: 10 });
 
+    }//> 480px
 
 //Slidebar Menu - State Changes
 $('.sq-side-menu ul li a').click(function(){

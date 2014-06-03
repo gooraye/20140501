@@ -443,6 +443,7 @@ class ArticleController extends AdminController {
      */
     public function update(){
         $res = D('Document')->update();
+        
         if(!$res){
             $this->error(D('Document')->getError());
         }else{

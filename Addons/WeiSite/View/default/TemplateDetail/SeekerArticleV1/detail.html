@@ -1,0 +1,24 @@
+<include file="Public/mobile_head"/>
+<link href="{:CUSTOM_TEMPLATE_PATH}Detail/SeekerArticleV1/detail.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<body id="weisite">
+<div class="container">
+  <div class="artic_tit">
+    <p>{$info.title}</p>
+    <p class="arttime">{$info.cTime|time_format}</p>
+  </div>
+  <div class="artic_text">
+    <section class="content">
+      <notempty name="info.cover">
+        <p><img src="{$info.cover|get_cover_url}"/></p>
+      </notempty>
+      {$info.content|htmlspecialchars_decode} </section>
+  </div>
+</div>
+<!-- 底部导航 --> 
+{$footer_html} 
+<!-- 统计代码 -->
+<notempty name="config.code">
+  <p class="hide bdtongji"> {$config.code} </p>
+</notempty>
+</body>
+</html>

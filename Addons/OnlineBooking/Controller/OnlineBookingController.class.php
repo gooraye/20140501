@@ -73,12 +73,12 @@ class OnlineBookingController extends AddonsController{
 		$data['token'] = get_token();
 		$data['openid'] = get_openid();
 		$br = '<br/>';
-		$body  = '姓名：'.$data['truename'].$br;
-		$body .= '联系电话：'.$data['tel'].$br;
-		$body .= '预约日期：'.$data['dateline'].$br;
-		$body .= '预约时间：'.$data['timepart'].$br;
-		$body .= '特色项目：'.$data['type'].$br;
-		$body .= '备注：'.$data['info'];
+		$body  = '戴维营预订，姓名 '.$data['truename'].$br;
+		$body .= '电话'.$data['tel'].$br;
+		$body .= '日期'.$data['dateline'].$br;
+		$body .= ' '.$data['timepart'].$br;
+		//$body .= '特色项目：'.$data['type'].$br;
+		$body .= '备注'.$data['info'];
 		
 		// if(empty($data['truename']) || empty($data['tel'] )){
 		// 	$this->error("手机号与姓名必填!");		
@@ -127,7 +127,7 @@ class OnlineBookingController extends AddonsController{
 		 }
 
 		 // exit();
-
+		 
 //		$addresses = eval($addresses);
 		 //发送邮件
 		if(($noticeWay & 4) == 4){
@@ -140,26 +140,25 @@ class OnlineBookingController extends AddonsController{
 		}
 
 		//发送微信
-		if(($noticeWay & 2) == 2){
-			$result[2] = $this->sendWeixin($addresses['weixin'],$body);
-		}
+		//if(($noticeWay & 2) == 2){
+		//	$result[2] = $this->sendWeixin($addresses['weixin'],$body);
+		//}
 
-		if($result[0]  === true || $result[1]  ===  true || $result[2]  === true){
+		if($result[0]  === true || $result[1]  ===  true){
 
-			$this->success("提交成功，请等候客服联系您!");
+			//var_dump($result);
+			if($result[1] !== true){
+				$this->error("短信提醒发送失败!".$result[1]);
+			}elseif($result[0] !== true){
+				$this->error("邮件提醒发送失败!".$result[0]);
+			}else{
+				$this->success("提交成功，请等候客服联系您!");
+			}
 
 		}else{
 
-			$err = '';
-			if($result[0] !== true){
-				$err .= $result[0];
-			} 
-
-			if($result[1] !== true){
-				$err .= $result[1];
-			}
+			$this->error("提交失败,");
 			
-			$this->error("提交失败,".$err);
 		}
 	
 	}
@@ -193,6 +192,7 @@ class OnlineBookingController extends AddonsController{
 	}
 	/***/
 	function sendSMS($toaddress,$body){
+
 		vendor('phpSMS.HaiyanSMS#class');
 		$sms = new \HaiyanSMS();
 
@@ -202,20 +202,28 @@ class OnlineBookingController extends AddonsController{
 		$data['title'] = '在线预约';
 		$data['cTime'] = time();
 		$data['token'] = get_token();
-		$smslog->data($data)->add();
 
 		$smsConfig = getAddonConfig ( 'SMSWX' ); 
 
 		$sendNum = $smslog->count();
 
 		$leave = (int)$smsConfig['sendtotal'] - $sendNum;
+//		var_dump($toaddress);
+
+		//var_dump($sms->SendSMS($body,str_replace('<br/>', ' ', $body)));
 		if( $leave > 0 )
 		{
-			$sms->SendSMS($body,$toaddress,'预约提醒','');
+			$sms->SendSMS(str_replace('<br/>', ' ', $body),$toaddress);
+
+		}else{
+			return "短信余额不足！";
 		}
+
 		if( $sms->IsFailed() ){
 			return $sms->errmsg;
 		}
+		
+		$smslog->data($data)->add();
 		return true;
 	}
 

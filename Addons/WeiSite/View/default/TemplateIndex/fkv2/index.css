@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document by jacy use in weisite */
+/*cate1*/
+
+header{ text-align:center}
+.banner{ width:100%; overflow:hidden; position:relative;}
+.banner ul{ position:absolute; left:0; top:0; z-index:10; -webkit-animation:}
+.banner ul li{ float:left; display:table-cell; position:relative}
+.banner li a{ width:100%; height:100%; display:block;}
+.banner li .title{background-color:RGBA(0,0,0,.5); height:30px; color:#fff; line-height:30px; padding-left:10px; position:absolute; left:0; bottom:0; width:100%; z-index:1000;}
+.identify{text-align:left; position:absolute; bottom:0; left:0; z-index:100; width:100%; height:30px;}
+.identify em{ display:inline-block; margin:10px;-webkit-border-radius: 6px;-moz-border-radius: 6px;
+border-radius: 6px;margin-left: 5px;width: 12px;height: 12px;background: #fff;}
+.identify em.cur{ background-color:#e32f0c}
+.identify span.pointer{ float:right; margin-right:10px;}
+#weisite .mainmenu {
+	display: block;
+    margin: 0 auto;
+    padding:0 0 5px 5px;
+   
+}
+#weisite .mainmenu li {
+	width:33.3%;
+	float:left;
+	display: block;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+}
+#weisite .mainmenu li .menubtn {
+	display: block;
+	overflow: hidden;
+	text-decoration:none;
+	color:#000;
+	background-color: #333333;
+	border-radius: 5px;
+	margin: 5px 5px 0 0;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+#weisite .mainmenu li a {
+	display:block;
+	padding:0px;
+	font-size:14px;
+	color: #000000;
+	text-decoration: none;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+}
+#weisite .mainmenu li .menubtn .menumesg {
+	padding:2px 2px 0 2px;
+}
+#weisite .mainmenu li .menubtn .menuimg {
+	/*max-height:106px;*/
+	overflow:hidden;
+	
+}
+#weisite .mainmenu li div img {
+	border:0;
+	width:100%;
+}
+#weisite .mainmenu li .menutitle {
+	text-align:center;
+	line-height: 25px;
+	text-decoration: none;
+	color:#888888;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}

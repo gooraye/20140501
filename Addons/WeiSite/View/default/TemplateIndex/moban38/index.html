@@ -1,0 +1,49 @@
+<include file="Public/mobile_head"/>	
+<link href="{:CUSTOM_TEMPLATE_PATH}Index/fkv1/index.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<style>
+*{ margin:0; padding:0;}
+
+.content_li{ width:49%; float:left; display:block; height:80px; position:relative; margin-top:3px; margin-left:1%;}
+
+.content_li img{ position:absolute; z-index:1; height:100%;max-width:100%;overflow:hidden;}
+
+.content_li_text{ position:absolute; z-index:2; width:100%; height:80px; background:url({:CUSTOM_TEMPLATE_PATH}Index/moban38/img/content_li.png) no-repeat right top; background-size:100% 80px;}
+
+.content_li_text h1{ line-height:80px;height:80px;font-size:16px; font-family:"微软雅黑"; color:#a5a7ae; padding:0 20px 10px 0px; text-shadow:0px 1px 0px #fff; text-align:right; width:55px; overflow:hidden;white-space:nowrap;  }
+
+.content_li_text p{font-size:14px; font-family:"微软雅黑"; color:#a5a7ae;  padding:0px 10px 10px 0px; text-shadow:0px 1px 0px #fff; }
+.wz_24_footer{ position:relative;width:100%;bottom:0;font-size:12px;text-align:center;line-height:60px;color:#fff;}
+</style>
+<body id="weisite" style="background:#eee url({$config.background}) no-repeat; background-size:100% 100%">
+<div class="container">
+ 
+
+    <if condition="!empty($category)">
+  
+
+               <volist name="category" id="vo">
+
+<a href="{$vo.url}" class="content_li">
+<img src="{$vo.icon}" />
+<div class="content_li_text">
+   <span style="float:right; max-width:85px; ">
+   <h1>{$vo.title}</h1>
+   </span>
+</div>
+</a>
+</volist>
+       
+    </if>
+
+ </div>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+</notempty>
+</body>
+
+</html>

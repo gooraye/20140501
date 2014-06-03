@@ -1,0 +1,60 @@
+<include file="Public/mobile_head"/>	
+<link href="{:CUSTOM_TEMPLATE_PATH}Index/fkv1/index.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+        <style>
+            #weisite .mainmenu li .menubtn .menumesg {
+                padding: 0;
+            }
+            #weisite .mainmenu li {
+                width: 33.3%;/*每个分类所占比例：一排2个就是50%*/
+            }
+            #weisite .mainmenu li .menubtn {
+                margin: 8px 8px 0 0;/*外边距：可根据需求调整大小；4个数字，分别是上右下左*/
+            }
+
+            #weisite .mainmenu {
+                padding: 0 0 8px 8px;/*内边距：可根据需求调整大小；4个数字，分别是上右下左*/
+            }
+            #weisite .mainmenu li .menubtn {
+                border-radius: 6px;/*图片圆角，越大越圆*/
+            } 
+        </style>
+<body id="weisite" style="background:#eee url({$config.background}) no-repeat; background-size:100% 100%">
+<div class="container">
+ 
+    <if condition="!empty($category)">
+    <section>
+   
+        <ul class="mainmenu">
+            <volist name="category" id="vo">
+                <li>
+                    <div class="menubtn">
+                        <a href="{$vo.url}">
+                            <div class="menumesg">
+                                <div class="menuimg"><img src="{$vo.icon}" /></div>
+                                <div class="menutitle">{$vo.title}</div>
+                            </div>
+                        </a>
+                    </div>
+                </li> 
+            </volist>
+        </div>
+    </section>
+    </if>
+</ul>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+</notempty>
+</body>
+<script type="text/javascript">
+$(function(){
+	$.WeiPHP.initBanner(true,5000);
+	$.WeiPHP.setRandomColor('.random_color');
+})
+
+</script>
+</html>

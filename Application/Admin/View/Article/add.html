@@ -28,6 +28,12 @@
 	<div class="tab-content">
 	<!-- 表单 -->
 	<form id="form" action="{:U('update')}" method="post" class="form-horizontal">
+<!-- 
+                    <label class="item-label">标签<span class="check-tips">添加标签，以逗号或回车隔开</span>
+                    </label>
+                    <div class="controls">
+                    	 <input type="text" placeholder="添加标签，以逗号或回车隔开" class="text input-medium" name="tags" value="">
+                    </div> -->
 		<!-- 基础文档模型 -->
 		<volist name=":parse_config_attr($model['field_group'])" id="group">
         <div id="tab{$key}" class="tab-pane <eq name="key" value="1">in</eq> tab{$key}">

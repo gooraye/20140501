@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document by Seeker */
+/* footer */
+.foot_holder{ height:46px; width:100%; overflow:hidden;}
+.foot_box{ width:100%; height:46px; background:#2c3031; position:fixed; bottom:0px; z-index:9990; _position:absolute; _top:expression(documentElement.scrollTop);}
+.foot_box .backbtn{ width:24%; height:46px; float:left; background:#2c3031; border-right:1px solid #161719;}
+.foot_box .backbtn .backtb{ display:block; width:24px; height:24px; background:url(foot_tb.png) no-repeat; background-size:55px 22px; -webkit-background-size:55px 22px; -o-background-size:55px 22px; margin:12px auto 0 auto;}
+.foot_box .lolist{ width:27%; height:46px; float:right; background:#00a040; border-left:1px solid #161719;}
+.foot_box .lolist .listtb{ display:block; width:31px; height:26px; background:url(foot_tb.png) no-repeat; background-size:50px 23px; -webkit-background-size:50px 23px; -o-background-size:50px 23px; margin:11px auto 0 auto; background-position:-23px 0;}
+.list_tbtip{ position:absolute; width:21px; height:14px; background:url(list_tip.png) no-repeat; background-size:100%; -webkit-background-size:100%; -o-background-size:100%; bottom:49px; right:9%; z-index:9997; display:none;}
+.foot_box .list_detail{ position:absolute; width:93%; bottom:59px; left:3%; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-right:1px solid #bcbcbc; border-bottom:2px solid #bcbcbc; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:#f1f1f1; overflow:hidden; z-index:9996; display:none;}
+.foot_box .list_detail ul li{ display:block; width:25%; height:80px; text-align:center; float:left; color:#222; font-size:12px; overflow:hidden;}
+.foot_box .list_detail ul li a{ display:block; width:99%; height:100%; color:#000; float:right; line-height:18px;}
+.foot_box .list_detail .bor1{ border-bottom:1px solid #e4e3e3;}
+.foot_box .list_detail .bor2{ border-right:1px dashed #b9b9b9;}
+.foot_box .list_detail .bor3{ border-top:1px solid #f6f0f0;}
+.foot_box .list_detail .otbg{ background:#ebebeb;}
+.foot_box .list_detail ul li a span{ display:block; background-size:192px 29px; -webkit-background-size:192px 29px; -o-background-size:192px 29px; margin:13px auto 8px auto;}
+.foot_box .list_detail ul li a span.list_jl{ width:30px; height:29px; background-position:-27px 0;}
+.foot_screen{ width:100%; height:100%; background:#000; filter: alpha(opacity=30); -moz-opacity:0.3; -khtml-opacity:0.3; opacity:0.3; position:fixed; z-index:9980; top:0; left:0; display:none;}
