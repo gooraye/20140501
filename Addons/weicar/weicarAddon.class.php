@@ -1,35 +1,35 @@
 <?php
 
-namespace Addons\Card;
+namespace Addons\weicar;
 use Common\Controller\Addon;
 
 /**
- * 会员卡插件
- * @author 无名
+ * 微汽车插件
+ * @author 贝贝
  */
 
-    class CardAddon extends Addon{
+    class weicarAddon extends Addon{
 
         public $info = array(
-            'name'=>'Card',
-            'title'=>'会员卡',
-            'description'=>'提供会员卡基本功能：会员卡制作、会员管理、通知发布、优惠券发布等功能，用户可在此基础上扩展自己的具体业务需求，如积分、充值、签到等',
+            'name'=>'weicar',
+            'title'=>'微汽车',
+            'description'=>'微汽车',
             'status'=>1,
             'author'=>'贝贝',
             'version'=>'1',
-            'has_adminlist'=>0,
+            'has_adminlist'=>1,
             'type'=>1         
         );
 
 	public function install() {
-		$install_sql = './Addons/Card/install.sql';
+		$install_sql = './Addons/weicar/install.sql';
 		if (file_exists ( $install_sql )) {
 			execute_sql_file ( $install_sql );
 		}
 		return true;
 	}
 	public function uninstall() {
-		$uninstall_sql = './Addons/Card/uninstall.sql';
+		$uninstall_sql = './Addons/weicar/uninstall.sql';
 		if (file_exists ( $uninstall_sql )) {
 			execute_sql_file ( $uninstall_sql );
 		}

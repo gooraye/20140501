@@ -5,7 +5,7 @@ use Common\Controller\Addon;
 
 /**
  * 融合第三方插件
- * @author 地下凡星
+ * @author 贝贝
  */
 
     class ExtensionsAddon extends Addon{
@@ -15,7 +15,7 @@ use Common\Controller\Addon;
             'title'=>'融合第三方',
             'description'=>'第三方功能扩展',
             'status'=>1,
-            'author'=>'地下凡星',
+            'author'=>'贝贝',
             'version'=>'0.1',
             'has_adminlist'=>1,
             'type'=>1         

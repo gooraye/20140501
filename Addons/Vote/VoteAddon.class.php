@@ -5,7 +5,7 @@ use Common\Controller\Addon;
 
 /**
  * 投票插件
- * @author 地下凡星
+ * @author 贝贝
  */
 
     class VoteAddon extends Addon{
@@ -15,7 +15,7 @@ use Common\Controller\Addon;
             'title'=>'投票',
             'description'=>'支持文本和图片两类的投票功能',
             'status'=>1,
-            'author'=>'地下凡星',
+            'author'=>'贝贝',
             'version'=>'0.1'
         );
 

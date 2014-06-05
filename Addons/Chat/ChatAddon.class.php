@@ -5,7 +5,7 @@ use Common\Controller\Addon;
 
 /**
  * 智能聊天插件
- * @author 地下凡星
+ * @author 贝贝
  */
 
     class ChatAddon extends Addon{

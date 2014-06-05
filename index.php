@@ -35,23 +35,20 @@ if (! empty ( $_GET ['echostr'] ) && ! empty ( $_GET ["signature"] ) && ! empty 
 	exit ();
 }
 
+
 /**
  * 系统状态设置
  * local 
  */
 $local = array( 'localhost', '127.0.0.1');
-$test = array( 'gooraye.duapp.com','gooraye.duapp.com:8080');
 //var_dump($_SERVER['HTTP_HOST']);
 //exit();
-if ( in_array( $_SERVER[ 'HTTP_HOST' ], $test ) ) {    
-  	define ( 'APP_STATUS', "test" );
-  	define ( 'APP_DEBUG', true );
-}
 elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
   	define ( 'APP_STATUS', "local" );
   	define ( 'APP_DEBUG', true );
 }
 
+ define ( 'APP_DEBUG', true );
 
 // 网站根路径设置
 define ( 'SITE_PATH', dirname ( __FILE__ ) );

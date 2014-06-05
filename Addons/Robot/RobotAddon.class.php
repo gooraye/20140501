@@ -5,7 +5,7 @@ use Common\Controller\Addon;
 
 /**
  * 机器人聊天插件
- * @author 地下凡星
+ * @author 贝贝
  */
 
     class RobotAddon extends Addon{
@@ -23,7 +23,7 @@ use Common\Controller\Addon;
 用户回复：“这个世界上谁最美？”
 微信回复：“当然是你啦！”',
             'status'=>1,
-            'author'=>'地下凡星',
+            'author'=>'贝贝',
             'version'=>'0.1'
         );
 

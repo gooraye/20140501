@@ -7,7 +7,7 @@ use Common\Controller\Addon;
 /**
  * 建议意见插件
  * 
- * @author 地下凡星
+ * @author 贝贝
  */
 class SuggestionsAddon extends Addon {
 	public $info = array (
@@ -16,7 +16,7 @@ class SuggestionsAddon extends Addon {
 			'description' => '用户在微信里输入“建议意见”四个字时，返回一个图文信息，引导用户进入填写建议意见的3G页面，用户填写信息提交后显示感谢之意并提示关闭页面返回微信
 管理员可以在管理中心里看到用户反馈的内容列表，并对内容进行编辑，删除操作',
 			'status' => 1,
-			'author' => '地下凡星',
+			'author' => '贝贝',
 			'version' => '0.1' 
 	);
 	public $admin_list = array (

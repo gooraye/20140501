@@ -1,10 +1,11 @@
-// JavaScript Document by jacy
+
+
 /**
  定义基本常量
 */
 var RESULT_SUCCESS = 'success';
 var RESULT_FAIL = 'fail';
-var WeiPHP_RAND_COLOR = ["#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999","#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999","#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999"];
+var GOORAYE_RAND_COLOR = ["#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999","#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999","#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#3399ff","#9933ff","#cc3366","#333333","#339999"];
 
 /***/
 (function(){
@@ -64,17 +65,17 @@ var WeiPHP_RAND_COLOR = ["#ff6600","#ff9900","#99cc00","#33cc00","#0099cc","#339
 	//随机颜色
 	function setRandomColor(selector){
 		$(selector).each(function(index, element) {
-			$(this).css('background-color',WeiPHP_RAND_COLOR[index]);
+			$(this).css('background-color',GOORAYE_RAND_COLOR[index]);
 		});;
 	}
-	var WeiPHP = {
+	var Gooraye = {
 		doAjaxSubmit:doAjaxSubmit,
 		setRandomColor:setRandomColor,
 		initBanner:banner,
 		initFixedLayout:initFixedLayout
 	};
 	$.extend({
-		WeiPHP: WeiPHP
+		Gooraye: Gooraye
 	});
 })();
 

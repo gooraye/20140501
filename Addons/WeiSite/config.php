@@ -21,7 +21,7 @@ return array (
 		'background' => array (
 				'title' => '模板背景图:',
 				'type' => 'picture',
-				'value' => '',
+				'value' => 'http://gooraye.qiniudn.com/dwy_bg001.jpg',
 				'tip' => '为空时默认使用模板里的背景图片'
 		),	
 					

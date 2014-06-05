@@ -5,7 +5,7 @@ use Common\Controller\Addon;
 
 /**
  * 欢迎语插件
- * @author 地下凡星
+ * @author 贝贝
  */
 
     class WecomeAddon extends Addon{
