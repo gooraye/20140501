@@ -43,12 +43,11 @@ if (! empty ( $_GET ['echostr'] ) && ! empty ( $_GET ["signature"] ) && ! empty 
 $local = array( 'localhost', '127.0.0.1');
 //var_dump($_SERVER['HTTP_HOST']);
 //exit();
-elseif ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
+if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $local ) ) {    
   	define ( 'APP_STATUS', "local" );
   	define ( 'APP_DEBUG', true );
 }
 
- define ( 'APP_DEBUG', true );
 
 // 网站根路径设置
 define ( 'SITE_PATH', dirname ( __FILE__ ) );

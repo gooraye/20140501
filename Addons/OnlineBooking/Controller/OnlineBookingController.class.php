@@ -147,18 +147,16 @@ class OnlineBookingController extends AddonsController{
 		if($result[0]  === true || $result[1]  ===  true){
 
 			//var_dump($result);
-			if($result[1] !== true){
+			if(($noticeWay & 1) == 1 && $result[1] !== true){
 				$this->error("短信提醒发送失败!".$result[1]);
-			}elseif($result[0] !== true){
+			}elseif(($noticeWay & 4) == 4 && $result[0] !== true){
 				$this->error("邮件提醒发送失败!".$result[0]);
 			}else{
 				$this->success("提交成功，请等候客服联系您!");
 			}
 
 		}else{
-
-			$this->error("提交失败,");
-			
+			$this->error("提交失败！");			
 		}
 	
 	}
@@ -181,13 +179,15 @@ class OnlineBookingController extends AddonsController{
 	function sendMail($toaddress,$body){
 
 		$toaddress = explode(",", $toaddress);
+		try{
+			for ($i=0; $i < count($toaddress); $i++) {
+				
+			 	$result = think_send_mail($toaddress[$i],'预约','预约提醒',$body);
 
-		for ($i=0; $i < count($toaddress); $i++) {
-			
-		 	$result = think_send_mail($toaddress[$i],'预约','预约提醒',$body);
+			 }
+		}catch(Exception $e){
 
-		 }
-		
+		}
 		return $result;
 	}
 	/***/

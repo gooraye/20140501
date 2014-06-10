@@ -1575,6 +1575,7 @@ function safe($text, $type = 'html') {
  * @return boolean 
  */
  function think_send_mail($to, $name, $subject = '', $body = '', $attachment = null){
+ 
     $config = C('THINK_EMAIL');
     vendor('phpmailer.class#phpmailer'); //从PHPMailer目录导class.phpmailer.php类文件
     $mail             = new \PHPMailer(); //PHPMailer对象
@@ -1601,7 +1602,6 @@ function safe($text, $type = 'html') {
             is_file($file) && $mail->AddAttachment($file);
         }
     }
-
     return $mail->Send() ? true : $mail->ErrorInfo;
  }
 

@@ -48,15 +48,17 @@ return array(
 
     //邮件配置
      'THINK_EMAIL' => array(
-        'SMTP_HOST'   => 'smtp.gooraye.net', //SMTP服务器
+        'SMTP_HOST'   => 'smtp.126.com', //SMTP服务器
         'SMTP_PORT'   => '465', //SMTP服务器端口
-        'SMTP_USER'   => 'gooraye@gooraye.net ', //SMTP服务器用户名
-        'SMTP_PASS'   => 'grxxkj136799711', //SMTP服务器密码
-        'FROM_EMAIL'  => 'gooraye@gooraye.net', //发件人EMAIL
+       // 'SMTP_HOST'   => 'smtp.gooraye.net', //SMTP服务器
+//        'SMTP_PORT'   => '465', //SMTP服务器端口
+        // 'SMTP_USER'   => 'gooraye@gooraye.net ', //SMTP服务器用户名
+        // 'SMTP_PASS'   => 'grxxkj136799711', //SMTP服务器密码
+        // 'FROM_EMAIL'  => 'gooraye@gooraye.net', //发件人EMAIL
 
-        // 'SMTP_USER'   => 'hebiduhebi@126.com', //SMTP服务器用户名
-        // 'SMTP_PASS'   => '136799711', //SMTP服务器密码
-        // 'FROM_EMAIL'  => 'hebiduhebi@126.com', //发件人EMAIL
+        'SMTP_USER'   => 'hebiduhebi@126.com', //SMTP服务器用户名
+        'SMTP_PASS'   => '136799711', //SMTP服务器密码
+        'FROM_EMAIL'  => 'hebiduhebi@126.com', //发件人EMAIL
 
         'FROM_NAME'   => '绍兴古睿信息科技', //发件人名称
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
