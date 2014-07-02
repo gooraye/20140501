@@ -1,0 +1,520 @@
+<!doctype html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>百度地图API-首页</title>
+	<link rel="stylesheet" href="static/css/mapapi.css" type="text/css" media="screen" />
+	<meta name="keywords" content="百度地图api,百度地图API,地图API,地图api,百度地图 api,百度手机API,LBS云,百度地图API Android,百度地图API iOS,URI API" />
+	<meta name="description" content="百度地图API是一套为开发者免费提供的基于百度地图的应用程序接口，包括JavaScript、iOS、Andriod、静态地图、Web服务等多种版本，提供基本地图、位置搜索、周边搜索、公交驾车导航、定位服务、地理编码及逆地理编码等丰富功能。LBS·云是百度地图针对LBS开发者全新推出的平台级服务。通过地图API，一方面解决移动开发者服务器端日益增长的海量位置数据的存储维护压力，另一方面彻底解决所有LBS开发者基于位置数据的高并发检索瓶颈。" />
+	<script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+<body>
+<div id="header">
+	<div class="top-bg">
+		<div class="top-mid">
+			<a class="martop5 l" href="http://developer.baidu.com/map/">
+				<img src="static/img/index/logo.png" />
+			</a>
+			<div id="logins" class="martop10 r">
+				<ul class="user-nav">
+					<li class="user-nav-item " id="user-state-li" style="display:none">						
+						<a id="userName">							
+						</a>
+						<label>|</label>						
+						<ul class="username-dropdown" style="visibility: hidden;">
+							<li >
+								<a target="_top" href="http://passport.baidu.com/center" class="bd-cloud-dropdown-link">帐号设置</a>
+							</li>
+							<li>
+								<a target="_top" href="" id="logout">退出</a>
+							</li>
+							<div class="clear"></div>
+						</ul>
+						<div> 
+						<div class="clear"></div>
+					</li>
+					<li class="user-nav-item">
+						<a target="_blank" href="http://lbsyun.baidu.com/apiconsole/key" style="color:#EF4142;">API控制台</a><label >|</label>  
+					</li>
+					<li class="user-nav-item">
+						<a target="_blank" href="http://developer.baidu.com" >百度开放云</a>  
+					</li>
+					 <li id="login-reg-li" class="user-nav-item" style="display:none;">
+						<label>|</label> <a id="login" href="" target="_top">登录</a>
+					
+						<a id="register" href="" target="_top">注册</a>
+					</li> 					
+					<div class="clear"></div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="top_main">			
+		<div id="nav">				
+			<ul class="nav-header">
+				<li>
+					<a class="nav_on" href="http://developer.baidu.com/map/">首页</a>
+				</li>
+				<li class="nav-item">
+					<a href="lbs-cloud.htm">开发</a>
+					<div id="homeTab1" class="homeTab">
+						<dl>
+							<dt class="l">web开发</dt>
+							<dd>
+								<a target="_blank" href="jshome.htm">JavaScript API大众版</a>
+								<a target="_blank" href="jsmobile.htm">JavaScript API极速版</a>
+								<a target="_blank" href="library.htm">JavaScript API开源库</a>
+								<a target="_blank" href="flash.htm">Flash API</a>
+								<div class="clear"></div>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="l">APP开发</dt>
+							<dd>
+								<a target="_blank" href="sdk-android.htm">Android地图SDK</a>
+								<a target="_blank" href="geosdk.htm">Android定位SDK</a>
+								<a target="_blank" href="navsdk.htm">Android导航SDK</a>
+								<a target="_blank" href="sdk-ios.htm">iOS地图SDK</a>
+								<a target="_blank" href="sdk-nav-ios.htm">iOS导航SDK</a>
+								<a target="_blank" href="sdk-pano-ios.htm">iOS全景SDK</a>
+								<div class="clear"></div>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="l">服务接口</dt>
+							<dd>
+								<a target="_blank" href="lbs-cloud.htm">LBS云</a>
+								<a target="_blank" href="webservice.htm">Web服务API</a>
+								<a target="_blank" href="staticimg.htm">静态图API</a>
+								<a target="_blank" href="carhome.htm">车联网API</a>
+								<a target="_blank" href="uri.htm">URI API</a>
+								<div class="clear"></div>
+							</dd>
+						</dl>
+						<dl style="margin-bottom:0;">
+							<dt class="l">工具支持</dt>
+							<dd>
+								<a target="_blank" href="http://lbsyun.baidu.com/apiconsole/key">API控制台</a>
+								<a target="_blank" href="http://lbsyun.baidu.com/datamanager/datamanage">LBS云可视化编辑器</a>
+								<a target="_blank" href="http://api.map.baidu.com/lbsapi/getpoint/index.html">坐标拾取器</a>
+								<a target="_blank" href="http://api.map.baidu.com/lbsapi/creatmap/index.html">地图生成器</a>
+								<a target="_blank" href="http://api.map.baidu.com/mapCard">地图名片</a>
+								<a target="_blank" href="http://api.map.baidu.com/lbsapi/tuan/index.html">团购插件</a>
+								<a target="_blank" href="http://developer.baidu.com/map/move.htm">零成本搬家工具</a>
+								<div class="clear"></div>
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a href="openmap.htm">推广</a>
+					<div  class="homeTab">
+						<ul>
+							<li style="width:250px;">
+								<a target="_blank" href="openmap.htm">Openmap计划</a>
+							</li>
+							<li style="width:250px;">
+								<a target="_blank" href="case.htm">行业解决方案</a>
+							</li>
+							<li style="width:250px;">
+								<a target="_blank" href="case-more.htm">成功案例展示</a>
+							</li>							
+							<li style="width:250px;">
+								<a target="_blank" href="baiduplan.htm">百度优先收录计划</a>
+							</li>
+							
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</li>
+				<li><a href="cash.htm">变现</a></li>
+				<li class="nav-item">
+					<a href="help_index.html">社区</a>
+					<div  class="homeTab">
+						<ul>
+							<li>
+								<a target="_blank" href="http://bbs.lbsyun.baidu.com">技术论坛</a>
+							</li>
+							<li><a target="_blank" href="http://lbsyun.baidu.com/news">新闻动态</a>
+							</li>
+							<li><a target="_blank" href="help_index.html">商务合作</a></li>
+							<li><a target="_blank" href="http://bbs.lbsyun.baidu.com/forumdisplay.php?fid=15">咨询反馈</a>
+							</li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<div class="search">
+				<a href="javascript:void(0);" class="searchBtn r" id="searchBtn"></a>
+				<div class="inputbox">
+					<input id="apisearchContent" type="text" class="searchcontent" style="height:30px;" />	
+				</div>						
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- end of header -->
+
+<div id="content">
+	<div class="hdp" style="background: url(static/img/sdk-vbg.png) repeat-x;">
+		<div class="mflash">
+			<div class="slide-content" id="slideContent">
+				<div class="img-content">
+					<a href="sdk-android.htm" target="_blank" hidefocus="">
+					  <img src="static/img/banner-andsdk_v3.0.0.png" id="sdk-vbg" class="index-slide-img current"></a>
+					<a href="sdk-pano-ios.htm" target="_blank" hidefocus="">
+					  <img src="static/img/banner-iosPano.png" id="ios-pano-bkg" class="index-slide-img current"></a>
+					<a href="sdk-ios.htm" target="_blank" hidefocus="">
+					  <img src="static/img/banner-ios.jpg" id="banner-ios-bg" class="index-slide-img current"></a>
+
+					<a href="openmap.htm" target="_blank" hidefocus="">
+					  <img src="static/img/banner-openmap.jpg" id="banner-openmap-bg" class="index-slide-img current"></a>
+
+					<a href="sdk-nav-ios.htm" target="_blank" hidefocus="">
+					  <img src="static/img/banner1.jpg" id="banner-bg1" class="index-slide-img current"></a>
+				</div>
+			<script>
+						$.each($('.img-content a'), function(key, value) {
+							$(value).bind('click', function(){
+								var img = new Image();
+								var t = new Date().getTime();
+								img.src = "http://api.map.baidu.com/images/blank.gif?t=" + t + "&src=guanwang_ad&num=" + (key + 1);
+							});
+						});
+					</script>
+			<ul class="focus-content clearfix">
+				<li class="focus-content-item">
+					<a idx="4" href="javascript:void(0);" class="focus-anchor " hidefocus=""></a>
+				</li>
+				<li class="focus-content-item">
+					<a idx="3" href="javascript:void(0);" class="focus-anchor " hidefocus=""></a>
+				</li>
+				<li class="focus-content-item">
+					<a idx="2" href="javascript:void(0);" class="focus-anchor " hidefocus=""></a>
+				</li>
+				<li class="focus-content-item">
+					<a idx="1" href="javascript:void(0);" class="focus-anchor" hidefocus=""></a>
+				</li>
+				<li class="focus-content-item">
+					<a idx="0" href="javascript:void(0);" class="focus-anchor current" hidefocus=""></a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- end of mflash -->
+</div>
+<!-- end of hdp -->
+<div id="main">
+	<h1>开发</h1>
+	<div class="itemlist">
+		<div class="wrap l">
+			<div class="cover js"><p>Web开发</p></div>
+			<div class="under b9">
+				<p class="underword">使用JavaScript编写，适用网页中嵌入地图服务，支持2D/3D、卫星、街景、室内实景及定制化地图展现。</p>
+				<p class="underapi martop10"><a href="jshome.htm" style="width:80%;">Javascript API大众版</a></p>
+				<p class="underapi"><a href="jsmobile.htm" style="width:80%;">Javascript API极速版</a></p>
+				<p class="underapi"><a href="library.htm" style="width:80%;">Javascript API开源库</a></p>
+			</div>
+		</div>
+		<div class="wrap l" style="margin-right:11px;">
+			<div class="cover http"><p>服务接口</p></div>
+			<div class="under f5">
+				<p class="underword">发送HTTP请求，获取数据存储和检索、POI数据、地址解析、坐标转换、IP定位、车联网等服务。</p>
+				<p class="underapi martop10">
+					<a href="lbs-cloud.htm">LBS云</a>
+					<a href="webservice.htm">web服务API</a>
+				</p>
+				<p class="underapi">
+					<a href="staticimg.htm">静态图API</a>
+					<a href="carhome.htm">车联网API</a>
+				</p>
+				<p class="underapi">
+					<a href="uri.htm">URL API</a>
+				</p>
+			</div>
+		</div>
+		<div class="wrap l">
+			<div class="cover android"><p>Android开发</p></div>
+			<div class="under e4">
+				<p class="underword">适用Android平台APP中实现地图展示、信息搜索、定位、导航等功能，提供全面的LBS解决方案。</p>
+				<p class="underapi martop10">
+					<a href="geosdk.htm" style="width:33%;">定位功能</a>
+					<a href="sdk-android.htm" style="width:33%;">基础地图</a>
+				</p>
+				<p class="underapi">
+					<a href="navsdk.htm" style="width:33%;">导航功能</a>
+					<a href="sdk-android.htm" style="width:33%;">检索功能</a>
+				</p>
+				<p class="underapi">
+					<a href="sdk-android.htm" style="width:33%;">LBS云检索</a>
+					<a href="sdk-android.htm" style="width:33%;">计算工具</a>
+				</p>
+				<p class="underapi">
+					<a href="sdk-android.htm" style="width:33%;">全景图功能</a>					
+				</p>
+				
+			</div>
+		</div>
+		<div class="wrap l" style="margin-right:0;">
+			<div class="cover ios" ><p>iOS开发</p></div>
+			<div class="under a8">
+				<p class="underword">适用iOS移动设备应用中实现地图展示、POI搜索、导航等功能，帮用户轻松搭建专业的LBS类应用。</p>
+
+				<p class="underapi martop10">
+					<a href="sdk-ios.htm" style="width:33%;">定位功能</a>
+					<a href="sdk-ios.htm" style="width:33%;">基础地图</a>
+
+				</p>
+				<p class="underapi martop10">
+					<a href="navsdk.htm" style="width:33%;">导航功能</a>
+					<a href="sdk-ios.htm" style="width:33%;">检索功能</a>
+				</p>
+				<p class="underapi martop10">
+					<a href="sdk-ios.htm" style="width:33%;">LBS云检索</a>
+					<a href="sdk-ios.htm" style="width:33%;">计算工具</a>
+				</p>
+				<p class="underapi martop10">
+					<a href="sdk-pano-ios.htm" style="width:33%;">全景功能</a>
+				</p>
+				
+			</div>
+		</div>
+	</div>
+
+	<div id="main_left">
+		<div id="mmoblie">
+			<div class="smain">
+				<div class="title">推广</div>
+			<ul>
+				<li>
+					<a href="openmap.htm">
+						<div class="notice">
+							<span class="mp3"></span>
+							<h3>Openmap 计划</h3>
+							<div class="clear"></div>
+							<p>百度LBS开放平台与开发者分享海量用户和流量，打造零成本接入、数据存储、产品推广一体化解决方案。</p>
+						</div>
+					</a>
+				</li>
+
+				<li>
+					<a href="case-more.htm">
+						<div class="notice">
+							<span class="mp5"></span>
+							<h3>成功案例展示</h3>
+							<div class="clear"></div>
+							<p>为使用百度地图的应用提供案例展示的平台，优秀应用更有机会在行业解决方案中重点宣传和推广。</p>
+						</div>
+					</a>
+				</li>
+				<li>	
+					<a href="baiduplan.htm">			
+						<div class="notice">
+							<span class="mp10"></span>
+							<h3>百度优先收录计划</h3>
+							<div class="clear"></div>
+							<p>所有使用百度地图JavaScriptAPI的网页，在不违反百度收录规则前提下，将会被百度搜索优先收录。</p>
+						</div>
+					</a>					
+				</li>
+			</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="sfooter"></div>
+		</div>
+		<!-- end of mmobile -->
+		<div id="mservice">
+			<div class="smain paddbot40">
+				<div class="tuan"></div>
+				<div class="title paddbot">变现</div>
+				<h3 class="cashtitle martop10">不嵌广告，同量收入</h3>
+				<div class="cashcontent">
+					为开发者提供全网最优质的团购电影酒店等商户服务信息，零开发成本集成本地服务；提升开发者应用的用户活跃度，更可获得不俗的佣金分成收入。
+				</div>
+				<p class="cash-bottom martop10">限量内测中，欢迎开发者<a href="innertest.html" target="_blank">邮件咨询</a>参与</p>
+
+			</div>
+			<!-- end of smain -->
+			<div class="sfooter"></div>
+		</div>
+		<!-- end of mservice -->
+	</div>
+	<!-- end of main_left -->
+	<div id="main_right" class="martop10">
+		<ul id="main_link">
+			<li class="right_link1">
+				<a target="_blank" href="http://lbsyun.baidu.com/apiconsole/key?application=key"></a>
+			</li>
+			<li class="right_link">
+				<a target="_blank" href="http://bbs.lbsyun.baidu.com/"></a>
+			</li>
+		</ul>
+		<div id="news">
+			<div class="ntitle">更新公告</div>
+			<ul>
+			<li class="newlist">
+
+					<a href="sdk-android.htm">
+						<p>
+							<span class="newson">1</span>
+							2014-6-5
+							<b>Android地图SDK v3.0.0全新升级</b>
+						</p>
+						<p>全面升级接口设计，完善产品内部逻辑，降低学习、使用成本，优化产品性能。</p>
+					</a>
+				</li>
+				<li class="newlist">
+
+					<a href="sdk-pano-ios.htm">
+						<p>
+							<span class="newson">2</span>
+							2014-5-22 
+							<b>全景SDK v1.0 iOS版发布</b>
+						</p>
+						<p>支持全景检索、显示、交互与自定义覆盖物</p>
+					</a>
+				</li>
+				<li class="newlist">
+				
+					<a href="sdkandev-update.htm#updateLog20140521">
+						<p>
+							<span class="newson">3</span>
+							2014-6-5
+							<b>Android地图SDK v2.4.2发布</b>
+						</p>
+						<p>优化在线服务请求</p>
+					</a>
+				</li>
+
+				<li class="newlist">
+					<a href="sdk-ios.htm">
+						<p>
+							<span class="newson">4</span>
+							2014-5-19
+							<b>iOS SDK v2.3.0发布</b>
+						</p>
+						<p>全面实现组件化！地图、检索、定位、LBS云检索、工具，按需获取开发包，更灵活、更简便！</p>
+					</a>
+				</li>
+
+				<li class="newlist">
+					<a href="openmap.htm">
+						<p>
+							<span class="newson">3</span>
+							2014-4-22
+							<b>Openmap计划上线发布</b>
+						</p>
+						<p>为开发者提供地图制作、数据展现、产品推广的一体化解决方案</p>
+					</a>
+				</li>
+			</ul>
+		</div>		
+	</div>
+	<!-- end of main_right -->
+	<div class="clear"></div>
+
+	<div id="mtool">
+		<div class="tmain">
+			<div class="title">插件与工具</div>
+
+			<ul>
+				<li>
+					<a target="_blank" class="mtool1" href="http://api.map.baidu.com/lbsapi/creatmap/index.html"></a>
+					<a target="_blank" class="mtool2" href="http://api.map.baidu.com/lbsapi/getpoint/index.html"></a>
+					<a target="_blank" class="mtool3" href="http://api.map.baidu.com/mapCard/"></a>
+					<a target="_blank" class="mtool4" href="http://api.map.baidu.com/lbsapi/tuan/index.html"></a>
+
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+
+		<!-- end of tmain -->
+		<div class="tfooter"></div>
+	</div>
+	<!-- end of mtool -->
+</div>
+</div>
+<!-- end of content -->
+<div id="footer">
+<p>
+	地图审图号：©2014 Baidu-GS(2010)6006号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测绘资质证书编号:甲测资质  11002017
+	<span>
+		<a href="help_index.html">合作咨询</a>
+		|
+		<a href="question.htm">常见问题</a>
+		|
+		<a href="http://bbs.lbsyun.baidu.com/forumdisplay.php?fid=15">联系反馈</a>
+	</span>
+</p>
+<p>
+	<a>互联网信息服务增值电信业务 | 经营许可证编号：ZS180036</a>
+	<span style="width:190px">
+		<a class="weibo">百度LBS开放平台微博&nbsp;</a>
+		<wb:follow-button uid="2540964357" type="gray_1" width="66" height="24" ></wb:follow-button>
+	</span>
+</p>
+</div>
+<div class="clear"></div>
+<div class="copyright">
+<p>
+	©2014 Baidu
+	<a href="http://www.baidu.com/duty/">使用百度前必读</a>
+	<a target="_blank" href="http://www.miibeian.gov.cn">京ICP证030173号</a>
+	<img src="http://gimg.baidu.com/img/gs.gif"></p>
+</div>
+<script type="text/javascript" src="static/mapi.js"></script>
+
+<script type="text/javascript" src="static/js/login.js"></script>
+<script type="text/javascript">
+$('#user-state-li').bind({
+    "mouseenter": function(e) {                      
+        $('.username-dropdown').css('visibility', 'visible');
+    },
+    "mouseleave": function(e) {
+        
+        $('.username-dropdown').css('visibility', 'hidden');
+    }
+});
+//搜索框
+function addSearch(){
+	var content = document.getElementById('apisearchContent');
+	if(!content){
+		return;
+	}
+	function search(){
+		var val = content.value;
+        if(val.trim() == ""){
+            return;
+        }
+		var searchBtn = document.getElementById('searchBtn');
+
+		window.location.href = 'http://api.map.baidu.com/helper/search?q=' + val + '&s=1';
+	}
+
+	searchBtn.onclick = search;
+
+	content.onkeydown = function(e){
+		var e = e || event;
+		if(e.keyCode == 13){
+			search();
+		}
+	}
+}
+addSearch();
+
+(function(){
+	var isIE=!!window.ActiveXObject;
+	var isIE6=isIE&&!window.XMLHttpRequest;
+	if(isIE){if(isIE6){alert('您正在使用低版本浏览器,为了保证您能有更好的访问效果,我们建议您使用谷歌Chrome浏览器、火狐Firefox浏览器或者IE7以上版本浏览器！');}}
+})();
+</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5650c092812f8659cdfe23eeb42024ef' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

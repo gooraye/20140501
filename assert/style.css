@@ -1,0 +1,645 @@
+/*
+Theme Name: Huxiu CN
+Theme URI: 
+Description: Huxiu
+Version: 0.1
+License: 
+License URI: 
+Tags: 
+Author: Mac Chow, vifix.mac@gmail.com, http://vifix.cn
+*/
+
+
+/*reset*/
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+blockquote,q {
+	quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*reset*/
+
+/*text*/
+/* `Basic HTML
+----------------------------------------------------------------------------------------------------*/
+body {
+	font: normal 9pt "Hei", "Microsoft Yahei", "微软雅黑", sans-serif;
+    background: #fff;
+}
+
+a:focus {
+	outline: 1px dotted;
+}
+
+a {
+	text-decoration: none;
+}
+
+hr {
+	border: 0 #ccc solid;
+	border-top-width: 1px;
+	clear: both;
+	height: 0;
+}
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 23px;
+}
+
+h3 {
+	font-size: 21px;
+}
+
+h4 {
+	font-size: 19px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+h6 {
+	font-size: 15px;
+}
+
+/* `Spacing
+----------------------------------------------------------------------------------------------------*/
+ol {
+	list-style: decimal;
+}
+
+ul {
+	list-style: disc;
+}
+
+li {
+	margin-left: 30px;
+}
+
+p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset {
+	margin-bottom: 20px;
+}
+/*text*/
+
+/*grid*/
+body {
+	min-width: 960px;
+}
+
+/* =Containers
+--------------------------------------------------------------------------------*/
+.container_12
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+
+/* =Grid >> Global
+--------------------------------------------------------------------------------*/
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+	display: inline;
+	float: left;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11 {
+	position: relative;
+}
+
+/* =Grid >> Children (Alpha ~ First, Omega ~ Last)
+--------------------------------------------------------------------------------*/
+.alpha {margin-left: 0;}
+.omega {margin-right: 0;}
+
+/* =Grid >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .grid_1 {width: 80px;}
+.container_12 .grid_2 {width: 160px;}
+.container_12 .grid_3 {width: 240px;}
+.container_12 .grid_4 {width: 320px;}
+.container_12 .grid_5 {width: 400px;}
+.container_12 .grid_6 {width: 480px;}
+.container_12 .grid_7 {width: 560px;}
+.container_12 .grid_8 {width: 640px;}
+.container_12 .grid_9 {width: 720px;}
+.container_12 .grid_10 {width: 800px;}
+.container_12 .grid_11 {width: 880px;}
+.container_12 .grid_12 {width: 960px;}
+
+/* =Prefix Extra Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .prefix_1 {padding-left: 80px;}
+.container_12 .prefix_2 {padding-left: 160px;}
+.container_12 .prefix_3 {padding-left: 240px;}
+.container_12 .prefix_4 {padding-left: 320px;}
+.container_12 .prefix_5 {padding-left: 400px;}
+.container_12 .prefix_6 {padding-left: 480px;}
+.container_12 .prefix_7 {padding-left: 560px;}
+.container_12 .prefix_8 {padding-left: 640px;}
+.container_12 .prefix_9 {padding-left: 720px;}
+.container_12 .prefix_10 {padding-left: 800px;}
+.container_12 .prefix_11 {padding-left: 880px;}
+
+/* =Suffix Extra Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .suffix_1 {padding-right: 80px;}
+.container_12 .suffix_2 {padding-right: 160px;}
+.container_12 .suffix_3 {padding-right: 240px;}
+.container_12 .suffix_4 {padding-right: 320px;}
+.container_12 .suffix_5 {padding-right: 400px;}
+.container_12 .suffix_6 {padding-right: 480px;}
+.container_12 .suffix_7 {padding-right: 560px;}
+.container_12 .suffix_8 {padding-right: 640px;}
+.container_12 .suffix_9 {padding-right: 720px;}
+.container_12 .suffix_10 {padding-right: 800px;}
+.container_12 .suffix_11 {padding-right: 880px;}
+
+/* `Push Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .push_1 {left: 80px;}
+.container_12 .push_2 {left: 160px;}
+.container_12 .push_3 {left: 240px;}
+.container_12 .push_4 {left: 320px;}
+.container_12 .push_5 {left: 400px;}
+.container_12 .push_6 {left: 480px;}
+.container_12 .push_7 {left: 560px;}
+.container_12 .push_8 {left: 640px;}
+.container_12 .push_9 {left: 720px;}
+.container_12 .push_10 {left: 800px;}
+.container_12 .push_11 {left: 880px;}
+
+/* `Pull Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .pull_1 {left: -80px;}
+.container_12 .pull_2 {left: -160px;}
+.container_12 .pull_3 {left: -240px;}
+.container_12 .pull_4 {left: -320px;}
+.container_12 .pull_5 {left: -400px;}
+.container_12 .pull_6 {left: -480px;}
+.container_12 .pull_7 {left: -560px;}
+.container_12 .pull_8 {left: -640px;}
+.container_12 .pull_9 {left: -720px;}
+.container_12 .pull_10 {left: -800px;}
+.container_12 .pull_11 {left: -880px;}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+/* http://sonspring.com/journal/clearing-floats */
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+.clearfix:before,
+.clearfix:after {
+	content: "\0020";
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+.clearfix:after {
+	clear: both;
+}
+/*
+The following zoom:1 rule is specifically for IE6 + IE7.
+Move to separate stylesheet if invalid CSS is a problem.
+*/
+.clearfix {
+	zoom: 1;
+}
+/*grid*/
+
+/*layout*/
+#header-top {
+	height: 4px;
+	background: #f63;
+	margin: 0 auto;
+    font-size: 1px;
+}
+
+#main {
+	margin: 30px 0;
+}
+
+#footer {
+	margin: 10px 0 0;
+}
+/*layout*/
+
+/*header*/
+#logo-holder {
+	padding: 20px 0;
+}
+
+#logo-holder h1 {
+	margin: 0;
+	position: relative;
+}
+
+#logo-holder a {
+	display: block;
+	height: 36px;
+}
+
+#logo-holder span {
+	position: absolute;
+	left: -100000px;
+}
+
+#subtitle-holder span {
+	display: block;
+	padding: 43px 0 0 10px;
+	color: #bbb;
+}
+
+#contact-holder {
+	text-align: right;
+}
+
+#contact-panel {
+	padding: 43px 0 0 0;
+}
+
+#contact-panel a {
+	color: #000;
+	opacity: .4;
+	display: inline-block;
+	margin: 0 0 0 3px;
+}
+
+#contact-panel a:hover {
+	color: #f96;
+	text-decoration: underline;
+	opacity: 1;
+}
+
+#nav-holder{
+	height: 50px;
+}
+
+#nav {
+	width: 960px;
+	height: 50px;
+	background: #fff;
+}
+
+#nav ul {
+	display: block;
+	height: 48px;
+	list-style: none inside;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+#nav li {
+	float: left;
+	height: 50px;
+	width: 110px;
+	margin: -1px 0;
+}
+
+#nav li.line {
+	height: 20px;
+	width: 1px;
+	margin: 14px 0 0;
+	background:#eee;
+}
+
+#nav a {
+	width: 110px;
+	text-align: center;
+	height: 48px;
+	line-height: 48px;
+	float: left;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	padding: 1px 0 0;
+	color: #333;
+	background: transparent url('menu-hov.png') repeat-x;
+	background-position: 0px 50px;
+	font-size: 1.13em;
+}
+
+#nav li.current_page_item a {
+	background: #fafafa;
+	border-top: 1px solid #f90;
+	border-bottom: 1px solid #ddd;
+	height: 46px;
+	padding: 0 0 2px;
+	color: #f60;
+}
+
+#nav a:focus {
+	outline: 0;
+}
+
+#nav.float{
+	position: fixed;
+	top: 0;
+	background: rgba(255,255,255,.5);
+	z-index: 5000;
+}
+
+#nav.float ul {
+	border-top: 1px solid rgba(221,221,221,.5);
+	border-bottom: 1px solid rgba(221,221,221,.5);
+}
+
+#nav.float a{
+	text-shadow: 0px 0px 10px rgba(0,0,0,.2);
+}
+
+#nav.float li.current_page_item a {
+	background: rgba(250,250,250,.5);
+}
+/*header*/
+
+/*font-page*/
+#slider-wrapper {
+	height: 400px;
+}
+
+#subsites {
+	margin: 25px 0 0;
+}
+
+#subsites h2 {
+	font: 14pt "Heiti SC", "Hei", "Microsoft Yahei", sans-serif;
+	background: transparent url('subsites.png') no-repeat 0 2px;
+	padding: 0 0 5px 20px;
+	cursor: default;
+	border-bottom: 1px solid #eee;
+	margin: 0 0 10px 0;
+}
+
+#subsites a {
+	display: block;
+	background: transparent url(bella-150x150.jpg));
+	padding: 5px;
+	color: #fff!important;
+	position: relative;
+}
+
+#subsites a {
+	text-decoration: none!important;
+}
+
+#subsites a#mizhe-snap {
+	margin: 0 8px 0 0;
+}
+
+#subsites a#miquan-snap {
+	margin: 0 0 0 8px;
+}
+
+#subsites a div.snap {
+	width: 462px;
+	height: 245px;
+	position: relative;
+	overflow: hidden;
+	background: url(71-150x150.jpg);
+}
+
+#subsites a#mizhe-snap div.snap {
+	background-position: 0 -245px;
+}
+
+#subsites a#miquan-snap div.snap {
+	background-position: -462px -245px;
+}
+
+#subsites a img {
+	position: absolute;
+	top: 10px;
+	left: -500px;
+}
+
+#subsites a strong {
+	display: block;
+	text-decoration: underline;
+	font-size: 0.7em;
+	font-weight: normal;
+}
+
+#subsites h3 {
+	padding: 20px;
+	margin: 0;
+	margin-left: 500px;
+	line-height: 1.2em;
+	text-shadow: #999 1px 1px 1px;
+}
+
+#subsites p {
+	padding: 0 20px;
+	line-height: 2em;
+	margin: 0;
+	margin-top: 250px;
+	text-shadow: #999 1px 1px 1px;
+}
+
+/*front-page*/
+
+/*footer*/
+#footer {
+	padding: 20px 0;
+	color: #878787;
+	background: #363636;
+}
+
+#footer a {
+	color: #878787;
+}
+
+#footer a:hover {
+	color: #ccc;
+}
+
+#copy-info {
+	text-align: right;
+}
+/*footer*/
+
+/*content*/
+article{
+	width: 880px;
+	margin: 0 auto;
+	line-height: 1.8em;
+	font-size: 1.1em;
+    font-family: "WenQuanYi Bitmap Song", "hei", "simsun", "宋体", serif;
+}
+
+article h2, article h3, article h4, article h5, article h6{
+    font-family: "WenQuanYi Micro Hei", "Hei", "Microsoft Yahei", "微软雅黑", "MSYH", sans-serif;
+}
+
+#container a{
+	color: #f00;
+}
+
+#container a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+#subposts{
+	margin: 0 auto;
+	width: 880px;
+}
+
+#subposts article.line{
+	border-right: 1px dotted #ccc;
+}
+
+article.subpost{
+	width: 280px;
+	margin: 0 5px 0;
+	float: left;
+	display: inline;
+	color: #333;
+}
+
+article.subpost .entry-content{
+	padding: 0 5px;
+}
+
+#container hr{
+	width: 880px;
+}
+
+#subposts div.clear{
+	margin: 0 0 20px;
+	padding: 0 0 20px;
+	border-bottom: 1px dotted #ccc;
+	width: 880px;
+	height: 1px;
+	visibility: visible;
+}
+
+#bdMap{
+	margin: 0 auto;
+	width: 880px;
+	height:350px;
+}
+
+dt.gallery-icon a img{
+	border: 1px solid #ddd!important;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+dt.gallery-icon a:hover img{
+	border: 1px solid #f90!important;
+	background: #f90;
+}
+
+div.entry-content img.aligncenter{
+    border-radius: 5px;
+}
+
+/*content*/
+
+/*icons*/
+i.icon {
+	width: 16px;
+	height: 16px;
+	background: url(contact-icons.png) no-repeat 0 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+i.weibo {
+	background-position: -16px -16px;
+}
+
+i.qzone {
+	background-position: 0 -16px;
+}
+
+i.tqq {
+	background-position: -32px -16px;
+}
+
+i.mail {
+	background-position: -48px -16px;
+}
+/*icons*/

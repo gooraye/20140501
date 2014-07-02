@@ -16,13 +16,15 @@ class IndexController extends HomeController {
 	
 	// 系统首页
 	public function index() {
+		// $this->redirect('http://www.gooraye.net/index.html');
+		header("HTTP/1.1 301 Moved Permanently");
+            	header('Location: ' . 'http://www.gooraye.net/index.html');
+		// $map = array('status' => 1,'pid' => 0);
+		// $channel = D('Channel');
+		// $list = $channel->where($map)->select();
+		// $this->assign("channels",$list);
 
-		$map = array('status' => 1,'pid' => 0);
-		$channel = D('Channel');
-		$list = $channel->where($map)->select();
-		$this->assign("channels",$list);
-
-		$this->display ();
+		// $this->display ();
 
 	}
 

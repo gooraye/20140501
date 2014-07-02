@@ -1,22 +1,11 @@
 <IfModule mod_rewrite.c>
-  Options +FollowSymlinks
-  RewriteEngine On
 
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+Options +FollowSymlinks
 
- # 把 bbs.dakm.cn改为你要绑定的域名. 
-RewriteCond %{HTTP_HOST} ^(www.)?bbs.gooraye.net$ 
-# 把 bbs改为要绑定的目录. 
-RewriteCond %{REQUEST_URI} !^/bbs/ 
+RewriteEngine on
 
-# 把 bbs改为要绑定的目录. 
-RewriteRule ^(.*)$ /bbs/$1 
-# 把 bbs.dakm.cn改为你要绑定的域名 
-# 把 bbs 改为要绑定的目录. 
-# bbs/ 后面是首页文件index.php, index.html…… 
-RewriteCond %{HTTP_HOST} ^(www.)?bbs.gooraye.net$ 
-RewriteRule ^(/)?$ bbs/index.php [L] 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 
 </IfModule>
